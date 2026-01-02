@@ -1,5 +1,4 @@
-import { useParams } from 'react-router-dom';
-import { getGuideBySlug } from '@/config/guides';
+import { GuideConfig } from '@/types/guide-config';
 import { 
   AudioButton, 
   CurrencyConverter, 
@@ -15,11 +14,14 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import NotFound from './NotFound';
 
-const GuidePage = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const guide = slug ? getGuideBySlug(slug) : undefined;
+interface GuidePageProps {
+  config?: GuideConfig;
+}
 
-  if (!guide) return <NotFound />;
+const GuidePage = ({ config }: GuidePageProps) => {
+  if (!config) return <NotFound />;
+
+  const guide = config;
 
   const themeStyle = {
     '--dest-primary': guide.theme.primary,
