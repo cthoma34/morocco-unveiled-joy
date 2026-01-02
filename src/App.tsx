@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import DestinationPage from "./pages/DestinationPage";
+import GuidePage from "./pages/GuidePage";
 import { allDestinations, getDestinationBySlug, defaultDestination } from "./config/destinations";
 
 const queryClient = new QueryClient();
@@ -67,6 +68,9 @@ const App = () => {
               <>
                 {/* Development/Preview: path-based routing */}
                 <Route path="/" element={<DestinationPage config={defaultDestination} />} />
+                
+                {/* Digital Guide routes */}
+                <Route path="/guide/:slug" element={<GuidePage />} />
                 
                 {/* Dynamic destination routes */}
                 {allDestinations.map((destination) => (
