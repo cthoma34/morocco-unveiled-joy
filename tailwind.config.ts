@@ -58,8 +58,10 @@ export default {
         },
       },
       fontFamily: {
-        heading: ['Cormorant Garamond', 'serif'],
-        body: ['Montserrat', 'sans-serif'],
+        display: ['Bebas Neue', 'Impact', 'sans-serif'],
+        heading: ['Cormorant Garamond', 'Georgia', 'serif'],
+        body: ['IBM Plex Sans', 'Montserrat', 'Helvetica', 'sans-serif'],
+        accent: ['Merriweather', 'Georgia', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

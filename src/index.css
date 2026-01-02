@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
-
 @layer base {
   :root {
     --background: 0 0% 8%;
@@ -36,13 +34,19 @@
 
     --radius: 0.25rem;
 
-    /* Custom Morocco theme tokens */
+    /* Custom theme tokens */
     --gold: 43 51% 56%;
     --gold-light: 43 45% 78%;
     --gold-cream: 43 35% 88%;
     --dark: 0 0% 8%;
     --dark-lighter: 0 0% 10%;
     --dark-card: 0 0% 4%;
+
+    /* Editorial Palette Variables (set dynamically per destination) */
+    --editorial-primary: 35 80% 45%;
+    --editorial-accent: 31 85% 53%;
+    --editorial-neutral: 60 20% 97%;
+    --editorial-highlight: 219 79% 66%;
 
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(43 51% 56%), hsl(43 51% 65%));
@@ -55,9 +59,11 @@
     --shadow-gold: 0 4px 30px hsl(43 51% 56% / 0.15);
     --shadow-card: 0 4px 20px rgba(0,0,0,0.3);
 
-    /* Font families */
-    --font-heading: 'Cormorant Garamond', serif;
-    --font-body: 'Montserrat', sans-serif;
+    /* Font families - Masculine Luxury Editorial */
+    --font-display: 'Bebas Neue', 'Impact', sans-serif;
+    --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+    --font-body: 'IBM Plex Sans', 'Montserrat', 'Helvetica', sans-serif;
+    --font-accent: 'Merriweather', 'Georgia', serif;
   }
 
   .dark {
@@ -167,6 +173,11 @@
 }
 
 @layer utilities {
+  /* Typography utilities */
+  .font-display {
+    font-family: var(--font-display);
+  }
+
   .font-heading {
     font-family: var(--font-heading);
   }
@@ -175,6 +186,44 @@
     font-family: var(--font-body);
   }
 
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+
+  /* Editorial headline styles */
+  .editorial-headline {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    line-height: 0.95;
+  }
+
+  .editorial-subhead {
+    font-family: var(--font-accent);
+    font-style: normal;
+    font-weight: 400;
+    color: hsl(var(--editorial-primary));
+  }
+
+  .spread-intro {
+    font-family: var(--font-accent);
+    font-style: normal;
+    font-weight: 400;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.8;
+  }
+
+  /* Editorial card styles */
+  .guide-card {
+    border-left: 4px solid hsl(var(--editorial-accent));
+    background: linear-gradient(135deg, 
+      hsl(var(--editorial-neutral)) 0%, 
+      hsl(var(--editorial-primary) / 0.05) 100%
+    );
+  }
+
+  /* Color utilities */
   .text-gold {
     color: hsl(var(--gold));
   }
@@ -187,8 +236,34 @@
     border-color: hsl(var(--gold));
   }
 
+  .text-editorial-primary {
+    color: hsl(var(--editorial-primary));
+  }
+
+  .text-editorial-accent {
+    color: hsl(var(--editorial-accent));
+  }
+
+  .text-editorial-highlight {
+    color: hsl(var(--editorial-highlight));
+  }
+
+  .bg-editorial-neutral {
+    background-color: hsl(var(--editorial-neutral));
+  }
+
+  .border-editorial-accent {
+    border-color: hsl(var(--editorial-accent));
+  }
+
   .gradient-gold-subtle {
     background: linear-gradient(135deg, hsl(43 51% 56% / 0.03), transparent);
+  }
+
+  /* Photo essay grid - tight newspaper-style gaps */
+  .photo-essay-grid {
+    display: grid;
+    gap: 2px;
   }
 
   /* Marquee animation */

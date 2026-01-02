@@ -1,4 +1,4 @@
-import { GuideConfig, getDestinationThemeVars } from '@/types/guide-config';
+import { GuideConfig, getDestinationThemeVars, getEditorialPalette } from '@/types/guide-config';
 import { 
   EditorialHero,
   EditorLetter,
@@ -22,7 +22,16 @@ const GuidePage = ({ config }: GuidePageProps) => {
   if (!config) return <NotFound />;
 
   const guide = config;
-  const themeStyle = getDestinationThemeVars(guide.theme);
+  
+  // Get editorial palette for this destination
+  const editorialPalette = getEditorialPalette(guide.slug);
+  const editorialConfig = guide.editorial || {
+    issueNumber: `Guide No. 01`,
+    coverLine: guide.tagline,
+    colorPalette: editorialPalette,
+  };
+  
+  const themeStyle = getDestinationThemeVars(guide.theme, editorialConfig);
 
   return (
     <div style={themeStyle} className="min-h-screen bg-background overflow-x-hidden">
