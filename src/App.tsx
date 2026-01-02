@@ -4,40 +4,24 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/NotFound";
-import DestinationPage from "./pages/DestinationPage";
 import GuidePage from "./pages/GuidePage";
-import { allDestinations, getDestinationBySlug, defaultDestination } from "./config/destinations";
-import { getGuideBySlug } from "./config/guides";
+import { allGuides, getGuideBySlug, defaultGuide } from "./config/guides";
 import { GuideConfig } from "./types/guide-config";
-import { TripConfig } from "./types/trip-config";
 
 const queryClient = new QueryClient();
 
 // ============================================================
-// SUBDOMAIN DETECTION
+// SUBDOMAIN DETECTION FOR GUIDES
 // ============================================================
-// Detects subdomain from hostname and returns matching content
-// Supports both destinations and guides via subdomain patterns:
-//
-// Destinations:
-//   egypt.travelwithmit.com → egyptConfig
-//   tanzania.travelwithmit.com → tanzaniaConfig
-//
-// Guides (with -guide suffix):
-//   dubai-guide.travelwithmit.com → dubaiGuide
-//   egypt-guide.travelwithmit.com → egyptGuide
-//
-// Root domain:
-//   travelwithmit.com → defaultDestination (Tanzania)
+// Detects subdomain from hostname and returns matching guide
+// Patterns:
+//   ghana-guide.travelwithmit.com → ghanaGuide
+//   tanzania-guide.travelwithmit.com → tanzaniaGuide
+//   guide.travelwithmit.com → defaultGuide
 //   localhost:5173 → null (use path-based routing for dev)
 // ============================================================
 
-type SubdomainResult = 
-  | { type: 'destination'; config: TripConfig }
-  | { type: 'guide'; config: GuideConfig }
-  | null;
-
-const getContentFromSubdomain = (): SubdomainResult => {
+const getGuideFromSubdomain = (): GuideConfig | null => {
   const hostname = window.location.hostname;
   
   // Development: localhost or Lovable preview
@@ -52,7 +36,7 @@ const getContentFromSubdomain = (): SubdomainResult => {
   // Production: extract subdomain from travelwithmit.com
   const parts = hostname.split(".");
   
-  // If we have a subdomain (e.g., egypt.travelwithmit.com = 3 parts)
+  // If we have a subdomain (e.g., ghana-guide.travelwithmit.com = 3 parts)
   if (parts.length >= 3) {
     const subdomain = parts[0].toLowerCase();
     
@@ -60,24 +44,20 @@ const getContentFromSubdomain = (): SubdomainResult => {
     if (subdomain.endsWith('-guide')) {
       const guideSlug = subdomain.replace('-guide', '');
       const guide = getGuideBySlug(guideSlug);
-      if (guide) {
-        return { type: 'guide', config: guide };
-      }
+      if (guide) return guide;
     }
     
-    // Check if it's a destination subdomain
-    const destination = getDestinationBySlug(subdomain);
-    if (destination) {
-      return { type: 'destination', config: destination };
-    }
+    // Check direct slug match
+    const directGuide = getGuideBySlug(subdomain);
+    if (directGuide) return directGuide;
   }
   
-  // No subdomain or unrecognized subdomain → default destination
-  return { type: 'destination', config: defaultDestination };
+  // No valid subdomain → default guide
+  return defaultGuide;
 };
 
 const App = () => {
-  const subdomainContent = getContentFromSubdomain();
+  const subdomainGuide = getGuideFromSubdomain();
   
   return (
     <QueryClientProvider client={queryClient}>
@@ -86,28 +66,29 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <Routes>
-            {/* 
-              If on a subdomain, show that content on all routes
-              Otherwise, use path-based routing for development/preview
-            */}
-            {subdomainContent ? (
-              // Subdomain detected → show appropriate content
-              subdomainContent.type === 'guide' ? (
-                <Route path="*" element={<GuidePage config={subdomainContent.config} />} />
-              ) : (
-                <Route path="*" element={<DestinationPage config={subdomainContent.config} />} />
-              )
+            {subdomainGuide ? (
+              // Subdomain detected → show that guide on all routes
+              <Route path="*" element={<GuidePage config={subdomainGuide} />} />
             ) : (
               <>
                 {/* Development/Preview: path-based routing */}
-                <Route path="/" element={<DestinationPage config={defaultDestination} />} />
+                <Route path="/" element={<GuidePage config={defaultGuide} />} />
                 
-                {/* Dynamic destination routes */}
-                {allDestinations.map((destination) => (
+                {/* Dynamic guide routes */}
+                {allGuides.map((guide) => (
                   <Route
-                    key={destination.slug}
-                    path={`/${destination.slug}`}
-                    element={<DestinationPage config={destination} />}
+                    key={guide.slug}
+                    path={`/${guide.slug}`}
+                    element={<GuidePage config={guide} />}
+                  />
+                ))}
+                
+                {/* Also support short slugs without -guide suffix */}
+                {allGuides.map((guide) => (
+                  <Route
+                    key={`short-${guide.slug}`}
+                    path={`/${guide.slug.replace('-guide', '')}`}
+                    element={<GuidePage config={guide} />}
                   />
                 ))}
                 

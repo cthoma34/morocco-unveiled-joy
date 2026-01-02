@@ -1,17 +1,23 @@
-import { GuideConfig } from '@/types/guide-config';
+import { GuideConfig, getDestinationThemeVars } from '@/types/guide-config';
 import { 
-  AudioButton, 
+  HeroSection,
+  WelcomeCard,
+  QuickFactCard,
+  SectionHeader,
+  PhraseCard,
+  FoodCard,
+  RealTalkCard,
+  CTASection,
   CurrencyConverter, 
   PackingChecklist, 
-  ExpandableSection,
-  JournalPrompts 
+  JournalPrompts,
+  BentoCard,
 } from '@/components/guide';
 import { 
   FileText, Heart, Utensils, ShoppingBag, Camera, 
-  MessageCircle, Plane, Sparkles, MapPin, ArrowRight 
+  MessageCircle, Plane, Sparkles, Thermometer, DollarSign,
+  CheckCircle2
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import NotFound from './NotFound';
 
 interface GuidePageProps {
@@ -22,150 +28,251 @@ const GuidePage = ({ config }: GuidePageProps) => {
   if (!config) return <NotFound />;
 
   const guide = config;
-
-  const themeStyle = {
-    '--dest-primary': guide.theme.primary,
-    '--dest-secondary': guide.theme.secondary,
-    '--dest-accent': guide.theme.accent,
-  } as React.CSSProperties;
+  const themeStyle = getDestinationThemeVars(guide.theme);
 
   return (
     <div style={themeStyle} className="min-h-screen bg-background">
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background z-10" />
-        <div className="absolute inset-0 bg-[hsl(var(--dest-primary)/0.2)]" />
-        <div className="relative z-20 text-center px-6 max-w-4xl">
-          <p className="text-sm tracking-[0.3em] uppercase text-white/80 mb-4">Maximum Impact Travel</p>
-          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-semibold text-white mb-4">
-            {guide.hero.title}
-          </h1>
-          <p className="text-xl text-white/90">{guide.hero.subtitle}</p>
-        </div>
-      </section>
+      <HeroSection config={guide} />
 
-      <div className="max-w-4xl mx-auto px-4 py-12 space-y-16">
-        {/* Welcome */}
-        <section className="prose prose-invert max-w-none">
-          <p className="text-2xl font-heading text-primary">{guide.welcome.greeting}</p>
-          {guide.welcome.message.map((p, i) => (
-            <p key={i} className="text-lg text-muted-foreground leading-relaxed">{p}</p>
-          ))}
-          <p className="text-primary font-heading text-xl mt-8">
-            — {guide.welcome.signature}<br />
-            <span className="text-sm text-muted-foreground">{guide.welcome.signatureTitle}</span>
-          </p>
-        </section>
-
-        {/* Basics */}
-        <section>
-          <h2 className="font-heading text-3xl mb-6 flex items-center gap-3">
-            <FileText className="w-8 h-8 text-primary" /> The Basics
-          </h2>
-          <div className="space-y-4">
-            <ExpandableSection title="Documents & Entry" icon={<FileText className="w-5 h-5" />} defaultOpen>
-              <ul className="space-y-2">
-                {guide.basics.documents.items.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                    <span className="text-primary mt-1">•</span> {item}
-                  </li>
-                ))}
-              </ul>
-            </ExpandableSection>
-
-            <ExpandableSection title="Health & Safety" icon={<Heart className="w-5 h-5" />}>
-              <ul className="space-y-2">
-                {guide.basics.health.items.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-muted-foreground">
-                    <span className="text-primary mt-1">•</span> {item}
-                  </li>
-                ))}
-              </ul>
-            </ExpandableSection>
-
-            <CurrencyConverter 
-              currencyCode={guide.basics.money.currencyCode}
-              currencyName={guide.basics.money.currency}
+      {/* Main Content - Bento Grid Layout */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+        
+        {/* Welcome & Quick Facts Section */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <WelcomeCard welcome={guide.welcome} />
+          <div className="grid gap-4">
+            <QuickFactCard 
+              icon={<Thermometer className="w-6 h-6" />}
+              label="Best Time"
+              value={guide.basics.weather.bestMonths}
+              subtext={guide.basics.weather.temperature}
             />
-
-            <PackingChecklist 
-              items={guide.basics.packing}
-              storageKey={guide.slug}
+            <QuickFactCard 
+              icon={<DollarSign className="w-6 h-6" />}
+              label="Currency"
+              value={guide.basics.money.currencyCode}
+              subtext={guide.basics.money.currency}
             />
           </div>
         </section>
 
-        {/* Culture & Language */}
+        {/* The Basics Section */}
         <section>
-          <h2 className="font-heading text-3xl mb-6 flex items-center gap-3">
-            <MessageCircle className="w-8 h-8 text-primary" /> Culture & Language
-          </h2>
+          <SectionHeader 
+            icon={<FileText className="w-6 h-6" />}
+            title="The Basics"
+            subtitle="Everything you need before you board that plane"
+          />
           
-          <div className="mb-8">
-            <h3 className="font-heading text-xl mb-4">Essential {guide.culture.language.name} Phrases</h3>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {guide.culture.language.greetings.map((phrase, i) => (
-                <AudioButton key={i} {...phrase} />
-              ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Documents Card */}
+            <BentoCard variant="glass" size="md">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-[hsl(var(--dest-primary)/0.15)] flex items-center justify-center">
+                  <FileText className="w-4 h-4 text-[hsl(var(--dest-primary))]" />
+                </div>
+                <h3 className="font-heading text-xl">{guide.basics.documents.title}</h3>
+              </div>
+              <ul className="space-y-2">
+                {guide.basics.documents.items.slice(0, 5).map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <CheckCircle2 className="w-4 h-4 text-[hsl(var(--dest-primary))] flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </BentoCard>
+
+            {/* Health Card */}
+            <BentoCard variant="glass" size="md">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-[hsl(var(--dest-primary)/0.15)] flex items-center justify-center">
+                  <Heart className="w-4 h-4 text-[hsl(var(--dest-primary))]" />
+                </div>
+                <h3 className="font-heading text-xl">{guide.basics.health.title}</h3>
+              </div>
+              <ul className="space-y-2">
+                {guide.basics.health.items.slice(0, 5).map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <CheckCircle2 className="w-4 h-4 text-[hsl(var(--dest-primary))] flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </BentoCard>
+
+            {/* Currency Converter */}
+            <div className="md:row-span-2">
+              <CurrencyConverter 
+                currencyCode={guide.basics.money.currencyCode}
+                currencyName={guide.basics.money.currency}
+              />
+            </div>
+
+            {/* Packing Checklist - spans 2 columns */}
+            <div className="md:col-span-2">
+              <PackingChecklist 
+                items={guide.basics.packing}
+                storageKey={guide.slug}
+              />
             </div>
           </div>
-
-          <ExpandableSection title="Food & Dining" icon={<Utensils className="w-5 h-5" />}>
-            <p className="text-muted-foreground mb-4">{guide.culture.food.intro}</p>
-            <div className="space-y-3">
-              {guide.culture.food.items.map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className={item.mustTry ? 'text-primary' : 'text-muted-foreground'}>
-                    {item.mustTry ? '⭐' : '•'}
-                  </span>
-                  <div>
-                    <span className="font-semibold">{item.name}</span>
-                    <span className="text-muted-foreground"> — {item.description}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ExpandableSection>
         </section>
 
-        {/* Real Talk */}
+        {/* Culture & Language Section */}
         <section>
-          <h2 className="font-heading text-3xl mb-4 flex items-center gap-3">
-            <Sparkles className="w-8 h-8 text-primary" /> Real Talk
-          </h2>
-          <p className="text-muted-foreground mb-6">{guide.realTalk.intro}</p>
-          <div className="space-y-4">
-            {guide.realTalk.items.map((item, i) => (
-              <div key={i} className="p-4 rounded-xl bg-card/50 border border-border/50">
-                <h4 className="font-heading text-lg font-semibold text-primary mb-2">{item.topic}</h4>
-                <p className="text-muted-foreground mb-2">{item.honest}</p>
-                <p className="text-sm"><span className="text-primary font-medium">Tip:</span> {item.tip}</p>
+          <SectionHeader 
+            icon={<MessageCircle className="w-6 h-6" />}
+            title="Culture & Language"
+            subtitle={`Connect deeper with essential ${guide.culture.language.name} phrases`}
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Language Phrases - Large Card */}
+            <BentoCard variant="gradient" size="lg" span="col-2" className="p-4 md:p-6">
+              <h3 className="font-heading text-2xl mb-4">Essential {guide.culture.language.name}</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {guide.culture.language.greetings.map((phrase, i) => (
+                  <PhraseCard key={i} phrase={phrase} languageName={guide.culture.language.name} />
+                ))}
               </div>
+            </BentoCard>
+
+            {/* Food Card */}
+            <BentoCard variant="glass" size="lg" className="md:row-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-[hsl(var(--dest-primary)/0.15)] flex items-center justify-center">
+                  <Utensils className="w-4 h-4 text-[hsl(var(--dest-primary))]" />
+                </div>
+                <h3 className="font-heading text-xl">Food & Dining</h3>
+              </div>
+              <p className="text-sm text-muted-foreground mb-4">{guide.culture.food.intro}</p>
+              <div className="space-y-2 overflow-y-auto max-h-[400px] pr-2">
+                {guide.culture.food.items.map((food, i) => (
+                  <FoodCard key={i} food={food} />
+                ))}
+              </div>
+            </BentoCard>
+
+            {/* Customs Card */}
+            <BentoCard variant="glass" size="md">
+              <h3 className="font-heading text-xl mb-4">{guide.culture.customs.title}</h3>
+              <ul className="space-y-3">
+                {guide.culture.customs.items.slice(0, 4).map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span className="text-[hsl(var(--dest-primary))]">✦</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </BentoCard>
+
+            {/* Shopping Card */}
+            <BentoCard variant="glass" size="md">
+              <div className="flex items-center gap-3 mb-4">
+                <ShoppingBag className="w-5 h-5 text-[hsl(var(--dest-primary))]" />
+                <h3 className="font-heading text-xl">Shopping</h3>
+              </div>
+              <p className="text-sm text-muted-foreground mb-3">{guide.culture.shopping.intro}</p>
+              <div className="flex flex-wrap gap-2">
+                {guide.culture.shopping.tips.slice(0, 5).map((tip, i) => (
+                  <span key={i} className="px-3 py-1 text-xs rounded-full bg-[hsl(var(--dest-primary)/0.1)] text-[hsl(var(--dest-primary))] border border-[hsl(var(--dest-primary)/0.2)]">
+                    {tip.split(' ').slice(0, 3).join(' ')}
+                  </span>
+                ))}
+              </div>
+            </BentoCard>
+          </div>
+        </section>
+
+        {/* Photo Spots Section */}
+        <section>
+          <SectionHeader 
+            icon={<Camera className="w-6 h-6" />}
+            title="Photo Spots"
+            subtitle={guide.photos.intro}
+          />
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {guide.photos.spots.slice(0, 8).map((spot, i) => (
+              <BentoCard 
+                key={i} 
+                variant="glass" 
+                size="sm"
+                span={i === 0 || i === 3 ? 'col-2' : 'col-1'}
+                className="group cursor-pointer"
+              >
+                <div className="h-full flex flex-col justify-between">
+                  <div>
+                    <h4 className="font-heading text-lg text-foreground group-hover:text-[hsl(var(--dest-primary))] transition-colors">
+                      {spot.name}
+                    </h4>
+                    <p className="text-sm text-muted-foreground mt-1">{spot.description}</p>
+                  </div>
+                  <p className="text-xs text-[hsl(var(--dest-primary))] mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                    💡 {spot.tips}
+                  </p>
+                </div>
+              </BentoCard>
             ))}
           </div>
         </section>
 
-        {/* Before You Go */}
+        {/* Real Talk Section */}
         <section>
-          <h2 className="font-heading text-3xl mb-6 flex items-center gap-3">
-            <Plane className="w-8 h-8 text-primary" /> Before You Go
-          </h2>
-          <JournalPrompts prompts={guide.beforeYouGo.journal} storageKey={guide.slug} />
+          <SectionHeader 
+            icon={<Sparkles className="w-6 h-6" />}
+            title="Real Talk"
+            subtitle={guide.realTalk.intro}
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {guide.realTalk.items.map((item, i) => (
+              <RealTalkCard key={i} item={item} index={i} />
+            ))}
+          </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="text-center py-12 px-6 rounded-2xl bg-gradient-to-br from-card to-card/50 border border-border/50">
-          {guide.finalWords.message.map((p, i) => (
-            <p key={i} className="text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">{p}</p>
-          ))}
-          <p className="text-xl font-heading text-primary mt-8 mb-4">{guide.finalWords.callToAction.text}</p>
-          <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-            <Link to={guide.finalWords.callToAction.link}>
-              {guide.finalWords.callToAction.buttonText} <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
-          </Button>
+        {/* Before You Go Section */}
+        <section>
+          <SectionHeader 
+            icon={<Plane className="w-6 h-6" />}
+            title="Before You Go"
+            subtitle="Prep your mind and spirit for the journey"
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <JournalPrompts prompts={guide.beforeYouGo.journal} storageKey={guide.slug} />
+            
+            <BentoCard variant="glass" size="lg">
+              <h3 className="font-heading text-xl mb-4">Last Minute Checklist</h3>
+              <ul className="space-y-3">
+                {guide.beforeYouGo.lastMinute.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                    <CheckCircle2 className="w-5 h-5 text-[hsl(var(--dest-primary))] flex-shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </BentoCard>
+          </div>
         </section>
-      </div>
+      </main>
+
+      {/* Final CTA */}
+      <CTASection finalWords={guide.finalWords} destinationName={guide.destinationName} />
+
+      {/* Footer */}
+      <footer className="border-t border-border/30 py-8 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <img src="/mit-logo.png" alt="Maximum Impact Travel" className="h-8 w-auto opacity-80" />
+            <span className="text-sm text-muted-foreground">© {new Date().getFullYear()} Maximum Impact Travel</span>
+          </div>
+          <p className="text-sm text-muted-foreground">Designed for transformative travel experiences</p>
+        </div>
+      </footer>
     </div>
   );
 };
