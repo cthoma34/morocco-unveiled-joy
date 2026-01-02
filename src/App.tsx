@@ -7,20 +7,37 @@ import NotFound from "./pages/NotFound";
 import DestinationPage from "./pages/DestinationPage";
 import GuidePage from "./pages/GuidePage";
 import { allDestinations, getDestinationBySlug, defaultDestination } from "./config/destinations";
+import { getGuideBySlug } from "./config/guides";
+import { GuideConfig } from "./types/guide-config";
+import { TripConfig } from "./types/trip-config";
 
 const queryClient = new QueryClient();
 
 // ============================================================
 // SUBDOMAIN DETECTION
 // ============================================================
-// Detects subdomain from hostname and returns matching destination
-// Examples:
+// Detects subdomain from hostname and returns matching content
+// Supports both destinations and guides via subdomain patterns:
+//
+// Destinations:
 //   egypt.travelwithmit.com → egyptConfig
 //   tanzania.travelwithmit.com → tanzaniaConfig
+//
+// Guides (with -guide suffix):
+//   dubai-guide.travelwithmit.com → dubaiGuide
+//   egypt-guide.travelwithmit.com → egyptGuide
+//
+// Root domain:
 //   travelwithmit.com → defaultDestination (Tanzania)
-//   localhost:5173 → defaultDestination (for development)
+//   localhost:5173 → null (use path-based routing for dev)
 // ============================================================
-const getDestinationFromSubdomain = () => {
+
+type SubdomainResult = 
+  | { type: 'destination'; config: TripConfig }
+  | { type: 'guide'; config: GuideConfig }
+  | null;
+
+const getContentFromSubdomain = (): SubdomainResult => {
   const hostname = window.location.hostname;
   
   // Development: localhost or Lovable preview
@@ -38,18 +55,30 @@ const getDestinationFromSubdomain = () => {
   // If we have a subdomain (e.g., egypt.travelwithmit.com = 3 parts)
   if (parts.length >= 3) {
     const subdomain = parts[0].toLowerCase();
+    
+    // Check if it's a guide subdomain (ends with -guide)
+    if (subdomain.endsWith('-guide')) {
+      const guideSlug = subdomain.replace('-guide', '');
+      const guide = getGuideBySlug(guideSlug);
+      if (guide) {
+        return { type: 'guide', config: guide };
+      }
+    }
+    
+    // Check if it's a destination subdomain
     const destination = getDestinationBySlug(subdomain);
     if (destination) {
-      return destination;
+      return { type: 'destination', config: destination };
     }
   }
   
-  // No subdomain or unrecognized subdomain → default
-  return defaultDestination;
+  // No subdomain or unrecognized subdomain → default destination
+  return { type: 'destination', config: defaultDestination };
 };
 
 const App = () => {
-  const subdomainDestination = getDestinationFromSubdomain();
+  const subdomainContent = getContentFromSubdomain();
+  
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -58,19 +87,20 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             {/* 
-              If on a subdomain (egypt.travelwithmit.com), show that destination
+              If on a subdomain, show that content on all routes
               Otherwise, use path-based routing for development/preview
             */}
-            {subdomainDestination ? (
-              // Subdomain detected → show that destination on all routes
-              <Route path="*" element={<DestinationPage config={subdomainDestination} />} />
+            {subdomainContent ? (
+              // Subdomain detected → show appropriate content
+              subdomainContent.type === 'guide' ? (
+                <Route path="*" element={<GuidePage config={subdomainContent.config} />} />
+              ) : (
+                <Route path="*" element={<DestinationPage config={subdomainContent.config} />} />
+              )
             ) : (
               <>
                 {/* Development/Preview: path-based routing */}
                 <Route path="/" element={<DestinationPage config={defaultDestination} />} />
-                
-                {/* Digital Guide routes */}
-                <Route path="/guide/:slug" element={<GuidePage />} />
                 
                 {/* Dynamic destination routes */}
                 {allDestinations.map((destination) => (

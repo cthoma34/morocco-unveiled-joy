@@ -4,12 +4,15 @@ import { dubaiGuide } from './dubai';
 // Export all guide configs
 export { dubaiGuide };
 
-// All guides map for dynamic routing
-export const allGuides: Record<string, GuideConfig> = {
-  dubai: dubaiGuide,
+// All guides array for subdomain routing
+export const allGuides: GuideConfig[] = [
+  dubaiGuide,
+];
+
+// Get guide by slug (for subdomain detection)
+export const getGuideBySlug = (slug: string): GuideConfig | undefined => {
+  return allGuides.find(guide => guide.slug.toLowerCase() === slug.toLowerCase());
 };
 
-// Get guide by slug
-export const getGuideBySlug = (slug: string): GuideConfig | undefined => {
-  return allGuides[slug.toLowerCase()];
-};
+// Default guide (fallback)
+export const defaultGuide = dubaiGuide;
