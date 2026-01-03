@@ -231,8 +231,8 @@ export const ethiopiaGuide: GuideConfig = {
     ],
     callToAction: {
       text: 'Ready to see unconquered?',
-      buttonText: 'Check out our Ethiopia info session →',
-      link: 'https://www.travelwithmit.com/ethiopia',
+      buttonText: 'Book Your Ethiopia Trip →',
+      link: 'https://maximumimpacttravel.com/destination/ethiopia/',
     },
   },
 

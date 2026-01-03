@@ -281,8 +281,8 @@ export const kenyaGuide: GuideConfig = {
     ],
     callToAction: {
       text: 'Ready for Kenya?',
-      buttonText: 'Check out our Kenya info session →',
-      link: 'https://www.travelwithmit.com/kenya',
+      buttonText: 'Book Your Kenya + Zanzibar Trip →',
+      link: 'https://maximumimpacttravel.com/destination/kenya-seperate/',
     },
   },
 

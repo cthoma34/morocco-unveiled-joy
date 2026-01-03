@@ -231,8 +231,8 @@ export const blpGuide: GuideConfig = {
     ],
     callToAction: {
       text: 'Ready to see the empire?',
-      buttonText: 'Check out our London + Paris info session →',
-      link: 'https://www.travelwithmit.com/blp',
+      buttonText: 'Book Your London + Paris Trip →',
+      link: 'https://maximumimpacttravel.com/destination/black-london-black-paris/',
     },
   },
 

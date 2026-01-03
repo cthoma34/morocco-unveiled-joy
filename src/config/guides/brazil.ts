@@ -266,8 +266,8 @@ export const brazilGuide: GuideConfig = {
     ],
     callToAction: {
       text: 'Ready to feel the rhythm?',
-      buttonText: 'Check out our Brazil info session →',
-      link: 'https://www.travelwithmit.com/brazil',
+      buttonText: 'Book Your Brazil Trip →',
+      link: 'https://maximumimpacttravel.com/destination/brazil/',
     },
   },
 

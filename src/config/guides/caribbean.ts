@@ -241,9 +241,9 @@ export const caribbeanGuide: GuideConfig = {
     ], 
     callToAction: { 
       text: 'Ready to cruise the diaspora?', 
-      buttonText: 'Check out our Caribbean Cruise info session →', 
-      link: 'https://www.travelwithmit.com/caribbean' 
-    } 
+      buttonText: 'Book Your Afro-Caribbean Cruise →', 
+      link: 'https://maximumimpacttravel.com/destination/afro-caribbean-cruise/' 
+    }
   },
   images: { 
     hero: shipSailing, 

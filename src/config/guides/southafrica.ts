@@ -235,8 +235,8 @@ export const southafricaGuide: GuideConfig = {
     ],
     callToAction: {
       text: 'Ready to see resilience?',
-      buttonText: 'Check out our South Africa info session →',
-      link: 'https://www.travelwithmit.com/southafrica',
+      buttonText: 'Book Your South Africa Trip →',
+      link: 'https://maximumimpacttravel.com/destination/south-africa/',
     },
   },
 
