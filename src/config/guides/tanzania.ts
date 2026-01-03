@@ -79,7 +79,7 @@ import arrivalEmbrace from '@/assets/tanzania/arrival-embrace.jpg';
 import sunsetToast from '@/assets/tanzania/sunset-toast.jpg';
 
 export const tanzaniaGuide: GuideConfig = {
-  slug: 'tanzania-guide',
+  slug: 'tanzania',
   destinationName: 'Tanzania',
   tagline: 'Your Freedom Blueprint',
 
