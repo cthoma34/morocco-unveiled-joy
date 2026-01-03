@@ -260,12 +260,19 @@ export interface GuideConfig {
       afterPhotos?: string[];     // Images after Photo Spots
       afterRealTalk?: string[];   // Images after Real Talk
     };
-    // New: Horizontal photo strips
+    // New: Horizontal photo strips (flexible categories)
     strips?: {
       safari?: { src: string; caption?: string }[];
       beach?: { src: string; caption?: string }[];
       culture?: { src: string; caption?: string }[];
+      architecture?: { src: string; caption?: string }[];
+      shopping?: { src: string; caption?: string }[];
+      food?: { src: string; caption?: string }[];
+      adventure?: { src: string; caption?: string }[];
+      heritage?: { src: string; caption?: string }[];
     };
+    // Additional unique images for specific sections
+    photoSpots?: string[];
   };
 }
 
