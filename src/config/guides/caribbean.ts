@@ -360,10 +360,6 @@ export const caribbeanGuide: GuideConfig = {
     interludes: { 
       // After Welcome - 2 unique images
       afterWelcome: [shipSailing, deckSunset],
-      afterWelcomeQuote: {
-        text: "We crossed the water in chains. We return in celebration.",
-        attribution: "MIT Caribbean Traveler"
-      },
       // After Basics - 2 unique images
       afterBasics: [poolDeck, formalDinner], 
       // After Culture - 2 unique images
