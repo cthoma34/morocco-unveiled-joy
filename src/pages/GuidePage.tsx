@@ -61,9 +61,9 @@ const GuidePage = ({ config }: GuidePageProps) => {
       {interludes?.afterWelcome && interludes.afterWelcome.length > 0 && (
         <ImageInterlude 
           images={interludes.afterWelcome}
-          layout="trio"
-          quote="The Serengeti shows you what Earth looked like before we complicated it."
-          attribution="Jay Cameron"
+          layout={interludes.afterWelcome.length === 2 ? "duo" : "trio"}
+          quote={interludes.afterWelcomeQuote?.text}
+          attribution={interludes.afterWelcomeQuote?.attribution}
         />
       )}
 
@@ -148,9 +148,9 @@ const GuidePage = ({ config }: GuidePageProps) => {
       {interludes?.afterRealTalk && interludes.afterRealTalk.length > 0 && (
         <ImageInterlude 
           images={interludes.afterRealTalk}
-          layout="trio"
-          quote="Coming home different isn't about the destination. It's about finally coming home to yourself."
-          attribution="Jay Cameron"
+          layout={interludes.afterRealTalk.length === 2 ? "duo" : "trio"}
+          quote={interludes.afterRealTalkQuote?.text}
+          attribution={interludes.afterRealTalkQuote?.attribution}
         />
       )}
 

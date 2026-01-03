@@ -5,14 +5,12 @@ import heroImage from '@/assets/brazil/pelourinho-streets.jpg';
 import welcomeImage from '@/assets/brazil/bahiana-woman.jpg';
 
 // Pelourinho & Salvador
-import pelourinhoStreets from '@/assets/brazil/pelourinho-streets.jpg';
 import pelourinhoNight from '@/assets/brazil/pelourinho-night.jpg';
 import lacerdaElevator from '@/assets/brazil/lacerda-elevator.jpg';
 import bayView from '@/assets/brazil/bay-view.jpg';
 import groupPelourinho from '@/assets/brazil/group-pelourinho.jpg';
 
 // Culture & Spirituality
-import bahianaWoman from '@/assets/brazil/bahiana-woman.jpg';
 import capoeiraBench from '@/assets/brazil/capoeira-beach.jpg';
 import candombleCeremony from '@/assets/brazil/candomble-ceremony.jpg';
 import candombleBeads from '@/assets/brazil/candomble-beads.jpg';
@@ -193,16 +191,16 @@ export const brazilGuide: GuideConfig = {
   photos: {
     intro: 'Capture the rhythm, colors, and African soul of Brazil.',
     spots: [
-      { name: 'Pelourinho Colors', description: 'Colonial Salvador\'s painted buildings', tips: 'Early morning for empty streets', image: pelourinhoStreets },
-      { name: 'Christ the Redeemer', description: 'Rio\'s iconic statue', tips: 'Go early or at sunset', image: christRedeemer },
-      { name: 'Capoeira Circle', description: 'Martial art in motion', tips: 'Action shots need fast shutter', image: capoeiraBench },
-      { name: 'Candomblé Ceremony', description: 'Sacred ritual if permitted', tips: 'Always ask permission first', image: candombleCeremony },
-      { name: 'Favela Art', description: 'Colorful community murals', tips: 'Guided tour only - respect the space', image: favelaArt },
-      { name: 'Beach Football', description: 'Copacabana culture', tips: 'Golden hour on the sand', image: copacabanaPromenade },
-      { name: 'Samba Dancing', description: 'Pure joy in motion', tips: 'Night shots need steady hand', image: sambaDancers },
-      { name: 'Açaí Bowl', description: 'Perfect food photography', tips: 'Natural light, bright colors', image: acai },
-      { name: 'Escadaria Selarón', description: 'Famous tiled steps', tips: 'Go very early for empty stairs', image: selaronSteps },
-      { name: 'Sunset at Elevador', description: 'Salvador\'s famous elevator', tips: 'Panoramic city and bay views', image: lacerdaElevator },
+      { name: 'Pelourinho Colors', description: 'Colonial Salvador\'s painted buildings', tips: 'Early morning for empty streets' },
+      { name: 'Christ the Redeemer', description: 'Rio\'s iconic statue', tips: 'Go early or at sunset' },
+      { name: 'Capoeira Circle', description: 'Martial art in motion', tips: 'Action shots need fast shutter' },
+      { name: 'Candomblé Ceremony', description: 'Sacred ritual if permitted', tips: 'Always ask permission first' },
+      { name: 'Favela Art', description: 'Colorful community murals', tips: 'Guided tour only - respect the space' },
+      { name: 'Beach Football', description: 'Copacabana culture', tips: 'Golden hour on the sand' },
+      { name: 'Samba Dancing', description: 'Pure joy in motion', tips: 'Night shots need steady hand' },
+      { name: 'Açaí Bowl', description: 'Perfect food photography', tips: 'Natural light, bright colors' },
+      { name: 'Escadaria Selarón', description: 'Famous tiled steps', tips: 'Go very early for empty stairs' },
+      { name: 'Sunset at Elevador', description: 'Salvador\'s famous elevator', tips: 'Panoramic city and bay views' },
     ],
   },
 
@@ -277,10 +275,8 @@ export const brazilGuide: GuideConfig = {
     culture: candombleCeremony,
     food: feijoada,
     gallery: [
-      pelourinhoStreets,
-      bahianaWoman,
+      pelourinhoNight,
       capoeiraBench,
-      candombleCeremony,
       christRedeemer,
       copacabanaPromenade,
       selaronSteps,
@@ -291,57 +287,55 @@ export const brazilGuide: GuideConfig = {
       bayView,
     ],
     interludes: {
-      afterWelcome: [pelourinhoStreets, groupPelourinho],
-      afterBasics: [capoeiraBench, candombleCeremony, sambaDancers],
-      afterCulture: [feijoada, moqueca, acaraje, acai],
-      afterPhotos: [christRedeemer],
+      // After welcome - unique Salvador images
+      afterWelcome: [groupPelourinho, lacerdaElevator],
+      afterWelcomeQuote: {
+        text: "Salvador feels more African than some African cities. That's not an accident—it's survival.",
+        attribution: 'Jay Cameron',
+      },
+      // After basics - culture images
+      afterBasics: [berimbauPlayer, tyingRibbons],
+      // After culture - food grid
+      afterCulture: [moqueca, acaraje, acai, paoDeQueijo],
+      // After photos - single dramatic image
+      afterPhotos: [favelaArt],
     },
     strips: {
       culture: [
         { src: capoeiraBench, caption: 'Capoeira on the Beach' },
-        { src: candombleCeremony, caption: 'Candomblé Ceremony' },
         { src: sambaDancers, caption: 'Samba Dancers' },
         { src: olodumDrums, caption: 'Olodum Drummers' },
-        { src: berimbauPlayer, caption: 'Berimbau Player' },
+        { src: candombleBeads, caption: 'Sacred Beads' },
       ],
       food: [
         { src: feijoada, caption: 'Feijoada' },
         { src: moqueca, caption: 'Moqueca' },
-        { src: acaraje, caption: 'Acarajé Vendor' },
-        { src: acai, caption: 'Açaí Bowl' },
-        { src: paoDeQueijo, caption: 'Pão de Queijo' },
         { src: caipirinha, caption: 'Caipirinha' },
       ],
       heritage: [
-        { src: candombleBeads, caption: 'Sacred Beads' },
         { src: candombleCeremony, caption: 'Candomblé Temple' },
         { src: bonfimRibbons, caption: 'Bonfim Church' },
-        { src: tyingRibbons, caption: 'Tying Wish Ribbons' },
       ],
       architecture: [
         { src: christRedeemer, caption: 'Christ the Redeemer' },
         { src: copacabanaPromenade, caption: 'Copacabana Beach' },
         { src: selaronSteps, caption: 'Selarón Steps' },
-        { src: lacerdaElevator, caption: 'Lacerda Elevator' },
         { src: pelourinhoNight, caption: 'Pelourinho at Night' },
       ],
       shopping: [
         { src: mercadoModelo, caption: 'Mercado Modelo' },
-        { src: candombleBeads, caption: 'Sacred Artifacts' },
         { src: berimbauPlayer, caption: 'Berimbau Instruments' },
       ],
     },
     photoSpots: [
-      pelourinhoStreets,
-      christRedeemer,
-      capoeiraBench,
-      candombleCeremony,
-      favelaArt,
-      copacabanaPromenade,
-      sambaDancers,
-      acai,
-      selaronSteps,
       lacerdaElevator,
+      christRedeemer,
+      selaronSteps,
+      copacabanaPromenade,
+      favelaArt,
+      sambaDancers,
+      pelourinhoNight,
+      bonfimRibbons,
     ],
   },
 };
