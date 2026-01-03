@@ -15,6 +15,7 @@ import {
   FullBleedImage,
 } from '@/components/guide/editorial';
 import { PackingChecklist } from '@/components/guide';
+import DestinationNav from '@/components/guide/DestinationNav';
 import NotFound from './NotFound';
 
 interface GuidePageProps {
@@ -42,6 +43,9 @@ const GuidePage = ({ config }: GuidePageProps) => {
 
   return (
     <div style={themeStyle} className="min-h-screen bg-background overflow-x-hidden">
+      {/* Destination Navigation */}
+      <DestinationNav currentSlug={guide.slug} />
+
       {/* Hero - Full screen parallax */}
       <EditorialHero config={guide} />
 
