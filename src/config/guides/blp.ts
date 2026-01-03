@@ -1,5 +1,13 @@
 import { GuideConfig } from '@/types/guide-config';
 
+// Black London + Paris images - NO EIFFEL TOWER
+import jazzClub from '@/assets/blp/jazz-club.jpg';
+import seineRiverGroup from '@/assets/blp/seine-river-group.jpg';
+import leMaraisShopping from '@/assets/blp/le-marais-shopping.jpg';
+import parisCafeCouple from '@/assets/blp/paris-cafe-couple.jpg';
+import londonHistoryTour from '@/assets/blp/london-history-tour.jpg';
+import brixtonMarket from '@/assets/blp/brixton-market.jpg';
+
 export const blpGuide: GuideConfig = {
   slug: 'blp',
   destinationName: 'Black London + Paris',
@@ -15,7 +23,7 @@ export const blpGuide: GuideConfig = {
   hero: {
     title: 'Your Freedom Blueprint: BLACK LONDON + PARIS',
     subtitle: 'Everything You Need to Know Before You Go',
-    backgroundImage: '/placeholder.svg',
+    backgroundImage: jazzClub,
   },
 
   welcome: {
@@ -154,7 +162,7 @@ export const blpGuide: GuideConfig = {
       { name: 'Brixton Mural', description: 'Black history wall art', tips: 'Electric Avenue area' },
       { name: 'London Eye', description: 'Thames River panoramic', tips: 'Sunset or night for best views' },
       { name: 'Paris Café', description: 'Classic street scene', tips: 'Morning coffee culture' },
-      { name: 'Eiffel Tower', description: 'You have to get the shot', tips: 'Trocadéro for best angle' },
+      { name: 'Seine River Walk', description: 'Golden hour along the water', tips: 'Best light at sunset' },
       { name: 'Black Paris Tour', description: 'Hidden history locations', tips: 'Book a guide for context' },
       { name: 'British Museum', description: 'African galleries (contested)', tips: 'Know the history of what you\'re seeing' },
       { name: 'Sacré-Cœur', description: 'City view from Montmartre', tips: 'Early morning for fewer crowds' },
@@ -229,10 +237,21 @@ export const blpGuide: GuideConfig = {
   },
 
   images: {
-    hero: '/placeholder.svg',
-    welcome: '/placeholder.svg',
-    culture: '/placeholder.svg',
-    food: '/placeholder.svg',
-    gallery: [],
+    hero: jazzClub,
+    welcome: parisCafeCouple,
+    culture: brixtonMarket,
+    food: leMaraisShopping,
+    gallery: [
+      seineRiverGroup,
+      londonHistoryTour,
+      parisCafeCouple,
+      brixtonMarket,
+      leMaraisShopping,
+    ],
+    interludes: {
+      afterWelcome: [seineRiverGroup, londonHistoryTour],
+      afterBasics: [parisCafeCouple, brixtonMarket],
+      afterCulture: [leMaraisShopping, jazzClub],
+    },
   },
 };

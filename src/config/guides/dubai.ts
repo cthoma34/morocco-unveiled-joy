@@ -1,5 +1,14 @@
 import { GuideConfig } from '@/types/guide-config';
 
+// Dubai images
+import palmJumeirahView from '@/assets/dubai/palm-jumeirah-view.jpg';
+import dubaiFountain from '@/assets/dubai/dubai-fountain.jpg';
+import sheikhZayedMosque from '@/assets/dubai/sheikh-zayed-mosque.jpg';
+import burjKhalifaView from '@/assets/dubai/burj-khalifa-view.jpg';
+import goldSouk from '@/assets/dubai/gold-souk.jpg';
+import falconrySafari from '@/assets/dubai/falconry-safari.jpg';
+import desertDressSunrise from '@/assets/dubai/desert-dress-sunrise.jpg';
+
 export const dubaiGuide: GuideConfig = {
   slug: 'dubai',
   destinationName: 'Dubai',
@@ -15,7 +24,7 @@ export const dubaiGuide: GuideConfig = {
   hero: {
     title: 'Your Freedom Blueprint: DUBAI',
     subtitle: 'Everything You Need to Know Before You Go',
-    backgroundImage: '/dubai-hero.jpg',
+    backgroundImage: sheikhZayedMosque,
   },
 
   welcome: {
@@ -249,8 +258,23 @@ export const dubaiGuide: GuideConfig = {
   },
 
   images: {
-    hero: '/dubai-hero.jpg',
-    gallery: [],
+    hero: sheikhZayedMosque,
+    welcome: palmJumeirahView,
+    culture: goldSouk,
+    food: falconrySafari,
+    gallery: [
+      palmJumeirahView,
+      dubaiFountain,
+      burjKhalifaView,
+      goldSouk,
+      falconrySafari,
+      desertDressSunrise,
+    ],
+    interludes: {
+      afterWelcome: [palmJumeirahView, burjKhalifaView],
+      afterBasics: [dubaiFountain, goldSouk],
+      afterCulture: [falconrySafari, desertDressSunrise],
+    },
   },
 };
 

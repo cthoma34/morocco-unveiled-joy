@@ -1,244 +1,29 @@
 import { GuideConfig } from '@/types/guide-config';
 
+// Caribbean Cruise images
+import shipDeparture from '@/assets/caribbean/ship-departure.jpg';
+import promenadeSunset from '@/assets/caribbean/promenade-sunset.jpg';
+import mitDinner from '@/assets/caribbean/mit-dinner.jpg';
+import spaOceanView from '@/assets/caribbean/spa-ocean-view.jpg';
+import dancingStars from '@/assets/caribbean/dancing-stars.jpg';
+import cocktailToast from '@/assets/caribbean/cocktail-toast.jpg';
+import balconyCoffee from '@/assets/caribbean/balcony-coffee.jpg';
+import gourmetDinner from '@/assets/caribbean/gourmet-dinner.jpg';
+import infinityPool from '@/assets/caribbean/infinity-pool.jpg';
+import embarkationFamily from '@/assets/caribbean/embarkation-family.jpg';
+
 export const caribbeanGuide: GuideConfig = {
   slug: 'caribbean',
   destinationName: 'Caribbean Cruise',
   tagline: 'Your Freedom Blueprint',
-
-  theme: {
-    primary: '195 80% 45%',
-    secondary: '45 90% 55%',
-    accent: '340 70% 50%',
-    sand: '45 40% 92%',
-  },
-
-  hero: {
-    title: 'Your Freedom Blueprint: CARIBBEAN CRUISE',
-    subtitle: 'Everything You Need to Know Before You Go',
-    backgroundImage: '/placeholder.svg',
-  },
-
-  welcome: {
-    greeting: 'Family,',
-    message: [
-      'One ship. Seven islands. Endless connections.',
-      "After 2,500 travelers, the Caribbean cruise is special. It's where Africa spread across water and survived. Each island kept something different. Together, they kept everything.",
-      'This guide covers what you need for every port. Real preparation.',
-      "Let's get you ready to island hop.",
-    ],
-    signature: 'Jay Cameron',
-    signatureTitle: 'Founder, Maximum Impact Travel',
-  },
-
-  basics: {
-    documents: {
-      title: 'Documents You Need',
-      items: [
-        'Passport (valid 6+ months)',
-        'No visas needed (cruise passengers)',
-        'Cruise documents',
-        'Return flight info',
-        'Travel insurance (recommended)',
-        'Passport copies',
-        'Emergency contacts',
-      ],
-    },
-    health: {
-      title: 'Health & Medicine',
-      items: [
-        'Hepatitis A & B recommended',
-        'Routine vaccines up to date',
-        'Seasickness medicine',
-        'Dramamine or seasickness bands',
-        'Sunscreen SPF 50+',
-        'Aloe vera for sunburn',
-        'Bug spray for shore days',
-        'Basic medications',
-      ],
-    },
-    money: {
-      currency: 'Varies by Island',
-      currencyCode: 'USD',
-      tips: [
-        'Most islands accept USD',
-        'Eastern Caribbean Dollar (EC$) on some islands',
-        'Jamaican Dollar (JMD)',
-        'Barbados Dollar (BBD)',
-        'Bring $100-150 per port day',
-        'Small bills essential',
-        'Credit cards work in tourist areas',
-        'Beach chair: $10-20',
-        'Local lunch: $10-20',
-        'Taxi tour: $30-50',
-        'Rum punch: $5-10',
-      ],
-    },
-    weather: {
-      bestMonths: 'December - May (Dry Season)',
-      temperature: '75-88°F (Hot always)',
-      tips: [
-        'Hurricane season: June-November',
-        'Dry season: December-May',
-        'Trade winds keep it comfortable',
-        'Rain showers are brief',
-      ],
-    },
-    packing: [
-      { item: 'Formal night outfit', category: 'clothing', essential: true },
-      { item: 'Swimsuits (3+)', category: 'clothing', essential: true },
-      { item: 'Cover-ups', category: 'clothing' },
-      { item: 'Walking shoes', category: 'clothing', essential: true },
-      { item: 'Sandals', category: 'clothing' },
-      { item: 'Light layers (ship AC is cold)', category: 'clothing' },
-      { item: 'Power strip (limited outlets)', category: 'tech' },
-      { item: 'Waterproof phone case', category: 'tech' },
-      { item: 'Seasickness medicine', category: 'health', essential: true },
-      { item: 'Sunscreen SPF 50+', category: 'health', essential: true },
-      { item: 'Aloe vera', category: 'health' },
-      { item: 'Bug spray', category: 'health' },
-      { item: 'Passport', category: 'documents', essential: true },
-      { item: 'Cruise documents', category: 'documents', essential: true },
-    ],
-  },
-
-  culture: {
-    language: {
-      name: 'Various Caribbean',
-      greetings: [
-        { word: 'Wah gwaan', pronunciation: 'wah-GWAHN', translation: "What's up (Jamaica)" },
-        { word: 'Lime', pronunciation: 'lyme', translation: 'Hang out (Trinidad)' },
-        { word: 'Fete', pronunciation: 'fet', translation: 'Party (everywhere)' },
-        { word: 'Irie', pronunciation: 'EYE-ree', translation: "Everything's good" },
-        { word: 'Big up', pronunciation: 'big up', translation: 'Respect' },
-        { word: 'Small ting', pronunciation: 'small ting', translation: 'No problem' },
-      ],
-    },
-    food: {
-      intro: 'Each island has its own signature flavors rooted in African, European, and Indigenous traditions.',
-      items: [
-        { name: 'Jerk Everything (Jamaica)', description: 'Spiced, smoked perfection', mustTry: true },
-        { name: 'Flying Fish (Barbados)', description: 'National dish with cou cou', mustTry: true },
-        { name: 'Doubles (Trinidad)', description: 'Curried chickpeas in fried bread', mustTry: true },
-        { name: 'Green Fig & Saltfish (St. Lucia)', description: 'Banana and salted cod' },
-        { name: 'Fungie & Pepperpot (Antigua)', description: 'Cornmeal with stew' },
-        { name: 'Oil Down (Grenada)', description: 'One-pot coconut stew' },
-        { name: 'Goat Water (St. Kitts)', description: 'Spicy goat stew' },
-      ],
-    },
-    customs: {
-      title: 'Island Etiquette',
-      items: [
-        'Greet people - "Good morning" goes far',
-        'Respect the pace - island time is real',
-        'Ask before photographing locals',
-        'Haggle politely in markets',
-        'Tip for good service',
-        'Don\'t just stay on the ship - explore',
-      ],
-    },
-    shopping: {
-      intro: 'Each island has its own specialty - collect treasures as you go.',
-      tips: [
-        'Jamaica: Blue Mountain coffee, rum',
-        'Barbados: Rum, hot sauce',
-        'Trinidad: Pepper sauce, steel pans',
-        'St. Lucia: Cocoa, spices',
-        'Grenada: Nutmeg everything (spice island)',
-        'Antigua: Black pineapple',
-        'Cayman: Rum cake',
-        'Bargaining expected in markets',
-        'Duty-free shopping available',
-      ],
-    },
-  },
-
-  photos: {
-    intro: 'Capture the turquoise waters, vibrant culture, and island magic.',
-    spots: [
-      { name: 'Ship Arrival', description: 'Each port entrance is unique', tips: 'Top deck early morning' },
-      { name: 'Beach Paradise', description: 'Crystal clear Caribbean water', tips: 'Underwater camera for snorkeling' },
-      { name: 'Local Market', description: 'Colors and characters', tips: 'Ask permission for portraits' },
-      { name: 'Rum Punch Sunset', description: 'Classic cruise moment', tips: 'Golden hour on deck' },
-      { name: 'Steel Drums', description: 'Trinidad especially', tips: 'Capture the movement' },
-      { name: 'Colorful Houses', description: 'Every island has them', tips: 'Morning light is best' },
-      { name: 'Swimming Pigs', description: 'If you hit Bahamas', tips: 'Waterproof everything' },
-      { name: 'Cliff Diving', description: "Rick's Cafe Jamaica", tips: 'Action shots need fast shutter' },
-      { name: 'Volcano View', description: 'The Pitons of St. Lucia', tips: 'Early morning clarity' },
-      { name: 'Group Ship Photo', description: 'Formal night memories', tips: 'Book photographer early' },
-    ],
-  },
-
-  realTalk: {
-    intro: 'What you need to know about cruising and port days.',
-    items: [
-      {
-        topic: 'Port Safety',
-        honest: "Ship tours are safest but limit exploration. Independent travel is fine with common sense.",
-        tip: 'Be back 1 hour before sailing. Stick to tourist areas. Don\'t buy drugs (setups). Watch the rum punch.',
-      },
-      {
-        topic: 'Ship Life',
-        honest: 'Ships are floating cities. Germs spread. Crowds happen. But the convenience is unmatched.',
-        tip: 'Hand sanitizer always. Take stairs not elevators. Book restaurants early. Tip room steward daily.',
-      },
-      {
-        topic: 'Time Management',
-        honest: 'Port time is limited. You can\'t see everything. Choose what matters most to you.',
-        tip: 'Research ports in advance. Book excursions early. Have a plan B for weather.',
-      },
-      {
-        topic: 'Communication',
-        honest: 'Ship WiFi is expensive and slow. Port WiFi at cafes works.',
-        tip: 'Buy local SIM if needed. WhatsApp when connected. Embrace being unplugged.',
-      },
-      {
-        topic: 'Seasickness',
-        honest: 'It happens. Modern ships have stabilizers but rough seas occur.',
-        tip: 'Dramamine or prescription patches. Ginger helps. Mid-ship cabins rock less.',
-      },
-    ],
-  },
-
-  beforeYouGo: {
-    journal: [
-      { day: 0, prompt: 'What connects these islands to each other?' },
-      { day: 0, prompt: 'What survived the Middle Passage?' },
-      { day: 1, prompt: "What's different island to island?" },
-      { day: 2, prompt: 'What music moves me most?' },
-      { day: 3, prompt: 'Where do I see Africa in the Caribbean?' },
-      { day: 99, prompt: 'Which island calls me back?' },
-      { day: 99, prompt: 'What rhythm stayed with me?' },
-    ],
-    lastMinute: [
-      'Download Ship Mate app (cruise schedules)',
-      'Download XE Currency app',
-      'Download WhatsApp',
-      'Download island maps offline',
-      'Pack seasickness medication',
-      'Confirm cruise check-in',
-      'Print cruise documents',
-      'Pack power strip for cabin',
-    ],
-  },
-
-  finalWords: {
-    message: [
-      'The Caribbean teaches you about adaptation.',
-      "Same people. Same history. Different islands. Different solutions. But the drums never stopped. The spice never left. The resistance never died.",
-      "Seven islands, one story: We're still here.",
-    ],
-    callToAction: {
-      text: 'Ready to cruise the diaspora?',
-      buttonText: 'Check out our Caribbean Cruise info session →',
-      link: 'https://www.travelwithmit.com/caribbean',
-    },
-  },
-
-  images: {
-    hero: '/placeholder.svg',
-    welcome: '/placeholder.svg',
-    culture: '/placeholder.svg',
-    food: '/placeholder.svg',
-    gallery: [],
-  },
+  theme: { primary: '195 80% 45%', secondary: '45 90% 55%', accent: '340 70% 50%', sand: '45 40% 92%' },
+  hero: { title: 'Your Freedom Blueprint: CARIBBEAN CRUISE', subtitle: 'Everything You Need to Know Before You Go', backgroundImage: shipDeparture },
+  welcome: { greeting: 'Family,', message: ['One ship. Seven islands. Endless connections.', "After 2,500 travelers, the Caribbean cruise is special. It's where Africa spread across water and survived. Each island kept something different. Together, they kept everything.", 'This guide covers what you need for every port. Real preparation.', "Let's get you ready to island hop."], signature: 'Jay Cameron', signatureTitle: 'Founder, Maximum Impact Travel' },
+  basics: { documents: { title: 'Documents You Need', items: ['Passport (valid 6+ months)', 'No visas needed (cruise passengers)', 'Cruise documents', 'Return flight info', 'Travel insurance (recommended)', 'Passport copies', 'Emergency contacts'] }, health: { title: 'Health & Medicine', items: ['Hepatitis A & B recommended', 'Routine vaccines up to date', 'Seasickness medicine', 'Dramamine or seasickness bands', 'Sunscreen SPF 50+', 'Aloe vera for sunburn', 'Bug spray for shore days', 'Basic medications'] }, money: { currency: 'Varies by Island', currencyCode: 'USD', tips: ['Most islands accept USD', 'Eastern Caribbean Dollar (EC$) on some islands', 'Jamaican Dollar (JMD)', 'Barbados Dollar (BBD)', 'Bring $100-150 per port day', 'Small bills essential', 'Credit cards work in tourist areas', 'Beach chair: $10-20', 'Local lunch: $10-20', 'Taxi tour: $30-50', 'Rum punch: $5-10'] }, weather: { bestMonths: 'December - May (Dry Season)', temperature: '75-88°F (Hot always)', tips: ['Hurricane season: June-November', 'Dry season: December-May', 'Trade winds keep it comfortable', 'Rain showers are brief'] }, packing: [{ item: 'Formal night outfit', category: 'clothing', essential: true }, { item: 'Swimsuits (3+)', category: 'clothing', essential: true }, { item: 'Cover-ups', category: 'clothing' }, { item: 'Walking shoes', category: 'clothing', essential: true }, { item: 'Sandals', category: 'clothing' }, { item: 'Light layers (ship AC is cold)', category: 'clothing' }, { item: 'Power strip (limited outlets)', category: 'tech' }, { item: 'Waterproof phone case', category: 'tech' }, { item: 'Seasickness medicine', category: 'health', essential: true }, { item: 'Sunscreen SPF 50+', category: 'health', essential: true }, { item: 'Aloe vera', category: 'health' }, { item: 'Bug spray', category: 'health' }, { item: 'Passport', category: 'documents', essential: true }, { item: 'Cruise documents', category: 'documents', essential: true }] },
+  culture: { language: { name: 'Various Caribbean', greetings: [{ word: 'Wah gwaan', pronunciation: 'wah-GWAHN', translation: "What's up (Jamaica)" }, { word: 'Lime', pronunciation: 'lyme', translation: 'Hang out (Trinidad)' }, { word: 'Fete', pronunciation: 'fet', translation: 'Party (everywhere)' }, { word: 'Irie', pronunciation: 'EYE-ree', translation: "Everything's good" }, { word: 'Big up', pronunciation: 'big up', translation: 'Respect' }, { word: 'Small ting', pronunciation: 'small ting', translation: 'No problem' }] }, food: { intro: 'Each island has its own signature flavors rooted in African, European, and Indigenous traditions.', items: [{ name: 'Jerk Everything (Jamaica)', description: 'Spiced, smoked perfection', mustTry: true }, { name: 'Flying Fish (Barbados)', description: 'National dish with cou cou', mustTry: true }, { name: 'Doubles (Trinidad)', description: 'Curried chickpeas in fried bread', mustTry: true }, { name: 'Green Fig & Saltfish (St. Lucia)', description: 'Banana and salted cod' }, { name: 'Fungie & Pepperpot (Antigua)', description: 'Cornmeal with stew' }, { name: 'Oil Down (Grenada)', description: 'One-pot coconut stew' }, { name: 'Goat Water (St. Kitts)', description: 'Spicy goat stew' }] }, customs: { title: 'Island Etiquette', items: ['Greet people - "Good morning" goes far', 'Respect the pace - island time is real', 'Ask before photographing locals', 'Haggle politely in markets', 'Tip for good service', 'Don\'t just stay on the ship - explore'] }, shopping: { intro: 'Each island has its own specialty - collect treasures as you go.', tips: ['Jamaica: Blue Mountain coffee, rum', 'Barbados: Rum, hot sauce', 'Trinidad: Pepper sauce, steel pans', 'St. Lucia: Cocoa, spices', 'Grenada: Nutmeg everything (spice island)', 'Antigua: Black pineapple', 'Cayman: Rum cake', 'Bargaining expected in markets', 'Duty-free shopping available'] } },
+  photos: { intro: 'Capture the turquoise waters, vibrant culture, and island magic.', spots: [{ name: 'Ship Arrival', description: 'Each port entrance is unique', tips: 'Top deck early morning' }, { name: 'Beach Paradise', description: 'Crystal clear Caribbean water', tips: 'Underwater camera for snorkeling' }, { name: 'Local Market', description: 'Colors and characters', tips: 'Ask permission for portraits' }, { name: 'Rum Punch Sunset', description: 'Classic cruise moment', tips: 'Golden hour on deck' }, { name: 'Steel Drums', description: 'Trinidad especially', tips: 'Capture the movement' }, { name: 'Colorful Houses', description: 'Every island has them', tips: 'Morning light is best' }, { name: 'Swimming Pigs', description: 'If you hit Bahamas', tips: 'Waterproof everything' }, { name: 'Cliff Diving', description: "Rick's Cafe Jamaica", tips: 'Action shots need fast shutter' }, { name: 'Volcano View', description: 'The Pitons of St. Lucia', tips: 'Early morning clarity' }, { name: 'Group Ship Photo', description: 'Formal night memories', tips: 'Book photographer early' }] },
+  realTalk: { intro: 'What you need to know about cruising and port days.', items: [{ topic: 'Port Safety', honest: "Ship tours are safest but limit exploration. Independent travel is fine with common sense.", tip: 'Be back 1 hour before sailing. Stick to tourist areas. Don\'t buy drugs (setups). Watch the rum punch.' }, { topic: 'Ship Life', honest: 'Ships are floating cities. Germs spread. Crowds happen. But the convenience is unmatched.', tip: 'Hand sanitizer always. Take stairs not elevators. Book restaurants early. Tip room steward daily.' }, { topic: 'Time Management', honest: 'Port time is limited. You can\'t see everything. Choose what matters most to you.', tip: 'Research ports in advance. Book excursions early. Have a plan B for weather.' }, { topic: 'Communication', honest: 'Ship WiFi is expensive and slow. Port WiFi at cafes works.', tip: 'Buy local SIM if needed. WhatsApp when connected. Embrace being unplugged.' }, { topic: 'Seasickness', honest: 'It happens. Modern ships have stabilizers but rough seas occur.', tip: 'Dramamine or prescription patches. Ginger helps. Mid-ship cabins rock less.' }] },
+  beforeYouGo: { journal: [{ day: 0, prompt: 'What connects these islands to each other?' }, { day: 0, prompt: 'What survived the Middle Passage?' }, { day: 1, prompt: "What's different island to island?" }, { day: 2, prompt: 'What music moves me most?' }, { day: 3, prompt: 'Where do I see Africa in the Caribbean?' }, { day: 99, prompt: 'Which island calls me back?' }, { day: 99, prompt: 'What rhythm stayed with me?' }], lastMinute: ['Download Ship Mate app (cruise schedules)', 'Download XE Currency app', 'Download WhatsApp', 'Download island maps offline', 'Pack seasickness medication', 'Confirm cruise check-in', 'Print cruise documents', 'Pack power strip for cabin'] },
+  finalWords: { message: ['The Caribbean teaches you about adaptation.', "Same people. Same history. Different islands. Different solutions. But the drums never stopped. The spice never left. The resistance never died.", "Seven islands, one story: We're still here."], callToAction: { text: 'Ready to cruise the diaspora?', buttonText: 'Check out our Caribbean Cruise info session →', link: 'https://www.travelwithmit.com/caribbean' } },
+  images: { hero: shipDeparture, welcome: promenadeSunset, culture: mitDinner, food: gourmetDinner, gallery: [promenadeSunset, mitDinner, spaOceanView, dancingStars, cocktailToast, balconyCoffee, gourmetDinner, infinityPool, embarkationFamily], interludes: { afterWelcome: [promenadeSunset, mitDinner], afterBasics: [spaOceanView, dancingStars], afterCulture: [cocktailToast, balconyCoffee] } },
 };
