@@ -23,9 +23,9 @@ serve(async (req) => {
       throw new Error('ElevenLabs API key not configured')
     }
 
-    // Use a natural Arabic-friendly voice - "Rachel" is good for clear pronunciation
-    // You can change this to any ElevenLabs voice ID
-    const selectedVoiceId = voiceId || 'EXAVITQu4vr4xnSDxMaL' // Sarah - clear and natural
+    // George - Deep, authoritative British voice with clear enunciation
+    // Best for cultural pronunciations across multiple languages
+    const selectedVoiceId = voiceId || 'JBFqnCBsd6RMkjVDRZzb' // George
 
     console.log(`Generating TTS for: "${text}" with voice: ${selectedVoiceId}`)
 
