@@ -257,10 +257,12 @@ export interface GuideConfig {
     // New: Section interludes for photo magazine feel
     interludes?: {
       afterWelcome?: string[];    // Images after Editor's Letter
+      afterWelcomeQuote?: { text: string; attribution: string }; // Quote for this interlude
       afterBasics?: string[];     // Images after Essentials
       afterCulture?: string[];    // Images after Culture Spread
       afterPhotos?: string[];     // Images after Photo Spots
       afterRealTalk?: string[];   // Images after Real Talk
+      afterRealTalkQuote?: { text: string; attribution: string }; // Quote for this interlude
     };
     // New: Horizontal photo strips (flexible categories)
     strips?: {

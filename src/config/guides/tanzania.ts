@@ -354,10 +354,18 @@ export const tanzaniaGuide: GuideConfig = {
     // Photo magazine interludes between sections - unique images
     interludes: {
       afterWelcome: [kilimanjaroSunrise, craterDawn, serengetiDrive],
+      afterWelcomeQuote: {
+        text: "The Serengeti shows you what Earth looked like before we complicated it.",
+        attribution: 'Jay Cameron',
+      },
       afterBasics: [balloonChampagne, balloonWomanJoy, craterView],
       afterCulture: [maasaiDancing, maasaiWelcome, maasaiChildren],
       afterPhotos: [zanzibarParadise, beachCoupleWalk, beachSunsetGroup],
       afterRealTalk: [sunsetToast, groupLaugh, arrivalEmbrace],
+      afterRealTalkQuote: {
+        text: "Coming home different isn't about the destination. It's about finally coming home to yourself.",
+        attribution: 'Jay Cameron',
+      },
     },
     // Horizontal scrolling photo strips - unique images
     strips: {
