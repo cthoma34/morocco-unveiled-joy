@@ -1,7 +1,7 @@
 import { GuideConfig } from '@/types/guide-config';
 
 export const gullahGuide: GuideConfig = {
-  slug: 'gullah-guide',
+  slug: 'gullah',
   destinationName: 'Gullah Geechee',
   tagline: 'Your Freedom Blueprint',
 
