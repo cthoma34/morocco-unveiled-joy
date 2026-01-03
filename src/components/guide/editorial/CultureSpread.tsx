@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Volume2, Utensils, ShoppingBag } from 'lucide-react';
+import { Volume2, Utensils, ShoppingBag, BookOpen, History } from 'lucide-react';
 import { GuideConfig } from '@/types/guide-config';
 import EditorialCard from './EditorialCard';
 import { AudioButton } from '../AudioButton';
@@ -11,6 +11,66 @@ interface CultureSpreadProps {
 const CultureSpread = ({ culture }: CultureSpreadProps) => {
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+      {/* History Section - Only shown if history data exists */}
+      {culture.history && (
+        <motion.div 
+          className="mb-20"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="flex items-center gap-4 mb-6">
+            <History className="w-5 h-5 text-[hsl(var(--dest-primary))]" />
+            <span className="text-xs tracking-[0.4em] uppercase text-[hsl(var(--dest-primary))]">
+              {culture.history.title}
+            </span>
+          </div>
+
+          <p className="text-xl text-foreground/80 mb-12 max-w-4xl leading-relaxed">
+            {culture.history.intro}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {culture.history.items.map((item, i) => (
+              <motion.div
+                key={i}
+                className="group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <EditorialCard variant="bordered" className="h-full">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <span className="font-heading text-4xl text-[hsl(var(--dest-primary)/0.3)] group-hover:text-[hsl(var(--dest-primary))] transition-colors">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-heading text-2xl text-foreground mb-1">{item.name}</h4>
+                      <p className="text-xs tracking-[0.2em] uppercase text-[hsl(var(--dest-primary))] mb-4">
+                        {item.period}
+                      </p>
+                      <p className="text-foreground/80 text-sm leading-relaxed mb-4">
+                        {item.story}
+                      </p>
+                      <div className="flex items-start gap-2 pt-4 border-t border-border/30">
+                        <BookOpen className="w-4 h-4 text-[hsl(var(--dest-primary))] mt-0.5 flex-shrink-0" />
+                        <p className="text-xs text-foreground/60 italic">
+                          Legacy: {item.legacy}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </EditorialCard>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      )}
+
       {/* Language Section - Full width hero treatment */}
       <motion.div 
         className="mb-20"
