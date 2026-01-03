@@ -1,9 +1,73 @@
 import { GuideConfig } from '@/types/guide-config';
 
+// Hero and Section Images
+import heroImage from '@/assets/ghana/door-of-no-return.jpg';
+
+// Videos
+import heroVideo from '@/assets/ghana/hero-castle.mp4';
+import ctaVideo from '@/assets/ghana/cta-sunset.mp4';
+import welcomeImage from '@/assets/ghana/group-cape-coast.jpg';
+import cultureImage from '@/assets/ghana/kente-weaving.jpg';
+import foodImage from '@/assets/ghana/jollof-rice.jpg';
+
+// Castle & Heritage Sites
+import capeCoastAerial from '@/assets/ghana/cape-coast-aerial.jpg';
+import elminaCastle from '@/assets/ghana/elmina-castle.jpg';
+import castleDungeon from '@/assets/ghana/castle-dungeon.jpg';
+import castleSunset from '@/assets/ghana/castle-sunset.jpg';
+import doorTouch from '@/assets/ghana/door-touch.jpg';
+
+// Cultural Experiences
+import kentePortrait from '@/assets/ghana/kente-portrait.jpg';
+import kenteWeaving from '@/assets/ghana/kente-weaving.jpg';
+import adinkraMaking from '@/assets/ghana/adinkra-making.jpg';
+import drummingDance from '@/assets/ghana/drumming-dance.jpg';
+import namingCeremony from '@/assets/ghana/naming-ceremony.jpg';
+import chiefMeeting from '@/assets/ghana/chief-meeting.jpg';
+
+// Accra & Landmarks
+import independenceArchSunset from '@/assets/ghana/independence-arch-sunset.jpg';
+import blackStarSquare from '@/assets/ghana/black-star-square.jpg';
+import nkrumahMemorial from '@/assets/ghana/nkrumah-memorial.jpg';
+import jamestownLighthouse from '@/assets/ghana/jamestown-lighthouse.jpg';
+
+// Markets & Shopping
+import makolaMarket from '@/assets/ghana/makola-market.jpg';
+import artsCentre from '@/assets/ghana/arts-centre.jpg';
+import beadMarket from '@/assets/ghana/bead-market.jpg';
+
+// Food
+import jollofRice from '@/assets/ghana/jollof-rice.jpg';
+import bankuTilapia from '@/assets/ghana/banku-tilapia.jpg';
+import kelewele from '@/assets/ghana/kelewele.jpg';
+import fufuSoup from '@/assets/ghana/fufu-soup.jpg';
+import redRed from '@/assets/ghana/red-red.jpg';
+import saboloDrink from '@/assets/ghana/sobolo-drink.jpg';
+
+// Nature & Beach
+import kakumCanopy from '@/assets/ghana/kakum-canopy.jpg';
+import labadiBeach from '@/assets/ghana/labadi-beach.jpg';
+import fishingBoats from '@/assets/ghana/fishing-boats.jpg';
+
+// People & Connections
+import villageConnection from '@/assets/ghana/village-connection.jpg';
+
 export const ghanaGuide: GuideConfig = {
   slug: 'ghana',
   destinationName: 'Ghana',
   tagline: 'Your Freedom Blueprint',
+
+  editorial: {
+    issueNumber: 'Guide No. 01',
+    coverLine: 'Where we come home',
+    colorPalette: {
+      primary: '210 26% 24%',
+      accent: '43 80% 38%',
+      neutral: '60 20% 98%',
+      highlight: '348 86% 47%',
+      mood: 'bold-heritage',
+    },
+  },
 
   theme: {
     primary: '45 100% 40%',
@@ -15,7 +79,8 @@ export const ghanaGuide: GuideConfig = {
   hero: {
     title: 'Your Freedom Blueprint: GHANA',
     subtitle: 'Everything You Need to Know Before You Go',
-    backgroundImage: '/placeholder.svg',
+    backgroundImage: heroImage,
+    backgroundVideo: heroVideo,
   },
 
   welcome: {
@@ -29,6 +94,7 @@ export const ghanaGuide: GuideConfig = {
     ],
     signature: 'Jay Cameron',
     signatureTitle: 'Founder, Maximum Impact Travel',
+    image: welcomeImage,
   },
 
   basics: {
@@ -118,14 +184,14 @@ export const ghanaGuide: GuideConfig = {
     food: {
       intro: "Ghana's cuisine is rich with bold flavors and communal dining traditions.",
       items: [
-        { name: 'Jollof Rice', description: 'The original - spiced tomato rice', mustTry: true },
-        { name: 'Banku & Tilapia', description: 'Fermented corn dough with grilled fish', mustTry: true },
-        { name: 'Fufu & Light Soup', description: 'Pounded cassava/plantain with aromatic broth', mustTry: true },
-        { name: 'Kelewele', description: 'Spiced fried plantains - perfect street snack' },
-        { name: 'Red Red', description: 'Black-eyed peas with fried plantains' },
+        { name: 'Jollof Rice', description: 'The original - spiced tomato rice', mustTry: true, image: jollofRice },
+        { name: 'Banku & Tilapia', description: 'Fermented corn dough with grilled fish', mustTry: true, image: bankuTilapia },
+        { name: 'Fufu & Light Soup', description: 'Pounded cassava/plantain with aromatic broth', mustTry: true, image: fufuSoup },
+        { name: 'Kelewele', description: 'Spiced fried plantains - perfect street snack', image: kelewele },
+        { name: 'Red Red', description: 'Black-eyed peas with fried plantains', image: redRed },
         { name: 'Waakye', description: 'Rice and beans with spicy pepper sauce' },
         { name: 'Roasted Plantains', description: 'Safe and delicious street food' },
-        { name: 'Sobolo', description: 'Refreshing hibiscus drink' },
+        { name: 'Sobolo', description: 'Refreshing hibiscus drink', image: saboloDrink },
       ],
     },
     customs: {
@@ -160,16 +226,16 @@ export const ghanaGuide: GuideConfig = {
   photos: {
     intro: 'Capture the moments that matter most on your journey home.',
     spots: [
-      { name: 'Door of No Return', description: 'The most powerful moment', tips: 'Early morning for fewer crowds and softer light' },
-      { name: 'Independence Arch', description: 'Symbol of African freedom', tips: 'Best at sunset with the arch silhouetted' },
-      { name: 'Kente Portrait', description: 'You draped in tradition', tips: 'Natural light, solid background' },
-      { name: 'Cape Coast Castle', description: 'Powerful history preserved', tips: 'Exterior shots with ocean backdrop' },
-      { name: 'Market Colors', description: 'Overhead shot of vibrant goods', tips: 'Ask permission, tip vendors' },
-      { name: 'Elmina Castle', description: 'Ocean view from fortress walls', tips: 'Blue hour for dramatic contrast' },
-      { name: 'Kakum Canopy Walk', description: 'If you\'re brave - 130 feet up', tips: 'Go early before crowds' },
-      { name: 'Black Star Square', description: 'Independence monument', tips: 'Wide angle to capture scale' },
-      { name: 'Local Family', description: 'New connections made', tips: 'Always ask permission first' },
-      { name: 'Beach Sunset', description: 'Atlantic memories', tips: 'Labadi Beach at golden hour' },
+      { name: 'Door of No Return', description: 'The most powerful moment', tips: 'Early morning for fewer crowds and softer light', image: heroImage },
+      { name: 'Independence Arch', description: 'Symbol of African freedom', tips: 'Best at sunset with the arch silhouetted', image: independenceArchSunset },
+      { name: 'Kente Portrait', description: 'You draped in tradition', tips: 'Natural light, solid background', image: kentePortrait },
+      { name: 'Cape Coast Castle', description: 'Powerful history preserved', tips: 'Exterior shots with ocean backdrop', image: capeCoastAerial },
+      { name: 'Market Colors', description: 'Overhead shot of vibrant goods', tips: 'Ask permission, tip vendors', image: makolaMarket },
+      { name: 'Elmina Castle', description: 'Ocean view from fortress walls', tips: 'Blue hour for dramatic contrast', image: elminaCastle },
+      { name: 'Kakum Canopy Walk', description: 'If you\'re brave - 130 feet up', tips: 'Go early before crowds', image: kakumCanopy },
+      { name: 'Black Star Square', description: 'Independence monument', tips: 'Wide angle to capture scale', image: blackStarSquare },
+      { name: 'Local Family', description: 'New connections made', tips: 'Always ask permission first', image: villageConnection },
+      { name: 'Beach Sunset', description: 'Atlantic memories', tips: 'Labadi Beach at golden hour', image: labadiBeach },
     ],
   },
 
@@ -242,10 +308,93 @@ export const ghanaGuide: GuideConfig = {
   },
 
   images: {
-    hero: '/placeholder.svg',
-    welcome: '/placeholder.svg',
-    culture: '/placeholder.svg',
-    food: '/placeholder.svg',
-    gallery: [],
+    hero: heroImage,
+    heroVideo: heroVideo,
+    ctaVideo: ctaVideo,
+    welcome: welcomeImage,
+    culture: cultureImage,
+    food: foodImage,
+    gallery: [
+      heroImage,
+      capeCoastAerial,
+      elminaCastle,
+      kentePortrait,
+      independenceArchSunset,
+      makolaMarket,
+      kakumCanopy,
+      labadiBeach,
+    ],
+    interludes: {
+      // After welcome - heritage and history images
+      afterWelcome: [castleDungeon, capeCoastAerial, doorTouch],
+      afterWelcomeQuote: {
+        text: "You're not visiting. You're returning.",
+        attribution: "Jay Cameron"
+      },
+      // After basics - practical and landscape images
+      afterBasics: [jamestownLighthouse, fishingBoats],
+      // After culture - cultural experiences
+      afterCulture: [drummingDance, namingCeremony, chiefMeeting],
+      // After photos - beautiful landscape shots
+      afterPhotos: [castleSunset, labadiBeach],
+      // After real talk - emotional/reflective images
+      afterRealTalk: [villageConnection, kentePortrait],
+      afterRealTalkQuote: {
+        text: "Ghana teaches you something: You've always had a home.",
+        attribution: "Jay Cameron"
+      }
+    },
+    strips: {
+      heritage: [
+        { src: heroImage, caption: 'Door of No Return' },
+        { src: capeCoastAerial, caption: 'Cape Coast Castle from above' },
+        { src: elminaCastle, caption: 'Elmina Castle' },
+        { src: castleDungeon, caption: 'Inside the dungeons' },
+        { src: doorTouch, caption: 'Touching history' },
+        { src: castleSunset, caption: 'Sunset over the castle' },
+      ],
+      culture: [
+        { src: kenteWeaving, caption: 'Kente weaving tradition' },
+        { src: adinkraMaking, caption: 'Adinkra cloth making' },
+        { src: drummingDance, caption: 'Traditional drumming' },
+        { src: namingCeremony, caption: 'Naming ceremony' },
+        { src: chiefMeeting, caption: 'Meeting a chief' },
+        { src: kentePortrait, caption: 'Draped in Kente' },
+      ],
+      food: [
+        { src: jollofRice, caption: 'Jollof Rice' },
+        { src: bankuTilapia, caption: 'Banku & Tilapia' },
+        { src: fufuSoup, caption: 'Fufu & Light Soup' },
+        { src: kelewele, caption: 'Kelewele' },
+        { src: redRed, caption: 'Red Red' },
+        { src: saboloDrink, caption: 'Sobolo drink' },
+      ],
+      shopping: [
+        { src: makolaMarket, caption: 'Makola Market' },
+        { src: artsCentre, caption: 'Arts Centre' },
+        { src: beadMarket, caption: 'Bead market' },
+        { src: kenteWeaving, caption: 'Kente cloth shopping' },
+      ],
+      adventure: [
+        { src: kakumCanopy, caption: 'Kakum Canopy Walk' },
+        { src: labadiBeach, caption: 'Labadi Beach' },
+        { src: fishingBoats, caption: 'Fishing village' },
+        { src: independenceArchSunset, caption: 'Independence Arch' },
+        { src: blackStarSquare, caption: 'Black Star Square' },
+        { src: nkrumahMemorial, caption: 'Nkrumah Memorial' },
+      ],
+    },
+    photoSpots: [
+      heroImage,
+      independenceArchSunset,
+      kentePortrait,
+      capeCoastAerial,
+      makolaMarket,
+      elminaCastle,
+      kakumCanopy,
+      blackStarSquare,
+      villageConnection,
+      labadiBeach,
+    ],
   },
 };
