@@ -112,7 +112,7 @@ export const caribbeanGuide: GuideConfig = {
       ] 
     }, 
     weather: { 
-      bestMonths: 'December - May (Dry Season)', 
+      bestMonths: 'November - May', 
       temperature: '75-88°F (Hot always)', 
       tips: [
         'Hurricane season: June-November', 
@@ -120,7 +120,7 @@ export const caribbeanGuide: GuideConfig = {
         'Trade winds keep it comfortable', 
         'Rain showers are brief'
       ] 
-    }, 
+    },
     packing: [
       { item: 'Formal night outfit', category: 'clothing', essential: true }, 
       { item: 'Swimsuits (3+)', category: 'clothing', essential: true }, 
