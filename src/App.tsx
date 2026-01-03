@@ -11,54 +11,32 @@ import { GuideConfig } from "./types/guide-config";
 const queryClient = new QueryClient();
 
 // ============================================================
-// SUBDOMAIN DETECTION FOR GUIDES
+// GUIDE DOMAIN DETECTION
 // ============================================================
-// Detects subdomain from hostname and returns matching guide
-// Patterns:
-//   ghana-guide.travelwithmit.com → ghanaGuide
-//   tanzania-guide.travelwithmit.com → tanzaniaGuide
-//   guide.travelwithmit.com → defaultGuide
-//   localhost:5173 → null (use path-based routing for dev)
+// Production: guide.travelwithmit.com with path-based routing
+//   guide.travelwithmit.com/tanzania → tanzaniaGuide
+//   guide.travelwithmit.com/dubai → dubaiGuide
+//   guide.travelwithmit.com/blp → blpGuide
+// Development: Same path-based routing on localhost/preview
 // ============================================================
 
-const getGuideFromSubdomain = (): GuideConfig | null => {
+const isGuideDomain = (): boolean => {
   const hostname = window.location.hostname;
   
-  // Development: localhost or Lovable preview
+  // Development environments always use path-based routing
   if (
     hostname === "localhost" ||
     hostname.includes("lovable.app") ||
     hostname.includes("lovableproject.com")
   ) {
-    return null; // Use path-based routing in development
+    return true;
   }
   
-  // Production: extract subdomain from travelwithmit.com
-  const parts = hostname.split(".");
-  
-  // If we have a subdomain (e.g., ghana-guide.travelwithmit.com = 3 parts)
-  if (parts.length >= 3) {
-    const subdomain = parts[0].toLowerCase();
-    
-    // Check if it's a guide subdomain (ends with -guide)
-    if (subdomain.endsWith('-guide')) {
-      const guideSlug = subdomain.replace('-guide', '');
-      const guide = getGuideBySlug(guideSlug);
-      if (guide) return guide;
-    }
-    
-    // Check direct slug match
-    const directGuide = getGuideBySlug(subdomain);
-    if (directGuide) return directGuide;
-  }
-  
-  // No valid subdomain → default guide
-  return defaultGuide;
+  // Production: check if on guide.travelwithmit.com
+  return hostname.startsWith("guide.");
 };
 
 const App = () => {
-  const subdomainGuide = getGuideFromSubdomain();
-  
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -66,36 +44,20 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <Routes>
-            {subdomainGuide ? (
-              // Subdomain detected → show that guide on all routes
-              <Route path="*" element={<GuidePage config={subdomainGuide} />} />
-            ) : (
-              <>
-                {/* Development/Preview: path-based routing */}
-                <Route path="/" element={<GuidePage config={defaultGuide} />} />
-                
-                {/* Dynamic guide routes */}
-                {allGuides.map((guide) => (
-                  <Route
-                    key={guide.slug}
-                    path={`/${guide.slug}`}
-                    element={<GuidePage config={guide} />}
-                  />
-                ))}
-                
-                {/* Also support short slugs without -guide suffix */}
-                {allGuides.map((guide) => (
-                  <Route
-                    key={`short-${guide.slug}`}
-                    path={`/${guide.slug.replace('-guide', '')}`}
-                    element={<GuidePage config={guide} />}
-                  />
-                ))}
-                
-                {/* Catch-all for 404 */}
-                <Route path="*" element={<NotFound />} />
-              </>
-            )}
+            {/* Root: default guide */}
+            <Route path="/" element={<GuidePage config={defaultGuide} />} />
+            
+            {/* Path-based guide routes: /tanzania, /dubai, /blp, etc. */}
+            {allGuides.map((guide) => (
+              <Route
+                key={guide.slug}
+                path={`/${guide.slug}`}
+                element={<GuidePage config={guide} />}
+              />
+            ))}
+            
+            {/* Catch-all for 404 */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
