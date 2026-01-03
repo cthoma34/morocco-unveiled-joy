@@ -110,11 +110,11 @@ export const AudioButton = ({ word, pronunciation, translation, className }: Aud
           <span className="font-heading text-lg font-semibold text-foreground">
             {word}
           </span>
-          <span className="text-sm text-muted-foreground font-body">
+          <span className="text-sm text-foreground/70 font-body">
             [{pronunciation}]
           </span>
         </div>
-        <p className="text-sm text-muted-foreground mt-0.5">
+        <p className="text-sm text-foreground/70 mt-0.5">
           {translation}
         </p>
       </div>

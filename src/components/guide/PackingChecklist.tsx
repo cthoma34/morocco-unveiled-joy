@@ -145,7 +145,7 @@ export const PackingChecklist = ({ items, storageKey, className }: PackingCheckl
                   </div>
                   <span className={cn(
                     'flex-1 text-sm',
-                    checked[item.item] && 'line-through text-muted-foreground'
+                    checked[item.item] ? 'line-through text-foreground/40' : 'text-foreground/80'
                   )}>
                     {item.item}
                     {item.essential && (

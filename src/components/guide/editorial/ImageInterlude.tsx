@@ -147,7 +147,7 @@ const ImageInterlude = ({
               "{quote}"
             </blockquote>
             {attribution && (
-              <p className="mt-4 text-sm text-muted-foreground uppercase tracking-widest">
+              <p className="mt-4 text-sm text-foreground/60 uppercase tracking-widest">
                 — {attribution}
               </p>
             )}

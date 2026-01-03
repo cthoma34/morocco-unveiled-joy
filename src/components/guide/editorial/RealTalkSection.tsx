@@ -60,7 +60,7 @@ const RealTalkSection = ({ realTalk }: RealTalkSectionProps) => {
                         <p className="text-xs tracking-[0.3em] uppercase text-[hsl(var(--dest-primary))] mb-2">
                           Jay's Tip
                         </p>
-                        <p className="text-muted-foreground">
+                        <p className="text-foreground/80">
                           {item.tip}
                         </p>
                       </div>

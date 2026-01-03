@@ -48,7 +48,7 @@ const PhotoGalleryStrip = ({ images, direction = 'left' }: PhotoGalleryStripProp
               {/* Caption on hover */}
               {image.caption && (
                 <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-white text-sm font-body">{image.caption}</p>
+                  <p className="text-white/90 text-sm font-body">{image.caption}</p>
                 </div>
               )}
             </div>

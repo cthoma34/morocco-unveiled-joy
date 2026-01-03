@@ -88,7 +88,7 @@ export const JournalPrompts = ({ prompts, storageKey, className }: JournalPrompt
       {/* Journal Entry */}
       {activePrompt && (
         <div className="p-4">
-          <p className="text-muted-foreground mb-4 italic font-heading text-lg">
+          <p className="text-foreground/70 mb-4 italic font-heading text-lg">
             "{activePrompt.prompt}"
           </p>
 

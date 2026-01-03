@@ -137,7 +137,7 @@ export const CurrencyConverter = ({ currencyCode, currencyName, className }: Cur
       </div>
 
       {/* Exchange Rate Display */}
-      <div className="text-center text-sm text-muted-foreground mb-4">
+      <div className="text-center text-sm text-foreground/70 mb-4">
         {isLoading ? (
           <span className="animate-pulse">Loading rate...</span>
         ) : (

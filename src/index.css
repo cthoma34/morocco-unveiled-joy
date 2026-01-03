@@ -20,7 +20,7 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 53%;
+    --muted-foreground: 0 0% 70%;
 
     --accent: 43 51% 56%;
     --accent-foreground: 0 0% 8%;
@@ -28,8 +28,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 100% / 0.08;
-    --input: 0 0% 100% / 0.08;
+    --border: 0 0% 100% / 0.12;
+    --input: 0 0% 100% / 0.12;
     --ring: 43 51% 56%;
 
     --radius: 0.25rem;
@@ -47,6 +47,10 @@
     --editorial-accent: 31 85% 53%;
     --editorial-neutral: 60 20% 97%;
     --editorial-highlight: 219 79% 66%;
+    
+    /* Destination theme color (overridden dynamically) */
+    --dest-primary: 43 51% 56%;
+    --dest-primary-foreground: 0 0% 8%;
 
     /* Gradients */
     --gradient-gold: linear-gradient(135deg, hsl(43 51% 56%), hsl(43 51% 65%));

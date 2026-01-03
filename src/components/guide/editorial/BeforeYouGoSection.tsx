@@ -46,7 +46,7 @@ const BeforeYouGoSection = ({ beforeYouGo, slug }: BeforeYouGoSectionProps) => {
                 transition={{ duration: 0.4, delay: 0.05 * i }}
               >
                 <CheckCircle2 className="w-5 h-5 text-[hsl(var(--dest-primary))] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+                <span className="text-foreground/80 group-hover:text-foreground transition-colors">
                   {item}
                 </span>
               </motion.div>

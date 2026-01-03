@@ -59,7 +59,7 @@ const CultureSpread = ({ culture }: CultureSpreadProps) => {
               <h3 className="font-heading text-2xl text-foreground">Food & Dining</h3>
             </div>
             
-            <p className="text-muted-foreground mb-8 text-lg">
+            <p className="text-foreground/80 mb-8 text-lg">
               {culture.food.intro}
             </p>
 
@@ -88,7 +88,7 @@ const CultureSpread = ({ culture }: CultureSpreadProps) => {
                         </span>
                       )}
                     </div>
-                    <p className="text-muted-foreground text-sm mt-1">{food.description}</p>
+                    <p className="text-foreground/70 text-sm mt-1">{food.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -104,7 +104,7 @@ const CultureSpread = ({ culture }: CultureSpreadProps) => {
               <ShoppingBag className="w-5 h-5 text-[hsl(var(--dest-primary))]" />
               <h3 className="font-heading text-xl text-foreground">Shopping</h3>
             </div>
-            <p className="text-muted-foreground mb-6">{culture.shopping.intro}</p>
+            <p className="text-foreground/80 mb-6">{culture.shopping.intro}</p>
             <div className="space-y-3">
               {culture.shopping.tips.slice(0, 6).map((tip, i) => (
                 <motion.div 
@@ -116,7 +116,7 @@ const CultureSpread = ({ culture }: CultureSpreadProps) => {
                   transition={{ delay: i * 0.05 }}
                 >
                   <span className="text-[hsl(var(--dest-primary))]">→</span>
-                  <span className="text-sm text-muted-foreground">{tip}</span>
+                  <span className="text-sm text-foreground/70">{tip}</span>
                 </motion.div>
               ))}
             </div>
@@ -129,7 +129,7 @@ const CultureSpread = ({ culture }: CultureSpreadProps) => {
               {culture.customs.items.map((item, i) => (
                 <motion.div 
                   key={i}
-                  className="flex items-start gap-3 text-muted-foreground"
+                  className="flex items-start gap-3 text-foreground/80"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
