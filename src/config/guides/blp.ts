@@ -1,7 +1,7 @@
 import { GuideConfig } from '@/types/guide-config';
 
 export const blpGuide: GuideConfig = {
-  slug: 'blp-guide',
+  slug: 'blp',
   destinationName: 'Black London + Paris',
   tagline: 'Your Freedom Blueprint',
 

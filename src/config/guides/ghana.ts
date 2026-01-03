@@ -1,7 +1,7 @@
 import { GuideConfig } from '@/types/guide-config';
 
 export const ghanaGuide: GuideConfig = {
-  slug: 'ghana-guide',
+  slug: 'ghana',
   destinationName: 'Ghana',
   tagline: 'Your Freedom Blueprint',
 

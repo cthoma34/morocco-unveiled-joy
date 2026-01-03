@@ -1,7 +1,7 @@
 import { GuideConfig } from '@/types/guide-config';
 
 export const brazilGuide: GuideConfig = {
-  slug: 'brazil-guide',
+  slug: 'brazil',
   destinationName: 'Brazil',
   tagline: 'Your Freedom Blueprint',
 
