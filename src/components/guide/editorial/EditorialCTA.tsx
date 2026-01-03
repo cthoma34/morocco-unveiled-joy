@@ -90,7 +90,7 @@ const EditorialCTA = ({ finalWords, destinationName, ctaVideo, ctaImage }: Edito
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-foreground/70 mb-8">
             {finalWords.callToAction.text}
           </p>
 

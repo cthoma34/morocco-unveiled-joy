@@ -19,13 +19,13 @@ const EditorialFooter = () => {
               className="h-10 w-auto opacity-80 hover:opacity-100 transition-opacity" 
             />
             <div className="h-6 w-px bg-border/30" />
-            <span className="text-sm text-muted-foreground">
+            <span className="text-sm text-foreground/70">
               © {new Date().getFullYear()} Maximum Impact Travel
             </span>
           </div>
 
           {/* Tagline */}
-          <p className="text-sm text-muted-foreground italic">
+          <p className="text-sm text-foreground/70 italic">
             Designed for transformative travel experiences
           </p>
         </motion.div>

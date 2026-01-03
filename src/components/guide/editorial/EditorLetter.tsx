@@ -51,7 +51,7 @@ const EditorLetter = ({ welcome, destinationName }: EditorLetterProps) => {
               {welcome.message.map((paragraph, i) => (
                 <motion.p 
                   key={i}
-                  className="text-lg md:text-xl text-muted-foreground leading-relaxed font-body"
+                  className="text-lg md:text-xl text-foreground/80 leading-relaxed font-body"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

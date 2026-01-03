@@ -51,7 +51,7 @@ const PhotoSpotsMasonry = ({ photos }: PhotoSpotsMasonryProps) => {
                     {spot.name}
                   </h3>
 
-                  <p className="text-muted-foreground mb-4">
+                  <p className="text-foreground/80 mb-4">
                     {spot.description}
                   </p>
 

@@ -295,6 +295,7 @@ export const getDestinationThemeVars = (theme: GuideConfig['theme'], editorial?:
   return {
     // Legacy theme vars
     '--dest-primary': theme.primary,
+    '--dest-primary-foreground': '0 0% 8%',
     '--dest-secondary': theme.secondary,
     '--dest-accent': theme.accent,
     '--dest-sand': theme.sand,

@@ -71,7 +71,7 @@ const EssentialsGrid = ({ basics, slug }: EssentialsGridProps) => {
               {basics.documents.items.map((item, i) => (
                 <motion.li 
                   key={i}
-                  className="flex items-start gap-3 text-muted-foreground"
+                  className="flex items-start gap-3 text-foreground/80"
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -94,7 +94,7 @@ const EssentialsGrid = ({ basics, slug }: EssentialsGridProps) => {
               {basics.health.items.slice(0, 7).map((item, i) => (
                 <motion.li 
                   key={i}
-                  className="flex items-start gap-3 text-muted-foreground"
+                  className="flex items-start gap-3 text-foreground/80"
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
