@@ -160,7 +160,12 @@ const GuidePage = ({ config }: GuidePageProps) => {
       </PhotoEssaySection>
 
       {/* Final CTA */}
-      <EditorialCTA finalWords={guide.finalWords} destinationName={guide.destinationName} />
+      <EditorialCTA 
+        finalWords={guide.finalWords} 
+        destinationName={guide.destinationName}
+        ctaVideo={guide.images.ctaVideo}
+        ctaImage={guide.images.hero}
+      />
 
       {/* Footer */}
       <EditorialFooter />

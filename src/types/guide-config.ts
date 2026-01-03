@@ -243,9 +243,11 @@ export interface GuideConfig {
     };
   };
 
-  // Images throughout - organized by section for magazine-style layouts
+  // Images and videos throughout - organized by section for magazine-style layouts
   images: {
     hero: string;
+    heroVideo?: string;           // Hero section video
+    ctaVideo?: string;            // CTA section video
     welcome?: string;
     culture?: string;
     food?: string;
