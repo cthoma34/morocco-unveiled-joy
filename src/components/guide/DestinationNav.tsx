@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, Globe } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { allGuides } from '@/config/guides';
 import { cn } from '@/lib/utils';
 
@@ -10,71 +10,106 @@ interface DestinationNavProps {
 const DestinationNav = ({ currentSlug }: DestinationNavProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const currentGuide = allGuides.find(guide => guide.slug === currentSlug);
   const otherDestinations = allGuides.filter(guide => guide.slug !== currentSlug);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="flex items-center justify-between h-14">
-          {/* Logo */}
-          <a href="https://maximumimpacttravel.com" className="font-heading text-lg md:text-xl font-semibold text-foreground">
-            Maximum Impact <span className="text-[hsl(var(--dest-primary))]">Travel</span>
-          </a>
+    <>
+      {/* Floating Menu Button */}
+      <button
+        onClick={() => setIsOpen(true)}
+        className="fixed top-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5 bg-background/90 backdrop-blur-md border border-border rounded-full shadow-lg hover:bg-background transition-all group"
+      >
+        <span className="text-sm font-medium text-foreground/80 group-hover:text-foreground hidden sm:inline">
+          Explore Destinations
+        </span>
+        <Menu className="w-5 h-5 text-foreground/80 group-hover:text-foreground" />
+      </button>
 
-          {/* Destinations Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
-            >
-              <Globe className="w-4 h-4" />
-              <span className="hidden sm:inline">Explore Destinations</span>
-              <span className="sm:hidden">Destinations</span>
-              <ChevronDown className={cn("w-4 h-4 transition-transform", isOpen && "rotate-180")} />
-            </button>
+      {/* Backdrop */}
+      <div 
+        className={cn(
+          "fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm transition-opacity duration-300",
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
+        onClick={() => setIsOpen(false)}
+      />
 
-            {isOpen && (
-              <>
-                {/* Backdrop */}
-                <div 
-                  className="fixed inset-0 z-40" 
+      {/* Side Panel */}
+      <div 
+        className={cn(
+          "fixed top-0 right-0 z-[101] h-full w-full sm:w-[420px] bg-background border-l border-border shadow-2xl transition-transform duration-500 ease-out",
+          isOpen ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between p-6 border-b border-border">
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-1">
+              Maximum Impact Travel
+            </p>
+            <h2 className="font-heading text-2xl text-foreground">
+              Our Destinations
+            </h2>
+          </div>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="p-2 hover:bg-muted rounded-full transition-colors"
+          >
+            <X className="w-6 h-6 text-foreground" />
+          </button>
+        </div>
+
+        {/* Current Destination */}
+        {currentGuide && (
+          <div className="p-6 border-b border-border bg-muted/30">
+            <p className="text-xs uppercase tracking-[0.15em] text-[hsl(var(--dest-primary))] mb-2">
+              Currently Viewing
+            </p>
+            <h3 className="font-heading text-xl text-foreground">
+              {currentGuide.destinationName}
+            </h3>
+          </div>
+        )}
+
+        {/* Destinations List */}
+        <div className="overflow-y-auto h-[calc(100%-220px)]">
+          <div className="p-4">
+            <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground px-2 mb-4">
+              Explore Other Guides
+            </p>
+            <div className="space-y-1">
+              {otherDestinations.map((guide) => (
+                <a
+                  key={guide.slug}
+                  href={`/${guide.slug}`}
+                  className="flex items-center justify-between px-4 py-4 rounded-lg hover:bg-muted transition-colors group"
                   onClick={() => setIsOpen(false)}
-                />
-                
-                {/* Dropdown */}
-                <div className="absolute right-0 top-full mt-2 w-64 bg-background border border-border rounded-lg shadow-xl z-50 overflow-hidden">
-                  <div className="p-2 border-b border-border">
-                    <p className="text-xs text-muted-foreground px-2">Other destinations we travel to</p>
-                  </div>
-                  <div className="max-h-80 overflow-y-auto py-2">
-                    {otherDestinations.map((guide) => (
-                      <a
-                        key={guide.slug}
-                        href={`/${guide.slug}`}
-                        className="flex items-center gap-3 px-4 py-2.5 hover:bg-muted transition-colors"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        <span className="text-sm font-medium text-foreground">{guide.destinationName}</span>
-                      </a>
-                    ))}
-                  </div>
-                  <div className="p-2 border-t border-border">
-                    <a 
-                      href="https://maximumimpacttravel.com" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-center text-xs text-[hsl(var(--dest-primary))] hover:underline px-2 py-1"
-                    >
-                      View all trips →
-                    </a>
-                  </div>
-                </div>
-              </>
-            )}
+                >
+                  <span className="text-lg font-medium text-foreground group-hover:text-[hsl(var(--dest-primary))] transition-colors">
+                    {guide.destinationName}
+                  </span>
+                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-[hsl(var(--dest-primary))] group-hover:translate-x-1 transition-all" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
+
+        {/* Footer CTA */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-border bg-background">
+          <a 
+            href="https://maximumimpacttravel.com" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full py-3 bg-[hsl(var(--dest-primary))] text-[hsl(var(--dest-primary-foreground))] rounded-lg font-medium hover:opacity-90 transition-opacity"
+          >
+            View All Trips
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
       </div>
-    </nav>
+    </>
   );
 };
 
