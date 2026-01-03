@@ -272,6 +272,8 @@ export interface GuideConfig {
       food?: { src: string; caption?: string }[];
       adventure?: { src: string; caption?: string }[];
       heritage?: { src: string; caption?: string }[];
+      shipLife?: { src: string; caption?: string }[];
+      islandLife?: { src: string; caption?: string }[];
     };
     // Additional unique images for specific sections
     photoSpots?: string[];
