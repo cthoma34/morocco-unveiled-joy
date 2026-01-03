@@ -94,9 +94,21 @@
     line-height: 1.7;
   }
 
+  small, .text-sm {
+    font-size: 18px !important;
+  }
+
+  .text-xs {
+    font-size: 18px !important;
+  }
+
   @media (min-width: 768px) {
     body, p, li, span, label {
       font-size: 20px;
+    }
+    
+    small, .text-sm {
+      font-size: 18px !important;
     }
   }
 
