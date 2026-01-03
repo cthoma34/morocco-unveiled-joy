@@ -43,7 +43,7 @@ import doubles from '@/assets/caribbean/doubles.jpg';
 export const caribbeanGuide: GuideConfig = {
   slug: 'caribbean',
   destinationName: 'Afro-Caribbean Cruise',
-  tagline: 'Seven Islands. One Diaspora. Your Freedom Blueprint.',
+  tagline: 'Eight Nations. One Diaspora. Your Freedom Blueprint.',
   theme: { 
     primary: '195 80% 45%', 
     secondary: '45 90% 55%', 
@@ -52,7 +52,7 @@ export const caribbeanGuide: GuideConfig = {
   },
   hero: { 
     title: 'AFRO-CARIBBEAN CRUISE', 
-    subtitle: 'Seven Nations of the Diaspora — Everything You Need Before You Board', 
+    subtitle: 'Eight Nations of the Diaspora — Everything You Need Before You Board', 
     backgroundImage: shipDeparture 
   },
   welcome: { 
@@ -151,9 +151,15 @@ export const caribbeanGuide: GuideConfig = {
       ] 
     }, 
     history: {
-      title: 'Seven Nations of the Diaspora',
-      intro: 'Each island tells a different chapter of the same African survival story. From the first enslaved Africans who arrived in 1619 to the communities that thrive today, these seven nations represent adaptation, resistance, and cultural preservation against all odds.',
+      title: 'Eight Nations of the Diaspora',
+      intro: 'Each island tells a different chapter of the same African survival story. From the first enslaved Africans who arrived in the 1500s to the communities that thrive today, these eight nations represent adaptation, resistance, and cultural preservation against all odds.',
       items: [
+        {
+          name: 'Puerto Rico (San Juan)',
+          period: 'Settled 1508 (Spanish)',
+          story: 'Our starting and stopping point—and a crucial chapter of Afro-Caribbean history. Enslaved Africans arrived in 1513 to build the fortress of El Morro and work sugar, coffee, and tobacco plantations. The town of Loíza, known as the "capital of Black Puerto Rico," preserves bomba drumming, vejigante mask traditions, and African spiritual practices. San Juan\'s La Perla neighborhood holds deep Afro-Boricua history.',
+          legacy: 'Bomba music, Plena rhythms, Vejigante masks, Loíza culture, El Morro fortress'
+        },
         {
           name: 'Jamaica',
           period: 'Settled 1509 (Spanish), 1655 (British)',
@@ -287,11 +293,11 @@ export const caribbeanGuide: GuideConfig = {
   finalWords: { 
     message: [
       'The Caribbean teaches you about adaptation.',
-      "Seven islands. Seven solutions. Same people. Same history. Same unbroken spirit.",
-      "The Maroons never surrendered in Jamaica. Bussa rose up in Barbados. Fédon almost won in Grenada. The steel pan was invented in Trinidad when they banned drums. Carnival became resistance. Reggae became revolution.",
+      "Eight nations. Eight solutions. Same people. Same history. Same unbroken spirit.",
+      "From San Juan's bomba drums to Jamaica's Maroons who never surrendered. Bussa rose up in Barbados. Fédon almost won in Grenada. The steel pan was invented in Trinidad when they banned drums. Carnival became resistance. Reggae became revolution.",
       "Each island kept something different. Together, they kept everything. The drums never stopped. The spice never left. The resistance never died.",
-      "Seven islands, one story: We're still here."
-    ], 
+      "Eight nations, one story: We're still here."
+    ],
     callToAction: { 
       text: 'Ready to cruise the diaspora?', 
       buttonText: 'Book Your Afro-Caribbean Cruise →', 
@@ -369,7 +375,7 @@ export const caribbeanGuide: GuideConfig = {
       // After Real Talk - 2 unique images
       afterRealTalk: [spaTreatment, promenadeSunset],
       afterRealTalkQuote: {
-        text: "Seven islands, one story: We're still here.",
+        text: "Eight nations, one story: We're still here.",
         attribution: "Jay Cameron"
       }
     } 
