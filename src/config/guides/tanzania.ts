@@ -1,5 +1,38 @@
 import { GuideConfig } from '@/types/guide-config';
 
+// Hero and Section Images
+import heroImage from '@/assets/tanzania/balloon-serengeti-dawn.jpg';
+import welcomeImage from '@/assets/tanzania/champagne-toast.jpg';
+import cultureImage from '@/assets/tanzania/maasai-exchange.jpg';
+import foodImage from '@/assets/tanzania/rooftop-dinner-sunset.jpg';
+
+// Gallery Images
+import balloonSunriseJoy from '@/assets/tanzania/balloon-sunrise-joy.jpg';
+import balloonAerialView from '@/assets/tanzania/balloon-aerial-view.jpg';
+import balloonInflationGroup from '@/assets/tanzania/balloon-inflation-group.jpg';
+import luxuryCampArrival from '@/assets/tanzania/luxury-camp-arrival.jpg';
+import luxuryTentInterior from '@/assets/tanzania/luxury-tent-interior.jpg';
+import tentSunsetCouple from '@/assets/tanzania/tent-sunset-couple.jpg';
+import campfireStories from '@/assets/tanzania/campfire-stories.jpg';
+import safariDinner from '@/assets/tanzania/safari-dinner.jpg';
+import maasaiBoma from '@/assets/tanzania/maasai-boma.jpg';
+import maasaiChildren from '@/assets/tanzania/maasai-children.jpg';
+import dhowCruise from '@/assets/tanzania/dhow-cruise.jpg';
+import dhowSunsetSilhouette from '@/assets/tanzania/dhow-sunset-silhouette.jpg';
+import beachSunsetSilhouettes from '@/assets/tanzania/beach-sunset-silhouettes.jpg';
+import zanzibarSplashPlay from '@/assets/tanzania/zanzibar-splash-play.jpg';
+import beachCoupleWalk from '@/assets/tanzania/beach-couple-walk.jpg';
+import beachDaybedRelaxation from '@/assets/tanzania/beach-daybed-relaxation.jpg';
+import beachWalkBraids from '@/assets/tanzania/beach-walk-braids.jpg';
+import stonetownOrnateDoor from '@/assets/tanzania/stonetown-ornate-door.jpg';
+import stonetownCoupleExplore from '@/assets/tanzania/stonetown-couple-explore.jpg';
+import darajaniMarket from '@/assets/tanzania/darajani-market.jpg';
+import spiceFarmWelcome from '@/assets/tanzania/spice-farm-welcome.jpg';
+import spiceTasting from '@/assets/tanzania/spice-tasting.jpg';
+import cinnamonBarkSmelling from '@/assets/tanzania/cinnamon-bark-smelling.jpg';
+import nutmegDiscovery from '@/assets/tanzania/nutmeg-discovery.jpg';
+import kilimanjaroSunrise from '@/assets/tanzania/kilimanjaro-sunrise.jpg';
+
 export const tanzaniaGuide: GuideConfig = {
   slug: 'tanzania-guide',
   destinationName: 'Tanzania',
@@ -15,7 +48,7 @@ export const tanzaniaGuide: GuideConfig = {
   hero: {
     title: 'Your Freedom Blueprint: TANZANIA',
     subtitle: 'Everything You Need to Know Before You Go',
-    backgroundImage: '/placeholder.svg',
+    backgroundImage: heroImage,
   },
 
   welcome: {
@@ -237,10 +270,36 @@ export const tanzaniaGuide: GuideConfig = {
   },
 
   images: {
-    hero: '/placeholder.svg',
-    welcome: '/placeholder.svg',
-    culture: '/placeholder.svg',
-    food: '/placeholder.svg',
-    gallery: [],
+    hero: heroImage,
+    welcome: welcomeImage,
+    culture: cultureImage,
+    food: foodImage,
+    gallery: [
+      balloonSunriseJoy,
+      balloonAerialView,
+      balloonInflationGroup,
+      luxuryCampArrival,
+      luxuryTentInterior,
+      tentSunsetCouple,
+      campfireStories,
+      safariDinner,
+      maasaiBoma,
+      maasaiChildren,
+      dhowCruise,
+      dhowSunsetSilhouette,
+      beachSunsetSilhouettes,
+      zanzibarSplashPlay,
+      beachCoupleWalk,
+      beachDaybedRelaxation,
+      beachWalkBraids,
+      stonetownOrnateDoor,
+      stonetownCoupleExplore,
+      darajaniMarket,
+      spiceFarmWelcome,
+      spiceTasting,
+      cinnamonBarkSmelling,
+      nutmegDiscovery,
+      kilimanjaroSunrise,
+    ],
   },
 };
