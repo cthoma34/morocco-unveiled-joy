@@ -12,3 +12,5 @@ export { default as RealTalkSection } from './RealTalkSection';
 export { default as BeforeYouGoSection } from './BeforeYouGoSection';
 export { default as EditorialCTA } from './EditorialCTA';
 export { default as EditorialFooter } from './EditorialFooter';
+export { default as PhotoGalleryStrip } from './PhotoGalleryStrip';
+export { default as ImageInterlude } from './ImageInterlude';
