@@ -125,12 +125,11 @@ const GuidePage = ({ config }: GuidePageProps) => {
         <PhotoGalleryStrip images={strips.beach} direction="left" />
       )}
 
-      {/* Full Bleed Image: Beach Paradise */}
+      {/* Full Bleed Image: After Photos */}
       {interludes?.afterPhotos && interludes.afterPhotos[0] && (
         <FullBleedImage 
           src={interludes.afterPhotos[0]}
-          alt="Zanzibar paradise"
-          caption="Where the safari meets the sea — Zanzibar awaits"
+          alt={`${guide.destinationName} landscape`}
           aspectRatio="cinematic"
         />
       )}
