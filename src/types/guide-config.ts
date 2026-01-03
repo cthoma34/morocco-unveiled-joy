@@ -243,13 +243,27 @@ export interface GuideConfig {
     };
   };
 
-  // Images throughout
+  // Images throughout - organized by section for magazine-style layouts
   images: {
     hero: string;
     welcome?: string;
     culture?: string;
     food?: string;
     gallery: string[];
+    // New: Section interludes for photo magazine feel
+    interludes?: {
+      afterWelcome?: string[];    // Images after Editor's Letter
+      afterBasics?: string[];     // Images after Essentials
+      afterCulture?: string[];    // Images after Culture Spread
+      afterPhotos?: string[];     // Images after Photo Spots
+      afterRealTalk?: string[];   // Images after Real Talk
+    };
+    // New: Horizontal photo strips
+    strips?: {
+      safari?: { src: string; caption?: string }[];
+      beach?: { src: string; caption?: string }[];
+      culture?: { src: string; caption?: string }[];
+    };
   };
 }
 
