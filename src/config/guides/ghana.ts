@@ -236,8 +236,8 @@ export const ghanaGuide: GuideConfig = {
     ],
     callToAction: {
       text: 'Ready to come home?',
-      buttonText: 'Check out our Ghana info session →',
-      link: 'https://www.travelwithmit.com/ghana',
+      buttonText: 'Book Your Ghana Trip →',
+      link: 'https://maximumimpacttravel.com/destination/ghana/',
     },
   },
 

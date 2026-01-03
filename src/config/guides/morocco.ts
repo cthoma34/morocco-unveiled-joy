@@ -284,8 +284,8 @@ export const moroccoGuide: GuideConfig = {
     ],
     callToAction: {
       text: 'Ready for Morocco?',
-      buttonText: 'Check out our Morocco info session →',
-      link: 'https://www.travelwithmit.com/morocco',
+      buttonText: 'Book Your Morocco Trip →',
+      link: 'https://maximumimpacttravel.com/destination/morocco/',
     },
   },
 

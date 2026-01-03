@@ -315,8 +315,8 @@ export const tanzaniaGuide: GuideConfig = {
     ],
     callToAction: {
       text: 'Ready for your safari?',
-      buttonText: 'Check out our Tanzania info session →',
-      link: 'https://www.travelwithmit.com/tanzania',
+      buttonText: 'Book Your Tanzania + Zanzibar Trip →',
+      link: 'https://maximumimpacttravel.com/destination/tanzania-zanzibar/',
     },
   },
 

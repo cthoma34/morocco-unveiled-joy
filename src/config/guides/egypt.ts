@@ -262,8 +262,8 @@ export const egyptGuide: GuideConfig = {
     ],
     callToAction: {
       text: 'Ready for Egypt?',
-      buttonText: 'Check out our Egypt info session →',
-      link: 'https://www.travelwithmit.com/egypt',
+      buttonText: 'Book Your Egypt Trip →',
+      link: 'https://maximumimpacttravel.com/destination/egypt/',
     },
   },
 
