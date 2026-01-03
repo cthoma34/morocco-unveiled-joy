@@ -1,5 +1,44 @@
 import { GuideConfig } from '@/types/guide-config';
 
+// Hero & Welcome Images
+import heroImage from '@/assets/brazil/pelourinho-streets.jpg';
+import welcomeImage from '@/assets/brazil/bahiana-woman.jpg';
+
+// Pelourinho & Salvador
+import pelourinhoStreets from '@/assets/brazil/pelourinho-streets.jpg';
+import pelourinhoNight from '@/assets/brazil/pelourinho-night.jpg';
+import lacerdaElevator from '@/assets/brazil/lacerda-elevator.jpg';
+import bayView from '@/assets/brazil/bay-view.jpg';
+import groupPelourinho from '@/assets/brazil/group-pelourinho.jpg';
+
+// Culture & Spirituality
+import bahianaWoman from '@/assets/brazil/bahiana-woman.jpg';
+import capoeiraBench from '@/assets/brazil/capoeira-beach.jpg';
+import candombleCeremony from '@/assets/brazil/candomble-ceremony.jpg';
+import candombleBeads from '@/assets/brazil/candomble-beads.jpg';
+import bonfimRibbons from '@/assets/brazil/bonfim-ribbons.jpg';
+import tyingRibbons from '@/assets/brazil/tying-ribbons.jpg';
+import berimbauPlayer from '@/assets/brazil/berimbau-player.jpg';
+import olodumDrums from '@/assets/brazil/olodum-drums.jpg';
+import sambaDancers from '@/assets/brazil/samba-dancers.jpg';
+
+// Rio de Janeiro
+import christRedeemer from '@/assets/brazil/christ-redeemer.jpg';
+import copacabanaPromenade from '@/assets/brazil/copacabana-promenade.jpg';
+import selaronSteps from '@/assets/brazil/selaron-steps.jpg';
+import favelaArt from '@/assets/brazil/favela-art.jpg';
+
+// Food & Drinks
+import feijoada from '@/assets/brazil/feijoada-dish.jpg';
+import moqueca from '@/assets/brazil/moqueca-dish.jpg';
+import acaraje from '@/assets/brazil/acaraje-vendor.jpg';
+import acai from '@/assets/brazil/acai-bowl.jpg';
+import paoDeQueijo from '@/assets/brazil/pao-de-queijo.jpg';
+import caipirinha from '@/assets/brazil/caipirinha-beach.jpg';
+
+// Shopping
+import mercadoModelo from '@/assets/brazil/mercado-modelo.jpg';
+
 export const brazilGuide: GuideConfig = {
   slug: 'brazil',
   destinationName: 'Brazil',
@@ -15,7 +54,7 @@ export const brazilGuide: GuideConfig = {
   hero: {
     title: 'Your Freedom Blueprint: BRAZIL',
     subtitle: 'Everything You Need to Know Before You Go',
-    backgroundImage: '/placeholder.svg',
+    backgroundImage: heroImage,
   },
 
   welcome: {
@@ -28,6 +67,7 @@ export const brazilGuide: GuideConfig = {
     ],
     signature: 'Jay Cameron',
     signatureTitle: 'Founder, Maximum Impact Travel',
+    image: welcomeImage,
   },
 
   basics: {
@@ -113,13 +153,13 @@ export const brazilGuide: GuideConfig = {
     food: {
       intro: 'Brazilian cuisine is African soul food with Portuguese and Indigenous influences.',
       items: [
-        { name: 'Feijoada', description: 'Black bean stew with pork - Saturday tradition', mustTry: true },
-        { name: 'Moqueca', description: 'Coconut seafood stew - Bahian specialty', mustTry: true },
-        { name: 'Acarajé', description: 'Black-eyed pea fritters - street food queen', mustTry: true },
-        { name: 'Pão de Queijo', description: 'Cheese bread - addictive snack' },
+        { name: 'Feijoada', description: 'Black bean stew with pork - Saturday tradition', mustTry: true, image: feijoada },
+        { name: 'Moqueca', description: 'Coconut seafood stew - Bahian specialty', mustTry: true, image: moqueca },
+        { name: 'Acarajé', description: 'Black-eyed pea fritters - street food queen', mustTry: true, image: acaraje },
+        { name: 'Pão de Queijo', description: 'Cheese bread - addictive snack', image: paoDeQueijo },
         { name: 'Coxinha', description: 'Chicken croquette - perfect bar snack' },
-        { name: 'Açaí Bowl', description: 'Amazonian superfood - breakfast of champions', mustTry: true },
-        { name: 'Caipirinha', description: 'National cocktail - made with cachaça', mustTry: true },
+        { name: 'Açaí Bowl', description: 'Amazonian superfood - breakfast of champions', mustTry: true, image: acai },
+        { name: 'Caipirinha', description: 'National cocktail - made with cachaça', mustTry: true, image: caipirinha },
       ],
     },
     customs: {
@@ -153,16 +193,16 @@ export const brazilGuide: GuideConfig = {
   photos: {
     intro: 'Capture the rhythm, colors, and African soul of Brazil.',
     spots: [
-      { name: 'Pelourinho Colors', description: 'Colonial Salvador\'s painted buildings', tips: 'Early morning for empty streets' },
-      { name: 'Christ the Redeemer', description: 'Rio\'s iconic statue', tips: 'Go early or at sunset' },
-      { name: 'Capoeira Circle', description: 'Martial art in motion', tips: 'Action shots need fast shutter' },
-      { name: 'Candomblé Ceremony', description: 'Sacred ritual if permitted', tips: 'Always ask permission first' },
-      { name: 'Favela Art', description: 'Colorful community murals', tips: 'Guided tour only - respect the space' },
-      { name: 'Beach Football', description: 'Copacabana culture', tips: 'Golden hour on the sand' },
-      { name: 'Samba Dancing', description: 'Pure joy in motion', tips: 'Night shots need steady hand' },
-      { name: 'Açaí Bowl', description: 'Perfect food photography', tips: 'Natural light, bright colors' },
-      { name: 'Escadaria Selarón', description: 'Famous tiled steps', tips: 'Go very early for empty stairs' },
-      { name: 'Sunset at Elevador', description: 'Salvador\'s famous elevator', tips: 'Panoramic city and bay views' },
+      { name: 'Pelourinho Colors', description: 'Colonial Salvador\'s painted buildings', tips: 'Early morning for empty streets', image: pelourinhoStreets },
+      { name: 'Christ the Redeemer', description: 'Rio\'s iconic statue', tips: 'Go early or at sunset', image: christRedeemer },
+      { name: 'Capoeira Circle', description: 'Martial art in motion', tips: 'Action shots need fast shutter', image: capoeiraBench },
+      { name: 'Candomblé Ceremony', description: 'Sacred ritual if permitted', tips: 'Always ask permission first', image: candombleCeremony },
+      { name: 'Favela Art', description: 'Colorful community murals', tips: 'Guided tour only - respect the space', image: favelaArt },
+      { name: 'Beach Football', description: 'Copacabana culture', tips: 'Golden hour on the sand', image: copacabanaPromenade },
+      { name: 'Samba Dancing', description: 'Pure joy in motion', tips: 'Night shots need steady hand', image: sambaDancers },
+      { name: 'Açaí Bowl', description: 'Perfect food photography', tips: 'Natural light, bright colors', image: acai },
+      { name: 'Escadaria Selarón', description: 'Famous tiled steps', tips: 'Go very early for empty stairs', image: selaronSteps },
+      { name: 'Sunset at Elevador', description: 'Salvador\'s famous elevator', tips: 'Panoramic city and bay views', image: lacerdaElevator },
     ],
   },
 
@@ -232,10 +272,76 @@ export const brazilGuide: GuideConfig = {
   },
 
   images: {
-    hero: '/placeholder.svg',
-    welcome: '/placeholder.svg',
-    culture: '/placeholder.svg',
-    food: '/placeholder.svg',
-    gallery: [],
+    hero: heroImage,
+    welcome: welcomeImage,
+    culture: candombleCeremony,
+    food: feijoada,
+    gallery: [
+      pelourinhoStreets,
+      bahianaWoman,
+      capoeiraBench,
+      candombleCeremony,
+      christRedeemer,
+      copacabanaPromenade,
+      selaronSteps,
+      sambaDancers,
+      olodumDrums,
+      mercadoModelo,
+      bonfimRibbons,
+      bayView,
+    ],
+    interludes: {
+      afterWelcome: [pelourinhoStreets, groupPelourinho],
+      afterBasics: [capoeiraBench, candombleCeremony, sambaDancers],
+      afterCulture: [feijoada, moqueca, acaraje, acai],
+      afterPhotos: [christRedeemer],
+    },
+    strips: {
+      culture: [
+        { src: capoeiraBench, caption: 'Capoeira on the Beach' },
+        { src: candombleCeremony, caption: 'Candomblé Ceremony' },
+        { src: sambaDancers, caption: 'Samba Dancers' },
+        { src: olodumDrums, caption: 'Olodum Drummers' },
+        { src: berimbauPlayer, caption: 'Berimbau Player' },
+      ],
+      food: [
+        { src: feijoada, caption: 'Feijoada' },
+        { src: moqueca, caption: 'Moqueca' },
+        { src: acaraje, caption: 'Acarajé Vendor' },
+        { src: acai, caption: 'Açaí Bowl' },
+        { src: paoDeQueijo, caption: 'Pão de Queijo' },
+        { src: caipirinha, caption: 'Caipirinha' },
+      ],
+      heritage: [
+        { src: candombleBeads, caption: 'Sacred Beads' },
+        { src: candombleCeremony, caption: 'Candomblé Temple' },
+        { src: bonfimRibbons, caption: 'Bonfim Church' },
+        { src: tyingRibbons, caption: 'Tying Wish Ribbons' },
+      ],
+      architecture: [
+        { src: christRedeemer, caption: 'Christ the Redeemer' },
+        { src: copacabanaPromenade, caption: 'Copacabana Beach' },
+        { src: selaronSteps, caption: 'Selarón Steps' },
+        { src: lacerdaElevator, caption: 'Lacerda Elevator' },
+        { src: pelourinhoNight, caption: 'Pelourinho at Night' },
+      ],
+      shopping: [
+        { src: mercadoModelo, caption: 'Mercado Modelo' },
+        { src: candombleBeads, caption: 'Sacred Artifacts' },
+        { src: berimbauPlayer, caption: 'Berimbau Instruments' },
+      ],
+    },
+    photoSpots: [
+      pelourinhoStreets,
+      christRedeemer,
+      capoeiraBench,
+      candombleCeremony,
+      favelaArt,
+      copacabanaPromenade,
+      sambaDancers,
+      acai,
+      selaronSteps,
+      lacerdaElevator,
+    ],
   },
 };

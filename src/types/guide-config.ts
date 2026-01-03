@@ -15,6 +15,7 @@ export interface FoodItem {
   name: string;
   description: string;
   mustTry?: boolean;
+  image?: string;
 }
 
 export interface PackingItem {
@@ -170,6 +171,7 @@ export interface GuideConfig {
     signature: string;
     signatureTitle: string;
     hostImage?: string;  // Optional: Jay's portrait for Editor's Letter
+    image?: string;      // Optional: Section background/feature image
   };
 
   // Basics Section
