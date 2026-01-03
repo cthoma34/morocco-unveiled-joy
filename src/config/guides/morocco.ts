@@ -1,25 +1,66 @@
 import { GuideConfig } from '@/types/guide-config';
 
-// Morocco Images
+// Morocco Images - Hero & Welcome
 import heroImage from '@/assets/morocco/marrakech-rooftops.jpg';
 import welcomeImage from '@/assets/morocco/riad-courtyard.jpg';
-import cultureImage from '@/assets/morocco/medina-door.jpg';
-import foodImage from '@/assets/morocco/cooking-class.jpg';
 
-import camelCaravan from '@/assets/morocco/camel-caravan.jpg';
+// Majorelle Gardens
+import majorelleGarden from '@/assets/morocco/majorelle-garden.jpg';
+import majorelleCouple from '@/assets/morocco/majorelle-couple.jpg';
+import majorelleDoorway from '@/assets/morocco/majorelle-doorway.jpg';
+import majorelleCactiWalk from '@/assets/morocco/majorelle-cacti-walk.jpg';
+import majorelleThreeWomen from '@/assets/morocco/majorelle-three-women.jpg';
+import majorelleYellowDress from '@/assets/morocco/majorelle-yellow-dress.jpg';
+import blueFountain from '@/assets/morocco/blue-fountain.jpg';
+import yellowBenchWoman from '@/assets/morocco/yellow-bench-woman.jpg';
+import yellowWallCacti from '@/assets/morocco/yellow-wall-cacti.jpg';
+
+// Hassan II Mosque
+import hassanMinaretSunrise from '@/assets/morocco/hassan-minaret-sunrise.jpg';
+import hassanTilework from '@/assets/morocco/hassan-tilework.jpg';
+import hassanTilesTouch from '@/assets/morocco/hassan-tiles-touch.jpg';
+import hassanInterior from '@/assets/morocco/hassan-interior.jpg';
+import hassanArchway from '@/assets/morocco/hassan-archway.jpg';
+import hassanCourtyard from '@/assets/morocco/hassan-courtyard.jpg';
+import hassanOcean from '@/assets/morocco/hassan-ocean.jpg';
 import casablancaMosque from '@/assets/morocco/casablanca-mosque.jpg';
-import desertCamp from '@/assets/morocco/desert-camp.jpg';
+import mosqueInterior from '@/assets/morocco/mosque-interior.jpg';
+
+// Medina & Souks
+import medinaAlleyWomen from '@/assets/morocco/medina-alley-women.jpg';
+import medinaDoor from '@/assets/morocco/medina-door.jpg';
+import medinaEntranceCouple from '@/assets/morocco/medina-entrance-couple.jpg';
+import medinaEntranceWoman from '@/assets/morocco/medina-entrance-woman.jpg';
+import medinaMapGroup from '@/assets/morocco/medina-map-group.jpg';
 import jemaaElFna from '@/assets/morocco/jemaa-el-fna.jpg';
 import lanternShopping from '@/assets/morocco/lantern-shopping.jpg';
-import majorelleGarden from '@/assets/morocco/majorelle-garden.jpg';
+import lanternsGroup from '@/assets/morocco/lanterns-group.jpg';
+import lanternsSilhouette from '@/assets/morocco/lanterns-silhouette.jpg';
+import fabricShopping from '@/assets/morocco/fabric-shopping.jpg';
+import marketShopping from '@/assets/morocco/market-shopping.jpg';
+import boutiqueLaughing from '@/assets/morocco/boutique-laughing.jpg';
+
+// Spices & Food
+import spiceMarket from '@/assets/morocco/spice-market.jpg';
+import spiceSmell from '@/assets/morocco/spice-smell.jpg';
+import saffronHands from '@/assets/morocco/saffron-hands.jpg';
+import cookingClass from '@/assets/morocco/cooking-class.jpg';
+import cookingClassGroup from '@/assets/morocco/cooking-class-group.jpg';
+import tagineReveal from '@/assets/morocco/tagine-reveal.jpg';
+import tagineHands from '@/assets/morocco/tagine-hands.jpg';
+import tagineSaffron from '@/assets/morocco/tagine-saffron.jpg';
+
+// Tea & Hospitality
 import mintTea from '@/assets/morocco/mint-tea.jpg';
-import mosqueInterior from '@/assets/morocco/mosque-interior.jpg';
+import mintTeaPour from '@/assets/morocco/mint-tea-pour.jpg';
+import teaConversation from '@/assets/morocco/tea-conversation.jpg';
 import rooftopBreakfast from '@/assets/morocco/rooftop-breakfast.jpg';
+
+// Sahara Desert
 import saharaDuneDusk from '@/assets/morocco/sahara-dune-dusk.jpg';
 import saharaSunsetWalker from '@/assets/morocco/sahara-sunset-walker.jpg';
-import spiceMarket from '@/assets/morocco/spice-market.jpg';
-import teaConversation from '@/assets/morocco/tea-conversation.jpg';
-import boutiqueLaughing from '@/assets/morocco/boutique-laughing.jpg';
+import camelCaravan from '@/assets/morocco/camel-caravan.jpg';
+import desertCamp from '@/assets/morocco/desert-camp.jpg';
 
 export const moroccoGuide: GuideConfig = {
   slug: 'morocco',
@@ -251,29 +292,73 @@ export const moroccoGuide: GuideConfig = {
   images: {
     hero: heroImage,
     welcome: welcomeImage,
-    culture: cultureImage,
-    food: foodImage,
-    // Each image used only once
+    culture: medinaDoor,
+    food: cookingClass,
+    // Gallery - Unique images showcasing Morocco highlights
     gallery: [
-      casablancaMosque,
-      mosqueInterior,
+      hassanMinaretSunrise,
       majorelleGarden,
+      jemaaElFna,
       rooftopBreakfast,
-      teaConversation,
-      boutiqueLaughing,
+      spiceMarket,
+      desertCamp,
     ],
+    // Photo essay interludes between sections
     interludes: {
+      // After welcome - Sahara Desert experience
       afterWelcome: [saharaSunsetWalker, camelCaravan, saharaDuneDusk],
-      afterBasics: [mintTea, jemaaElFna, spiceMarket],
-      afterCulture: [lanternShopping, desertCamp],
+      // After basics - Tea & Market culture  
+      afterBasics: [mintTeaPour, lanternsSilhouette, medinaAlleyWomen],
+      // After culture - Mosque & Architecture
+      afterCulture: [hassanTilework, hassanArchway],
     },
+    // Photo strips for scrolling galleries
     strips: {
+      // Majorelle Gardens photo strip
       culture: [
-        { src: heroImage, caption: 'Marrakech rooftops' },
-        { src: welcomeImage, caption: 'Riad courtyard' },
-        { src: cultureImage, caption: 'Medina doors' },
-        { src: foodImage, caption: 'Cooking class' },
+        { src: majorelleCouple, caption: 'Majorelle Gardens' },
+        { src: blueFountain, caption: 'The iconic blue fountain' },
+        { src: majorelleCactiWalk, caption: 'Garden pathways' },
+        { src: majorelleThreeWomen, caption: 'YSL\'s paradise' },
+        { src: majorelleDoorway, caption: 'Cobalt doorways' },
+        { src: yellowWallCacti, caption: 'Yellow & cacti' },
+      ],
+      // Hassan II Mosque photo strip
+      architecture: [
+        { src: casablancaMosque, caption: 'Hassan II Mosque' },
+        { src: hassanInterior, caption: 'Sacred interior' },
+        { src: hassanTilesTouch, caption: 'Zellige tilework' },
+        { src: hassanCourtyard, caption: 'Grand courtyard' },
+        { src: hassanOcean, caption: 'Ocean view' },
+        { src: mosqueInterior, caption: 'Intricate details' },
+      ],
+      // Medina & Shopping strip
+      shopping: [
+        { src: medinaEntranceCouple, caption: 'Entering the medina' },
+        { src: lanternShopping, caption: 'Lantern souks' },
+        { src: fabricShopping, caption: 'Fabric treasures' },
+        { src: marketShopping, caption: 'Market finds' },
+        { src: lanternsGroup, caption: 'Metalwork artistry' },
+        { src: boutiqueLaughing, caption: 'Joy in the journey' },
+      ],
+      // Food & Cooking strip
+      food: [
+        { src: tagineReveal, caption: 'Tagine reveal' },
+        { src: cookingClassGroup, caption: 'Cooking class' },
+        { src: spiceSmell, caption: 'Spice discovery' },
+        { src: saffronHands, caption: 'Saffron gold' },
+        { src: tagineSaffron, caption: 'Traditional flavors' },
+        { src: tagineHands, caption: 'Hands-on cooking' },
       ],
     },
+    // Additional unique images for specific sections
+    photoSpots: [
+      majorelleYellowDress,
+      yellowBenchWoman,
+      medinaEntranceWoman,
+      medinaMapGroup,
+      teaConversation,
+      mintTea,
+    ],
   },
 };
