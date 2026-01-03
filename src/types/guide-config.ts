@@ -203,6 +203,16 @@ export interface GuideConfig {
       name: string;
       greetings: PronunciationItem[];
     };
+    history?: {
+      title: string;
+      intro: string;
+      items: {
+        name: string;
+        period: string;
+        story: string;
+        legacy: string;
+      }[];
+    };
     food: {
       intro: string;
       items: FoodItem[];
