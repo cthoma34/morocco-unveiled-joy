@@ -169,6 +169,7 @@ export interface GuideConfig {
     message: string[];
     signature: string;
     signatureTitle: string;
+    hostImage?: string;  // Optional: Jay's portrait for Editor's Letter
   };
 
   // Basics Section

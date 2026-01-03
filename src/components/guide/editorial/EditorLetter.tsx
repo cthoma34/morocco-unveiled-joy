@@ -62,7 +62,7 @@ const EditorLetter = ({ welcome, destinationName }: EditorLetterProps) => {
               ))}
             </div>
 
-            {/* Signature */}
+            {/* Signature with Photo */}
             <motion.div 
               className="mt-16 pt-8 border-t border-border/30"
               initial={{ opacity: 0 }}
@@ -70,12 +70,25 @@ const EditorLetter = ({ welcome, destinationName }: EditorLetterProps) => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <p className="font-heading text-3xl text-[hsl(var(--dest-primary))] italic mb-2">
-                — {welcome.signature}
-              </p>
-              <p className="text-sm text-muted-foreground tracking-wide uppercase">
-                {welcome.signatureTitle}
-              </p>
+              <div className="flex items-center gap-6">
+                {welcome.hostImage && (
+                  <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-[hsl(var(--dest-primary)/0.2)]">
+                    <img 
+                      src={welcome.hostImage} 
+                      alt={welcome.signature}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+                <div>
+                  <p className="font-heading text-2xl md:text-3xl text-[hsl(var(--dest-primary))] mb-1">
+                    — {welcome.signature}
+                  </p>
+                  <p className="text-sm text-muted-foreground tracking-wide uppercase">
+                    {welcome.signatureTitle}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </div>

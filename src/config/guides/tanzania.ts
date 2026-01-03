@@ -60,7 +60,8 @@ export const tanzaniaGuide: GuideConfig = {
       "Let's get you ready for the magic.",
     ],
     signature: 'Jay Cameron',
-    signatureTitle: 'Founder, Maximum Impact Travel',
+    signatureTitle: 'Founder & CEO, Maximum Impact Travel',
+    hostImage: 'https://storage.googleapis.com/msgsndr/KSmohoW4bdBXMkPu9h7U/media/69538e8aec06c504ac9c62ca.jpg',
   },
 
   basics: {
