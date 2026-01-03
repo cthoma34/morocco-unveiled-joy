@@ -2,6 +2,10 @@ import { GuideConfig } from '@/types/guide-config';
 
 // Hero and Section Images
 import heroImage from '@/assets/tanzania/balloon-serengeti-dawn.jpg';
+
+// Videos
+import heroVideo from '@/assets/tanzania/hero-safari.mp4';
+import ctaVideo from '@/assets/tanzania/giraffe-cta.mp4';
 import welcomeImage from '@/assets/tanzania/champagne-toast.jpg';
 import cultureImage from '@/assets/tanzania/maasai-exchange.jpg';
 import foodImage from '@/assets/tanzania/rooftop-dinner-sunset.jpg';
@@ -94,6 +98,7 @@ export const tanzaniaGuide: GuideConfig = {
     title: 'Your Freedom Blueprint: TANZANIA',
     subtitle: 'Everything You Need to Know Before You Go',
     backgroundImage: heroImage,
+    backgroundVideo: heroVideo,
   },
 
   welcome: {
@@ -317,6 +322,8 @@ export const tanzaniaGuide: GuideConfig = {
 
   images: {
     hero: heroImage,
+    heroVideo: heroVideo,
+    ctaVideo: ctaVideo,
     welcome: welcomeImage,
     culture: cultureImage,
     food: foodImage,

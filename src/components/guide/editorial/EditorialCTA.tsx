@@ -6,9 +6,11 @@ import { GuideConfig } from '@/types/guide-config';
 interface EditorialCTAProps {
   finalWords: GuideConfig['finalWords'];
   destinationName: string;
+  ctaVideo?: string;
+  ctaImage?: string;
 }
 
-const EditorialCTA = ({ finalWords, destinationName }: EditorialCTAProps) => {
+const EditorialCTA = ({ finalWords, destinationName, ctaVideo, ctaImage }: EditorialCTAProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -18,13 +20,41 @@ const EditorialCTA = ({ finalWords, destinationName }: EditorialCTAProps) => {
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.8]);
   const scale = useTransform(scrollYProgress, [0, 0.3], [0.95, 1]);
 
+  const hasMedia = ctaVideo || ctaImage;
+
   return (
     <section 
       ref={sectionRef}
       className="relative py-32 md:py-48 overflow-hidden"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-[hsl(var(--dest-primary)/0.05)] to-background" />
+      {/* Background video or image */}
+      {hasMedia && (
+        <div className="absolute inset-0">
+          {ctaVideo ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src={ctaVideo} type="video/mp4" />
+            </video>
+          ) : ctaImage ? (
+            <div 
+              className="w-full h-full bg-cover bg-center"
+              style={{ backgroundImage: `url(${ctaImage})` }}
+            />
+          ) : null}
+          {/* Overlay for text readability */}
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+        </div>
+      )}
+
+      {/* Background gradient (fallback when no media) */}
+      {!hasMedia && (
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-[hsl(var(--dest-primary)/0.05)] to-background" />
+      )}
       
       {/* Decorative elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-transparent via-[hsl(var(--dest-primary))] to-transparent" />

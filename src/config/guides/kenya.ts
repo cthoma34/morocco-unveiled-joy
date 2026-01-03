@@ -1,28 +1,56 @@
 import { GuideConfig } from '@/types/guide-config';
 
-// Using Tanzania images as placeholders until Kenya-specific assets are added
-import heroImage from '@/assets/tanzania/balloon-serengeti-dawn.jpg';
-import welcomeImage from '@/assets/tanzania/champagne-toast.jpg';
+// Using Tanzania images contextually - Kenya shares the East African safari/beach experience
+// HERO & SECTIONS (unique, never reused)
+import heroImage from '@/assets/tanzania/kilimanjaro-sunrise.jpg';
+import welcomeImage from '@/assets/tanzania/group-laugh.jpg';
 import cultureImage from '@/assets/tanzania/maasai-exchange.jpg';
-import foodImage from '@/assets/tanzania/rooftop-dinner-sunset.jpg';
+import foodImage from '@/assets/tanzania/safari-dinner.jpg';
 
-import balloonAerial from '@/assets/tanzania/balloon-aerial-view.jpg';
+// Videos
+import heroVideo from '@/assets/tanzania/hero-safari.mp4';
+import ctaVideo from '@/assets/tanzania/giraffe-cta.mp4';
+
+// Safari & Balloon Experience (unique set)
+import balloonAerial from '@/assets/tanzania/balloon-aerial.jpg';
+import balloonInflation from '@/assets/tanzania/balloon-inflation.jpg';
+import balloonJoyPortrait from '@/assets/tanzania/balloon-joy-portrait.jpg';
 import lionReaction from '@/assets/tanzania/lion-reaction.jpg';
 import safariVehicle from '@/assets/tanzania/safari-vehicle.jpg';
+import serengetiDrive from '@/assets/tanzania/serengeti-drive.jpg';
+
+// Ngorongoro & Landscapes (unique set)
+import craterDawn from '@/assets/tanzania/crater-dawn.jpg';
+import craterRim from '@/assets/tanzania/crater-rim.jpg';
 import craterView from '@/assets/tanzania/crater-view.jpg';
-import flamingos from '@/assets/tanzania/flamingos-ngorongoro.jpg';
+import flamingosNgorongoro from '@/assets/tanzania/flamingos-ngorongoro.jpg';
+import flamingoLake from '@/assets/tanzania/flamingo-lake.jpg';
+
+// Maasai Cultural Experience (unique set)
 import maasaiBoma from '@/assets/tanzania/maasai-boma.jpg';
 import maasaiChildren from '@/assets/tanzania/maasai-children.jpg';
 import maasaiDancing from '@/assets/tanzania/maasai-dancing.jpg';
 import maasaiWelcome from '@/assets/tanzania/maasai-welcome.jpg';
+
+// Luxury Camp Experience (unique set)
 import luxuryCamp from '@/assets/tanzania/luxury-camp.jpg';
 import luxuryTent from '@/assets/tanzania/luxury-tent-interior.jpg';
 import campfire from '@/assets/tanzania/campfire-stories.jpg';
 import sunsetToast from '@/assets/tanzania/sunset-toast.jpg';
-import serengetiDrive from '@/assets/tanzania/serengeti-drive.jpg';
+import tentSunsetCouple from '@/assets/tanzania/tent-sunset-couple.jpg';
+import sunriseCoffee from '@/assets/tanzania/sunrise-coffee.jpg';
+
+// Beach/Coast (unique set for Mombasa/Diani context)
 import dhowSunset from '@/assets/tanzania/dhow-sunset-silhouette.jpg';
 import beachSunset from '@/assets/tanzania/beach-sunset-silhouettes.jpg';
 import zanzibarParadise from '@/assets/tanzania/zanzibar-paradise.jpg';
+import beachDinner from '@/assets/tanzania/beach-dinner.jpg';
+import beachArrival from '@/assets/tanzania/beach-arrival.jpg';
+import beachDaybedRelaxation from '@/assets/tanzania/beach-daybed-relaxation.jpg';
+
+// Emotional moments (unique set)
+import arrivalEmbrace from '@/assets/tanzania/arrival-embrace.jpg';
+import champagneToast from '@/assets/tanzania/champagne-toast.jpg';
 
 export const kenyaGuide: GuideConfig = {
   slug: 'kenya',
@@ -40,6 +68,7 @@ export const kenyaGuide: GuideConfig = {
     title: 'Your Freedom Blueprint: KENYA',
     subtitle: 'Everything You Need to Know Before You Go',
     backgroundImage: heroImage,
+    backgroundVideo: heroVideo,
   },
 
   welcome: {
@@ -259,58 +288,43 @@ export const kenyaGuide: GuideConfig = {
 
   images: {
     hero: heroImage,
+    heroVideo: heroVideo,
+    ctaVideo: ctaVideo,
     welcome: welcomeImage,
     culture: cultureImage,
     food: foodImage,
+    // Main gallery - unique images only
     gallery: [
-      balloonAerial,
-      lionReaction,
-      safariVehicle,
-      craterView,
-      flamingos,
-      maasaiBoma,
-      maasaiChildren,
-      maasaiDancing,
-      maasaiWelcome,
       luxuryCamp,
       luxuryTent,
+      craterView,
+      flamingoLake,
       campfire,
-      sunsetToast,
-      serengetiDrive,
-      dhowSunset,
-      beachSunset,
-      zanzibarParadise,
+      beachDaybedRelaxation,
+      champagneToast,
     ],
+    // Photo magazine interludes between sections - unique images
     interludes: {
-      afterWelcome: [balloonAerial, serengetiDrive, craterView],
-      afterBasics: [lionReaction, safariVehicle, luxuryCamp],
+      afterWelcome: [craterDawn, craterRim, serengetiDrive],
+      afterBasics: [balloonAerial, balloonInflation, balloonJoyPortrait],
       afterCulture: [maasaiDancing, maasaiWelcome, maasaiChildren],
-      afterPhotos: [flamingos, sunsetToast, campfire],
-      afterRealTalk: [beachSunset, dhowSunset, zanzibarParadise],
+      afterPhotos: [zanzibarParadise, beachSunset, beachDinner],
+      afterRealTalk: [sunsetToast, tentSunsetCouple, arrivalEmbrace],
     },
+    // Horizontal scrolling photo strips - unique images
     strips: {
       safari: [
-        { src: balloonAerial, caption: 'Balloon over the Mara' },
         { src: lionReaction, caption: 'First lion sighting' },
         { src: safariVehicle, caption: 'Game drive' },
-        { src: serengetiDrive, caption: 'Into the wild' },
-        { src: craterView, caption: 'Crater views' },
-        { src: flamingos, caption: 'Flamingo lake' },
+        { src: flamingosNgorongoro, caption: 'Flamingo lake' },
+        { src: sunriseCoffee, caption: 'Bush breakfast' },
       ],
       beach: [
-        { src: zanzibarParadise, caption: 'Coastal paradise' },
         { src: dhowSunset, caption: 'Dhow at sunset' },
-        { src: beachSunset, caption: 'Beach sunset' },
+        { src: beachArrival, caption: 'Coastal arrival' },
       ],
       culture: [
-        { src: maasaiDancing, caption: 'Maasai dancing' },
-        { src: maasaiWelcome, caption: 'Maasai welcome' },
         { src: maasaiBoma, caption: 'Maasai village' },
-        { src: maasaiChildren, caption: 'Maasai children' },
-        { src: luxuryTent, caption: 'Luxury tented camp' },
-        { src: campfire, caption: 'Campfire stories' },
-        { src: sunsetToast, caption: 'Sunset celebration' },
-        { src: foodImage, caption: 'Safari dining' },
       ],
     },
   },

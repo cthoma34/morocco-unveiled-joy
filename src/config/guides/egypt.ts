@@ -6,6 +6,10 @@ import welcomeImage from '@/assets/egypt/nile-sunset-group.jpg';
 import cultureImage from '@/assets/egypt/khan-bazaar.jpg';
 import foodImage from '@/assets/egypt/cruise-dinner.jpg';
 
+// Videos
+import heroVideo from '@/assets/egypt/hero-pyramids.mp4';
+import ctaVideo from '@/assets/egypt/cta-sunset-pyramids.mp4';
+
 import abuSimbelApproach from '@/assets/egypt/abu-simbel-approach.jpg';
 import abuSimbelScale from '@/assets/egypt/abu-simbel-scale.jpg';
 import balloonValley from '@/assets/egypt/balloon-valley.jpg';
@@ -47,6 +51,7 @@ export const egyptGuide: GuideConfig = {
     title: 'Your Freedom Blueprint: EGYPT',
     subtitle: 'Everything You Need to Know Before You Go',
     backgroundImage: heroImage,
+    backgroundVideo: heroVideo,
   },
 
   welcome: {
@@ -264,6 +269,8 @@ export const egyptGuide: GuideConfig = {
 
   images: {
     hero: heroImage,
+    heroVideo: heroVideo,
+    ctaVideo: ctaVideo,
     welcome: welcomeImage,
     culture: cultureImage,
     food: foodImage,
