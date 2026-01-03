@@ -8,6 +8,9 @@ import { ethiopiaGuide } from './ethiopia';
 import { caribbeanGuide } from './caribbean';
 import { blpGuide } from './blp';
 import { gullahGuide } from './gullah';
+import { moroccoGuide } from './morocco';
+import { egyptGuide } from './egypt';
+import { kenyaGuide } from './kenya';
 
 // Export all guide configs
 export {
@@ -20,16 +23,22 @@ export {
   caribbeanGuide,
   blpGuide,
   gullahGuide,
+  moroccoGuide,
+  egyptGuide,
+  kenyaGuide,
 };
 
-// All guides array for subdomain routing
+// All 12 guides array for subdomain routing
 export const allGuides: GuideConfig[] = [
-  dubaiGuide,
-  ghanaGuide,
   tanzaniaGuide,
+  kenyaGuide,
+  ghanaGuide,
   southafricaGuide,
-  brazilGuide,
+  egyptGuide,
+  moroccoGuide,
   ethiopiaGuide,
+  dubaiGuide,
+  brazilGuide,
   caribbeanGuide,
   blpGuide,
   gullahGuide,
@@ -41,4 +50,4 @@ export const getGuideBySlug = (slug: string): GuideConfig | undefined => {
 };
 
 // Default guide (fallback)
-export const defaultGuide = dubaiGuide;
+export const defaultGuide = tanzaniaGuide;
