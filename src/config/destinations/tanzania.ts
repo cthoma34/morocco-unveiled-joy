@@ -13,44 +13,51 @@ import heroVideo from "@/assets/tanzania/hero-safari.mp4";
 // CTA section giraffe video
 import ctaVideo from "@/assets/tanzania/giraffe-cta.mp4";
 
-// Documentary-style images - authentic traveler moments
-import arrivalEmbrace from "@/assets/tanzania/arrival-embrace.jpg";
-import sunriseCoffee from "@/assets/tanzania/sunrise-coffee.jpg";
-import maasaiDancing from "@/assets/tanzania/maasai-dancing.jpg";
-import sunsetToast from "@/assets/tanzania/sunset-toast.jpg";
-import beachArrival from "@/assets/tanzania/beach-arrival.jpg";
-import beachDinner from "@/assets/tanzania/beach-dinner.jpg";
-import lionReaction from "@/assets/tanzania/lion-reaction.jpg";
-import cookingClass from "@/assets/tanzania/cooking-class.jpg";
-import craterView from "@/assets/tanzania/crater-view.jpg";
-import spiceMarket from "@/assets/tanzania/spice-market.jpg";
-import safariVehicle from "@/assets/tanzania/safari-vehicle.jpg";
-import groupLaugh from "@/assets/tanzania/group-laugh.jpg";
+// ============================================================
+// NEW CURATED GALLERY IMAGES
+// ============================================================
 
-// New powerful visuals - hot air balloons, luxury, culture
-import balloonAerial from "@/assets/tanzania/balloon-aerial.jpg";
-import balloonBasketView from "@/assets/tanzania/balloon-basket-view.jpg";
-import balloonWomanJoy from "@/assets/tanzania/balloon-woman-joy.jpg";
-import balloonChampagne from "@/assets/tanzania/balloon-champagne.jpg";
-import balloonInflation from "@/assets/tanzania/balloon-inflation.jpg";
-import maasaiWelcome from "@/assets/tanzania/maasai-welcome.jpg";
-import luxuryCamp from "@/assets/tanzania/luxury-camp.jpg";
-import craterDawn from "@/assets/tanzania/crater-dawn.jpg";
-import zanzibarSplash from "@/assets/tanzania/zanzibar-splash.jpg";
-import dhowBoat from "@/assets/tanzania/dhow-boat.jpg";
-import beachSunsetGroup from "@/assets/tanzania/beach-sunset-group.jpg";
-import stonetownAlley from "@/assets/tanzania/stonetown-alley.jpg";
-import flamingosNgorongoro from "@/assets/tanzania/flamingos-ngorongoro.jpg";
-import champagneBreakfast from "@/assets/tanzania/champagne-breakfast.jpg";
-import balloonJoyPortrait from "@/assets/tanzania/balloon-joy-portrait.jpg";
-import zanzibarSplashJoy from "@/assets/tanzania/zanzibar-splash-joy.jpg";
-import stoneTownRooftop from "@/assets/tanzania/stone-town-rooftop.jpg";
+// Hot Air Balloon Experience
+import champagneToast from "@/assets/tanzania/champagne-toast.jpg";
+import balloonSunriseJoy from "@/assets/tanzania/balloon-sunrise-joy.jpg";
+import balloonSerengetiDawn from "@/assets/tanzania/balloon-serengeti-dawn.jpg";
+import balloonInflationGroup from "@/assets/tanzania/balloon-inflation-group.jpg";
+import balloonAerialView from "@/assets/tanzania/balloon-aerial-view.jpg";
 
-// Unique destination images (different from gallery)
-import serengetiDrive from "@/assets/tanzania/serengeti-drive.jpg";
-import craterRim from "@/assets/tanzania/crater-rim.jpg";
-import stonetownStreets from "@/assets/tanzania/stonetown-streets.jpg";
-import zanzibarParadise from "@/assets/tanzania/zanzibar-paradise.jpg";
+// Luxury Camp Experience
+import luxuryCampArrival from "@/assets/tanzania/luxury-camp-arrival.jpg";
+import luxuryTentInterior from "@/assets/tanzania/luxury-tent-interior.jpg";
+import tentSunsetCouple from "@/assets/tanzania/tent-sunset-couple.jpg";
+import campfireStories from "@/assets/tanzania/campfire-stories.jpg";
+import safariDinner from "@/assets/tanzania/safari-dinner.jpg";
+
+// Maasai Cultural Experience
+import maasaiExchange from "@/assets/tanzania/maasai-exchange.jpg";
+import maasaiBoma from "@/assets/tanzania/maasai-boma.jpg";
+import maasaiChildren from "@/assets/tanzania/maasai-children.jpg";
+
+// Zanzibar Beach & Water
+import dhowCruise from "@/assets/tanzania/dhow-cruise.jpg";
+import dhowSunsetSilhouette from "@/assets/tanzania/dhow-sunset-silhouette.jpg";
+import beachSunsetSilhouettes from "@/assets/tanzania/beach-sunset-silhouettes.jpg";
+import zanzibarSplashPlay from "@/assets/tanzania/zanzibar-splash-play.jpg";
+import beachCoupleWalk from "@/assets/tanzania/beach-couple-walk.jpg";
+import beachDaybedRelaxation from "@/assets/tanzania/beach-daybed-relaxation.jpg";
+import beachWalkBraids from "@/assets/tanzania/beach-walk-braids.jpg";
+
+// Stone Town & Spice Tour
+import stonetownOrnateDoor from "@/assets/tanzania/stonetown-ornate-door.jpg";
+import stonetownCoupleExplore from "@/assets/tanzania/stonetown-couple-explore.jpg";
+import darajaniMarket from "@/assets/tanzania/darajani-market.jpg";
+import rooftopDinnerSunset from "@/assets/tanzania/rooftop-dinner-sunset.jpg";
+import spiceFarmWelcome from "@/assets/tanzania/spice-farm-welcome.jpg";
+import cinnamonBarkSmelling from "@/assets/tanzania/cinnamon-bark-smelling.jpg";
+import nutmegDiscovery from "@/assets/tanzania/nutmeg-discovery.jpg";
+import palmTreeClimbing from "@/assets/tanzania/palm-tree-climbing.jpg";
+import spiceTasting from "@/assets/tanzania/spice-tasting.jpg";
+
+// Landscapes
+import kilimanjaroSunrise from "@/assets/tanzania/kilimanjaro-sunrise.jpg";
 
 // ============================================================
 // BASIC INFO
@@ -73,7 +80,7 @@ export const tanzaniaConfig: TripConfig = {
     hero: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1920",
     heroVideo: heroVideo,
     host: "https://storage.googleapis.com/msgsndr/KSmohoW4bdBXMkPu9h7U/media/69538e8aec06c504ac9c62ca.jpg",
-    cta: "https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1920",
+    cta: balloonSerengetiDawn,
     ctaVideo: ctaVideo,
   },
 
@@ -174,33 +181,50 @@ export const tanzaniaConfig: TripConfig = {
   },
 
   // ============================================================
-  // GALLERY SECTION
+  // GALLERY SECTION - Curated from new gallery images
   // ============================================================
   gallery: {
     sectionLabel: "TANZANIA + ZANZIBAR MOMENTS",
     headline: "A Taste of What Awaits",
     items: [
-      { image: balloonAerial, caption: "Floating Over the Serengeti" },
-      { image: balloonBasketView, caption: "Views from Above" },
-      { image: balloonWomanJoy, caption: "Pure Joy at Sunrise" },
-      { image: balloonJoyPortrait, caption: "Sunrise Serenity" },
-      { image: champagneBreakfast, caption: "Champagne Breakfast" },
-      { image: flamingosNgorongoro, caption: "Flamingos at Ngorongoro" },
-      { image: maasaiWelcome, caption: "Maasai Welcome Dance" },
-      { image: maasaiDancing, caption: "Cultural Exchange" },
-      { image: luxuryCamp, caption: "Luxury Tented Camp" },
-      { image: craterDawn, caption: "Ngorongoro at Dawn" },
-      { image: lionReaction, caption: "First Wildlife Encounter" },
-      { image: sunsetToast, caption: "Sunset Celebration" },
-      { image: safariVehicle, caption: "Safari Adventure" },
-      { image: groupLaugh, caption: "Making Memories Together" },
-      { image: dhowBoat, caption: "Zanzibar Dhow Cruise" },
-      { image: stoneTownRooftop, caption: "Stone Town Sunset" },
-      { image: stonetownAlley, caption: "Stone Town Discovery" },
-      { image: zanzibarSplashJoy, caption: "Crystal Waters" },
-      { image: zanzibarSplash, caption: "Beach Joy" },
-      { image: beachSunsetGroup, caption: "Sunset on the Beach" },
-      { image: beachDinner, caption: "Dinner Under the Stars" },
+      // Hot Air Balloon Section
+      { image: balloonSerengetiDawn, caption: "Floating Over the Serengeti" },
+      { image: balloonAerialView, caption: "Sunrise Views from Above" },
+      { image: balloonSunriseJoy, caption: "Pure Joy at Sunrise" },
+      { image: balloonInflationGroup, caption: "The Magic of Liftoff" },
+      { image: champagneToast, caption: "Champagne Breakfast on the Plains" },
+      
+      // Luxury Safari Camp
+      { image: luxuryCampArrival, caption: "Arriving at Camp" },
+      { image: luxuryTentInterior, caption: "Unexpected Luxury" },
+      { image: tentSunsetCouple, caption: "Sunset from Your Tent" },
+      { image: campfireStories, caption: "Stories Under the Stars" },
+      { image: safariDinner, caption: "Dinner in the Wild" },
+      
+      // Maasai Culture
+      { image: maasaiExchange, caption: "Cultural Exchange" },
+      { image: maasaiBoma, caption: "Maasai Village at Dusk" },
+      { image: maasaiChildren, caption: "Joyful Connections" },
+      
+      // Zanzibar Beach Life
+      { image: dhowCruise, caption: "Traditional Dhow Cruise" },
+      { image: dhowSunsetSilhouette, caption: "Sailing into Sunset" },
+      { image: beachSunsetSilhouettes, caption: "Golden Hour on the Beach" },
+      { image: zanzibarSplashPlay, caption: "Crystal Waters" },
+      { image: beachCoupleWalk, caption: "Beach Strolls" },
+      { image: beachDaybedRelaxation, caption: "Complete Relaxation" },
+      { image: beachWalkBraids, caption: "Peaceful Moments" },
+      
+      // Stone Town & Spice
+      { image: stonetownOrnateDoor, caption: "Stone Town Doorways" },
+      { image: stonetownCoupleExplore, caption: "Exploring the Alleys" },
+      { image: darajaniMarket, caption: "Darajani Market" },
+      { image: rooftopDinnerSunset, caption: "Rooftop Sunset" },
+      { image: spiceFarmWelcome, caption: "Spice Farm Tour" },
+      { image: spiceTasting, caption: "Tasting the Spices" },
+      { image: cinnamonBarkSmelling, caption: "Fresh Cinnamon" },
+      { image: nutmegDiscovery, caption: "Nutmeg Discovery" },
+      { image: palmTreeClimbing, caption: "Coconut Harvest" },
     ],
   },
 
@@ -254,10 +278,10 @@ export const tanzaniaConfig: TripConfig = {
     sectionLabel: "DESTINATIONS",
     headline: "Where We'll Take You",
     items: [
-      { name: "Serengeti", description: "Endless Plains", image: balloonInflation },
-      { name: "Ngorongoro", description: "The Crater", image: craterDawn },
-      { name: "Stone Town", description: "UNESCO Heritage", image: stonetownAlley },
-      { name: "Zanzibar", description: "Island Paradise", image: dhowBoat },
+      { name: "Serengeti", description: "Endless Plains", image: balloonInflationGroup },
+      { name: "Ngorongoro", description: "The Crater", image: kilimanjaroSunrise },
+      { name: "Stone Town", description: "UNESCO Heritage", image: stonetownOrnateDoor },
+      { name: "Zanzibar", description: "Island Paradise", image: dhowCruise },
     ],
   },
 
