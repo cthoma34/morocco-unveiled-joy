@@ -1,5 +1,17 @@
 import { GuideConfig } from '@/types/guide-config';
 
+// South Africa images
+import tableMountainSunset from '@/assets/southafrica/table-mountain-sunset.jpg';
+import boKaapGroup from '@/assets/southafrica/bo-kaap-group.jpg';
+import capePointCouple from '@/assets/southafrica/cape-point-couple.jpg';
+import waterfrontGroup from '@/assets/southafrica/waterfront-group.jpg';
+import safariLion from '@/assets/southafrica/safari-lion.jpg';
+import stellenboschWineToast from '@/assets/southafrica/stellenbosch-wine-toast.jpg';
+import mandelaCell from '@/assets/southafrica/mandela-cell.jpg';
+import tableMountainSummit from '@/assets/southafrica/table-mountain-summit.jpg';
+import apartheidMuseum from '@/assets/southafrica/apartheid-museum.jpg';
+import sowetoVilakazi from '@/assets/southafrica/soweto-vilakazi.jpg';
+
 export const southafricaGuide: GuideConfig = {
   slug: 'southafrica',
   destinationName: 'South Africa',
@@ -15,7 +27,7 @@ export const southafricaGuide: GuideConfig = {
   hero: {
     title: 'Your Freedom Blueprint: SOUTH AFRICA',
     subtitle: 'Everything You Need to Know Before You Go',
-    backgroundImage: '/placeholder.svg',
+    backgroundImage: tableMountainSunset,
   },
 
   welcome: {
@@ -229,10 +241,27 @@ export const southafricaGuide: GuideConfig = {
   },
 
   images: {
-    hero: '/placeholder.svg',
-    welcome: '/placeholder.svg',
-    culture: '/placeholder.svg',
-    food: '/placeholder.svg',
-    gallery: [],
+    hero: tableMountainSunset,
+    welcome: boKaapGroup,
+    culture: sowetoVilakazi,
+    food: stellenboschWineToast,
+    gallery: [
+      boKaapGroup,
+      capePointCouple,
+      waterfrontGroup,
+      safariLion,
+      stellenboschWineToast,
+      mandelaCell,
+      tableMountainSummit,
+      apartheidMuseum,
+      sowetoVilakazi,
+    ],
+    interludes: {
+      afterWelcome: [boKaapGroup, capePointCouple],
+      afterBasics: [waterfrontGroup, safariLion],
+      afterCulture: [stellenboschWineToast, mandelaCell],
+      afterPhotos: [tableMountainSummit, apartheidMuseum],
+      afterRealTalk: [sowetoVilakazi],
+    },
   },
 };
