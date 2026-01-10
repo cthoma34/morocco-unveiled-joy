@@ -1,8 +1,43 @@
 import { motion } from 'framer-motion';
-import { FileText, Heart, DollarSign, Thermometer, CheckCircle2 } from 'lucide-react';
+import { FileText, Heart, DollarSign, Thermometer, CheckCircle2, ExternalLink, AlertCircle } from 'lucide-react';
 import { GuideConfig } from '@/types/guide-config';
 import EditorialCard from './EditorialCard';
 import { CurrencyConverter } from '../CurrencyConverter';
+
+// State Department travel advisory links by country code
+const getStateDeptLink = (slug: string): string => {
+  const countryLinks: Record<string, string> = {
+    ghana: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Ghana.html',
+    morocco: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Morocco.html',
+    tanzania: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Tanzania.html',
+    egypt: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Egypt.html',
+    southafrica: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/SouthAfrica.html',
+    kenya: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Kenya.html',
+    brazil: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Brazil.html',
+    ethiopia: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Ethiopia.html',
+    dubai: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/UnitedArabEmirates.html',
+    gullah: 'https://travel.state.gov/content/travel/en/international-travel.html', // Domestic
+    caribbean: 'https://travel.state.gov/content/travel/en/international-travel.html', // Multi-country
+    blp: 'https://travel.state.gov/content/travel/en/international-travel.html', // Multi-country
+  };
+  return countryLinks[slug] || 'https://travel.state.gov/content/travel/en/international-travel.html';
+};
+
+// CDC travel health link
+const getCDCHealthLink = (slug: string): string => {
+  const countryLinks: Record<string, string> = {
+    ghana: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/ghana',
+    morocco: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/morocco',
+    tanzania: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/tanzania',
+    egypt: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/egypt',
+    southafrica: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/south-africa',
+    kenya: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/kenya',
+    brazil: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/brazil',
+    ethiopia: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/ethiopia',
+    dubai: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/united-arab-emirates',
+  };
+  return countryLinks[slug] || 'https://wwwnc.cdc.gov/travel/destinations/list';
+};
 
 interface EssentialsGridProps {
   basics: GuideConfig['basics'];
@@ -63,11 +98,11 @@ const EssentialsGrid = ({ basics, slug }: EssentialsGridProps) => {
         <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {/* Documents */}
           <EditorialCard variant="glass" delay={0.1}>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4">
               <FileText className="w-5 h-5 text-[hsl(var(--dest-primary))]" />
               <h3 className="font-heading text-xl text-foreground">{basics.documents.title}</h3>
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-3 mb-4">
               {basics.documents.items.map((item, i) => (
                 <motion.li 
                   key={i}
@@ -82,16 +117,31 @@ const EssentialsGrid = ({ basics, slug }: EssentialsGridProps) => {
                 </motion.li>
               ))}
             </ul>
+            {/* State Dept Disclaimer */}
+            <div className="pt-4 border-t border-border/30">
+              <a 
+                href={getStateDeptLink(slug)} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs text-[hsl(var(--dest-primary))] hover:underline"
+              >
+                <ExternalLink className="w-3 h-3" />
+                Verify with U.S. State Department
+              </a>
+              <p className="text-xs text-muted-foreground mt-2 italic">
+                Requirements subject to change. Always verify before travel.
+              </p>
+            </div>
           </EditorialCard>
 
           {/* Health */}
           <EditorialCard variant="glass" delay={0.2}>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4">
               <Heart className="w-5 h-5 text-[hsl(var(--dest-primary))]" />
               <h3 className="font-heading text-xl text-foreground">{basics.health.title}</h3>
             </div>
-            <ul className="space-y-3">
-              {basics.health.items.slice(0, 7).map((item, i) => (
+            <ul className="space-y-3 mb-4">
+              {basics.health.items.slice(0, 5).map((item, i) => (
                 <motion.li 
                   key={i}
                   className="flex items-start gap-3 text-foreground/80"
@@ -105,6 +155,21 @@ const EssentialsGrid = ({ basics, slug }: EssentialsGridProps) => {
                 </motion.li>
               ))}
             </ul>
+            {/* CDC Disclaimer */}
+            <div className="pt-4 border-t border-border/30">
+              <a 
+                href={getCDCHealthLink(slug)} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs text-[hsl(var(--dest-primary))] hover:underline"
+              >
+                <ExternalLink className="w-3 h-3" />
+                CDC Travel Health Information
+              </a>
+              <p className="text-xs text-muted-foreground mt-2 italic">
+                Consult your doctor for personalized medical advice.
+              </p>
+            </div>
           </EditorialCard>
 
           {/* Money Tips - Spans full width */}
