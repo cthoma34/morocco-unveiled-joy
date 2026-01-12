@@ -43,7 +43,7 @@ export const blpGuide: GuideConfig = {
       title: 'Documents You Need',
       items: [
         'Passport (valid 6+ months)',
-        'No visa needed (US citizens, 90 days)',
+        'Check visa requirements for your nationality',
         'Return ticket',
         'Hotel proof',
         'Travel insurance (recommended)',

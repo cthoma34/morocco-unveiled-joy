@@ -72,7 +72,7 @@ export const egyptGuide: GuideConfig = {
       title: 'Documents You Need',
       items: [
         'Passport (valid 6+ months)',
-        'Egypt visa ($25 on arrival or e-visa)',
+        'Egypt visa (e-visa online or on arrival for many nationalities)',
         'Return ticket',
         'Travel insurance (recommended)',
         'Hotel confirmation',
