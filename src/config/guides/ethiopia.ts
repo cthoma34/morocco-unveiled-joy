@@ -72,14 +72,33 @@ export const ethiopiaGuide: GuideConfig = {
       ],
     },
     weather: {
-      bestMonths: 'October - May (Dry Season)',
-      temperature: '50-80°F (varies greatly by altitude)',
-      tips: [
-        'Dry season: Oct-May (best)',
-        'Rainy season: June-Sept',
-        'Highlands cool always',
-        'Lowlands hot always',
-        'Layers essential',
+      bestMonths: 'October - May',
+      temperature: 'Refreshing highland climate',
+      seasons: [
+        {
+          period: 'October - February',
+          title: 'The Celebration Season',
+          tagline: 'When festivals light up the highlands',
+          experiences: ['Timkat Epiphany celebrations', 'Clear mountain views', 'Perfect trekking weather'],
+          perks: 'Major festivals, clear skies for Lalibela, dry conditions',
+          travelNotes: 'Cool mornings, warm afternoons—layers are your friend'
+        },
+        {
+          period: 'March - May',
+          title: 'The Golden Season',
+          tagline: 'When Ethiopia blooms after the small rains',
+          experiences: ['Wildflowers in the Simiens', 'Easter celebrations', 'Cultural ceremonies'],
+          perks: 'Beautiful landscapes, fewer visitors, authentic experiences',
+          travelNotes: 'Comfortable temperatures throughout the day'
+        },
+        {
+          period: 'June - September',
+          title: 'The Green Season',
+          tagline: 'When Ethiopia transforms into an emerald paradise',
+          experiences: ['Lush landscapes', 'Waterfalls at full power', 'Unique photography'],
+          perks: 'Dramatic scenery, special rates, intimate experiences',
+          travelNotes: 'Afternoon rains—mornings are typically clear for exploration'
+        }
       ],
     },
     packing: [

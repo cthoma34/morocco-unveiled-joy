@@ -79,13 +79,40 @@ export const blpGuide: GuideConfig = {
     },
     weather: {
       bestMonths: 'May - September',
-      temperature: '50-75°F (Cool to mild)',
-      tips: [
-        'Rainy often in both cities',
-        'Summer is best: 60-75°F',
-        'Winter is cold: 35-50°F',
-        'Layers always',
-        'Umbrella essential',
+      temperature: 'European elegance in every season',
+      seasons: [
+        {
+          period: 'May - September',
+          title: 'The Festival Season',
+          tagline: 'When outdoor London and Paris come alive',
+          experiences: ['Notting Hill Carnival', 'Outdoor festivals', 'Sidewalk café culture'],
+          perks: 'Long summer evenings, vibrant street life, park picnics',
+          travelNotes: 'Layers for changeable weather—sunshine and showers both possible'
+        },
+        {
+          period: 'October - November',
+          title: 'The Culture Season',
+          tagline: 'When museums and theaters shine',
+          experiences: ['Theatre premieres', 'Fashion weeks', 'Cozy pub culture'],
+          perks: 'Cultural calendar at its peak, stunning autumn colors',
+          travelNotes: 'Jacket and umbrella—embrace café and gallery culture'
+        },
+        {
+          period: 'December - February',
+          title: 'The Cozy Season',
+          tagline: 'When indoor life becomes magical',
+          experiences: ['Holiday markets', 'Jazz clubs', 'Warm pubs and wine bars'],
+          perks: 'Festive atmosphere, fewer tourists, intimate experiences',
+          travelNotes: 'Bundle up for outdoor exploring, warm interiors await'
+        },
+        {
+          period: 'March - April',
+          title: 'The Awakening Season',
+          tagline: 'When spring transforms the cities',
+          experiences: ['Cherry blossoms', 'Park strolls', 'Easter celebrations'],
+          perks: 'Flowers blooming, cafés move outdoors, city renewal',
+          travelNotes: 'Layers as temperatures warm—spring showers bring beauty'
+        }
       ],
     },
     packing: [

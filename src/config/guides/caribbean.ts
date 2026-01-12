@@ -113,13 +113,25 @@ export const caribbeanGuide: GuideConfig = {
     }, 
     weather: { 
       bestMonths: 'November - May', 
-      temperature: '75-88°F (Hot always)', 
-      tips: [
-        'Hurricane season: June-November', 
-        'Dry season: December-May', 
-        'Trade winds keep it comfortable', 
-        'Rain showers are brief'
-      ] 
+      temperature: 'Tropical paradise year-round', 
+      seasons: [
+        {
+          period: 'December - May',
+          title: 'The Trade Wind Season',
+          tagline: 'When perfect breezes and calm seas await',
+          experiences: ['Ideal sailing conditions', 'Crystal clear waters', 'Peak festival season'],
+          perks: 'Trade winds keep it comfortable, perfect beach days, calm seas for cruising',
+          travelNotes: 'Bring layers for air-conditioned ships'
+        },
+        {
+          period: 'June - November',
+          title: 'The Emerald Season',
+          tagline: 'When islands turn lush and beaches become yours',
+          experiences: ['Lush green landscapes', 'Afternoon rainbows', 'Uncrowded beaches'],
+          perks: 'Luxury cruises become accessible, locals have time to share stories, vibrant vegetation',
+          travelNotes: 'Brief afternoon showers mean perfect morning adventures—the sea stays warm and inviting'
+        }
+      ]
     },
     packing: [
       { item: 'Formal night outfit', category: 'clothing', essential: true }, 

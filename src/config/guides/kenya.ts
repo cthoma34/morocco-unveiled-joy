@@ -123,14 +123,41 @@ export const kenyaGuide: GuideConfig = {
       ],
     },
     weather: {
-      bestMonths: 'July - October (Great Migration)',
-      temperature: '60-85°F depending on altitude',
-      tips: [
-        'July-Oct: Migration in Mara (peak)',
-        'Jan-Feb: Dry, good wildlife viewing',
-        'Nov-Dec: Short rains, green',
-        'Mar-May: Long rains (avoid)',
-        'Nairobi is cooler (altitude)',
+      bestMonths: 'July - October',
+      temperature: 'Warm days, refreshing evenings',
+      seasons: [
+        {
+          period: 'July - October',
+          title: 'The Great Migration Season',
+          tagline: 'When millions cross the Mara River',
+          experiences: ['Witness the Great Migration', 'River crossings drama', 'Peak wildlife viewing'],
+          perks: 'Nature\'s greatest spectacle unfolds before you',
+          travelNotes: 'Comfortable temperatures, fleece for cool morning drives'
+        },
+        {
+          period: 'January - February',
+          title: 'The Golden Season',
+          tagline: 'When predators thrive and skies are clear',
+          experiences: ['Excellent wildlife visibility', 'Dry golden landscapes', 'Perfect photography conditions'],
+          perks: 'Clear skies, active wildlife, beautiful light',
+          travelNotes: 'Warm days ideal for game viewing'
+        },
+        {
+          period: 'November - December',
+          title: 'The Renewal Season',
+          tagline: 'When the land transforms and birds return',
+          experiences: ['Migratory birds arrive', 'Lush green landscapes', 'Newborn animals'],
+          perks: 'Dramatic skies, fewer visitors, vibrant colors',
+          travelNotes: 'Brief afternoon showers refresh the land'
+        },
+        {
+          period: 'March - May',
+          title: 'The Emerald Season',
+          tagline: 'When Kenya becomes a photographer\'s paradise',
+          experiences: ['Dramatic cloud formations', 'Intimate safari experiences', 'Exceptional lodge rates'],
+          perks: 'Best value, empty reserves, moody photography light',
+          travelNotes: 'Rains typically come same time daily—easy to plan around'
+        }
       ],
     },
     packing: [

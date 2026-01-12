@@ -109,13 +109,33 @@ export const brazilGuide: GuideConfig = {
       ],
     },
     weather: {
-      bestMonths: 'August - March (Dry Season)',
-      temperature: '75-95°F (Hot year-round, always humid)',
-      tips: [
-        'Rainy season: April-July',
-        'Dry season: August-March',
-        'Hot and humid always',
-        'Light, breathable clothes essential',
+      bestMonths: 'August - March',
+      temperature: 'Tropical warmth year-round',
+      seasons: [
+        {
+          period: 'December - March',
+          title: 'The Carnival Season',
+          tagline: 'When Brazil\'s spirit reaches its peak',
+          experiences: ['Carnival celebrations', 'Beach life at its best', 'Summer festivals'],
+          perks: 'Maximum energy, unforgettable celebrations, warm ocean waters',
+          travelNotes: 'Embrace the rhythm—rest during siesta, celebrate at night'
+        },
+        {
+          period: 'August - November',
+          title: 'The Golden Season',
+          tagline: 'When Salvador shines and cultures thrive',
+          experiences: ['Perfect beach weather', 'Cultural ceremonies', 'Comfortable explorations'],
+          perks: 'Ideal temperatures, fewer crowds, authentic Bahian experiences',
+          travelNotes: 'Light, breathable clothes for warm days'
+        },
+        {
+          period: 'April - July',
+          title: 'The Festas Juninas Season',
+          tagline: 'When Brazil celebrates its roots',
+          experiences: ['June festivals', 'São João celebrations', 'Traditional music and dance'],
+          perks: 'Unique cultural experiences, comfortable weather, local celebrations',
+          travelNotes: 'Occasional showers bring refreshment and dramatic skies'
+        }
       ],
     },
     packing: [

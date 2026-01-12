@@ -80,14 +80,41 @@ export const southafricaGuide: GuideConfig = {
       ],
     },
     weather: {
-      bestMonths: 'September - November (Spring) or March - May (Fall)',
-      temperature: '50-85°F depending on season',
-      tips: [
-        'Seasons opposite to US',
-        'Summer: Dec-Feb (hot)',
-        'Fall: March-May (perfect)',
-        'Winter: June-Aug (cool)',
-        'Spring: Sept-Nov (beautiful)',
+      bestMonths: 'September - November, March - May',
+      temperature: 'Mediterranean comfort with variety',
+      seasons: [
+        {
+          period: 'September - November',
+          title: 'The Bloom Season',
+          tagline: 'When the Cape explodes with wildflowers',
+          experiences: ['Namaqualand flowers', 'Whale watching', 'Perfect wine tasting weather'],
+          perks: 'Spectacular spring blooms, whale season, pleasant temperatures',
+          travelNotes: 'Layers for changing weather—Cape weather surprises you'
+        },
+        {
+          period: 'December - February',
+          title: 'The Beach Season',
+          tagline: 'When Cape Town\'s beaches and vineyards shine',
+          experiences: ['Beach life', 'Outdoor festivals', 'Long summer evenings'],
+          perks: 'Vibrant energy, perfect beach weather, sundowner culture',
+          travelNotes: 'Warm days, cool sea breezes—pack for outdoor living'
+        },
+        {
+          period: 'March - May',
+          title: 'The Harvest Season',
+          tagline: 'When wine country celebrates and colors change',
+          experiences: ['Wine harvest festivals', 'Autumn colors in the winelands', 'Safari season begins'],
+          perks: 'Perfect temperatures, fewer crowds, wine harvest experiences',
+          travelNotes: 'Ideal balance of warm days and cool evenings'
+        },
+        {
+          period: 'June - August',
+          title: 'The Cozy Season',
+          tagline: 'When fireplaces glow and wildlife gathers',
+          experiences: ['Best safari viewing', 'Cozy wine tastings', 'Fireplace dinners'],
+          perks: 'Peak safari season (dry = animals at waterholes), intimate wine experiences',
+          travelNotes: 'Warm layers for cool days, especially in Cape Town'
+        }
       ],
     },
     packing: [
