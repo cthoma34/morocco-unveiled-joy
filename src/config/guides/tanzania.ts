@@ -119,7 +119,7 @@ export const tanzaniaGuide: GuideConfig = {
       title: 'Documents You Need',
       items: [
         'Passport (valid 6+ months)',
-        'Tanzania visa ($50 on arrival or online)',
+        'Tanzania visa ($100 - e-visa online or upon arrival)',
         'Return ticket',
         'Travel insurance (recommended)',
         'Cash for visa',
