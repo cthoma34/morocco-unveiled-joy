@@ -82,18 +82,15 @@ export const caribbeanGuide: GuideConfig = {
       ] 
     }, 
     health: { 
-      title: 'Health & Medicine', 
+      title: 'Health & Comfort', 
       items: [
-        'Hepatitis A & B recommended', 
-        'Routine vaccines up to date', 
+        'Consult your doctor before travel',
         'Seasickness medicine', 
-        'Dramamine or seasickness bands', 
         'Sunscreen SPF 50+', 
         'Aloe vera for sunburn', 
-        'Bug spray for shore days', 
-        'Basic medications'
+        'Bug spray for shore days'
       ] 
-    }, 
+    },
     money: { 
       currency: 'Varies by Island', 
       currencyCode: 'USD', 

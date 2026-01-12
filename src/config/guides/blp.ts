@@ -53,15 +53,12 @@ export const blpGuide: GuideConfig = {
       ],
     },
     health: {
-      title: 'Health & Medicine',
+      title: 'Health & Comfort',
       items: [
-        'No vaccines required',
         'Pharmacies everywhere',
-        'NHS/hospitals are excellent',
+        'Excellent healthcare available',
         'Pack basic medications',
-        'Adapter plugs (different for each country)',
         'Umbrella (especially London)',
-        'Comfortable walking shoes',
       ],
     },
     money: {

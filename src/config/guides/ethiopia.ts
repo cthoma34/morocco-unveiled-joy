@@ -44,17 +44,13 @@ export const ethiopiaGuide: GuideConfig = {
       ],
     },
     health: {
-      title: 'Health & Medicine',
+      title: 'Health & Comfort',
       items: [
-        'Yellow fever vaccine recommended',
-        'Hepatitis A & B recommended',
-        'Typhoid recommended',
-        'Malaria pills (lowlands only)',
+        'Consult your doctor before travel',
         'Altitude sickness medication (Addis is 7,700 ft)',
         'Sunscreen (high altitude sun is strong)',
         'Lip balm',
         'Stomach medicine',
-        'Basic first aid',
       ],
     },
     money: {

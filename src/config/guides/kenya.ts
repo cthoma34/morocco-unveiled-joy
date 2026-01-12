@@ -96,12 +96,9 @@ export const kenyaGuide: GuideConfig = {
       ],
     },
     health: {
-      title: 'Health & Medicine',
+      title: 'Health & Comfort',
       items: [
-        'Yellow fever vaccine - only if arriving from endemic country',
-        'Malaria prevention medication',
-        'Hepatitis A & B recommended',
-        'Typhoid recommended',
+        'Consult your doctor before travel',
         'Sunscreen SPF 50+',
         'Bug spray with DEET',
         'Stomach medicine',

@@ -81,16 +81,13 @@ export const egyptGuide: GuideConfig = {
       ],
     },
     health: {
-      title: 'Health & Medicine',
+      title: 'Health & Comfort',
       items: [
-        'No required vaccinations',
-        'Hepatitis A & B recommended',
-        'Typhoid recommended',
+        'Consult your doctor before travel',
         'Stomach medicine (essential)',
         'Sunscreen SPF 50+',
         'Electrolyte packets',
         'Hand sanitizer',
-        'Prescription meds in original containers',
       ],
     },
     money: {

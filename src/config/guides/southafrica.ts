@@ -55,13 +55,10 @@ export const southafricaGuide: GuideConfig = {
       ],
     },
     health: {
-      title: 'Health & Medicine',
+      title: 'Health & Comfort',
       items: [
-        'Hepatitis A & B recommended',
-        'Typhoid recommended',
-        'Malaria pills (only for Kruger area)',
+        'Consult your doctor before travel',
         'Sunscreen SPF 50+',
-        'Basic first aid supplies',
         'Stomach medicine',
         'Allergy medication',
       ],
