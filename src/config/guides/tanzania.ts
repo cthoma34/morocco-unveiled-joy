@@ -126,12 +126,9 @@ export const tanzaniaGuide: GuideConfig = {
       ],
     },
     health: {
-      title: 'Health & Medicine',
+      title: 'Health & Comfort',
       items: [
-        'Yellow fever vaccine - only if traveling from a yellow fever endemic country',
-        'Malaria prevention medication',
-        'Hepatitis A & B recommended',
-        'Typhoid recommended',
+        'Consult your doctor before travel',
         'Sunscreen SPF 50+',
         'Stomach medicine',
         'Antihistamine (for dust on safari)',

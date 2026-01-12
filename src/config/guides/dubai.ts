@@ -51,12 +51,11 @@ export const dubaiGuide: GuideConfig = {
       ],
     },
     health: {
-      title: 'Health & Safety',
+      title: 'Health & Comfort',
       items: [
-        'No required vaccinations for US travelers',
+        'Consult your doctor before travel',
         'Tap water is safe but bottled preferred',
         'Excellent healthcare facilities',
-        'Bring prescription meds in original containers',
         'Strong sun protection essential (SPF 50+)',
       ],
     },

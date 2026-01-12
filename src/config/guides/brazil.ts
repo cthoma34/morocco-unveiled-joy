@@ -82,12 +82,9 @@ export const brazilGuide: GuideConfig = {
       ],
     },
     health: {
-      title: 'Health & Medicine',
+      title: 'Health & Comfort',
       items: [
-        'Yellow fever vaccine recommended',
-        'Hepatitis A & B recommended',
-        'Typhoid recommended',
-        'Malaria (Amazon only)',
+        'Consult your doctor before travel',
         'Mosquito spray',
         'Sunscreen SPF 50+',
         'Stomach medicine',
