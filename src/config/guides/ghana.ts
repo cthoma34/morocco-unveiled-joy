@@ -140,13 +140,41 @@ export const ghanaGuide: GuideConfig = {
       ],
     },
     weather: {
-      bestMonths: 'December - March (Dry Season)',
-      temperature: '75-95°F (Hot all year, always humid)',
-      tips: [
-        'Rainy season: April-June, Sept-Nov',
-        'Dry season: Dec-March',
-        'Light, breathable clothes essential',
-        'Dress modest for villages',
+      bestMonths: 'December - March',
+      temperature: 'Warm and welcoming year-round',
+      seasons: [
+        {
+          period: 'December - March',
+          title: 'The Harmattan Season',
+          tagline: 'When cool desert breezes bring perfect festival weather',
+          experiences: ['Outdoor celebrations', 'Traditional festivals', 'Comfortable explorations'],
+          perks: 'Natural air conditioning from the Sahara, clear skies, festival season',
+          travelNotes: 'Light layers for cool evenings, embrace the outdoor lifestyle'
+        },
+        {
+          period: 'April - June',
+          title: 'The Garden Season',
+          tagline: 'When Ghana becomes lush and green',
+          experiences: ['Waterfalls at full flow', 'Vibrant landscapes', 'Cozy cultural moments'],
+          perks: 'Fewer visitors, incredible photography, lower rates',
+          travelNotes: 'Afternoon showers bring out amazing fragrances and colors'
+        },
+        {
+          period: 'July - August',
+          title: 'The Cultural Season',
+          tagline: 'When communities gather and tradition thrives',
+          experiences: ['Panafest and Emancipation Day', 'Community celebrations', 'Heritage ceremonies'],
+          perks: 'Major cultural events, comfortable temperatures',
+          travelNotes: 'Brief breaks in rain, perfect for heritage tourism'
+        },
+        {
+          period: 'September - November',
+          title: 'The Renewal Season',
+          tagline: 'When the land prepares for celebration',
+          experiences: ['Harvest preparations', 'Local markets bustling', 'Intimate experiences'],
+          perks: 'Quiet before festival season, authentic local interactions',
+          travelNotes: 'Occasional showers create beautiful moments'
+        }
       ],
     },
     packing: [

@@ -42,6 +42,16 @@ export interface RealTalkItem {
   tip: string;
 }
 
+// Season information for positive weather framing
+export interface SeasonInfo {
+  period: string;           // e.g., "June - October"
+  title: string;            // e.g., "The Classic Safari Season"
+  tagline: string;          // e.g., "When wildlife gathers and the savanna turns golden"
+  experiences: string[];    // Key experiences during this season
+  perks: string;            // Benefits of visiting during this season
+  travelNotes: string;      // Practical tips framed positively
+}
+
 // Editorial color palette for masculine luxury theming
 export interface EditorialColorPalette {
   primary: string;      // HSL values - Main brand color (e.g., "25 73% 31%")
@@ -192,7 +202,8 @@ export interface GuideConfig {
     weather: {
       bestMonths: string;
       temperature: string;
-      tips: string[];
+      tips?: string[];              // Legacy: Simple tips array (optional now)
+      seasons?: SeasonInfo[];       // New: Rich seasonal descriptions
     };
     packing: PackingItem[];
   };

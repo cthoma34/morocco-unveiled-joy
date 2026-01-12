@@ -133,12 +133,40 @@ export const moroccoGuide: GuideConfig = {
     },
     weather: {
       bestMonths: 'March - May, September - November',
-      temperature: '60-90°F depending on region',
-      tips: [
-        'Spring/Fall: Perfect temperatures',
-        'Summer: Hot in Marrakech, nice on coast',
-        'Winter: Cold in mountains, mild elsewhere',
-        'Desert: Hot days, cold nights year-round',
+      temperature: 'Mediterranean warmth with desert magic',
+      seasons: [
+        {
+          period: 'March - May',
+          title: 'The Bloom Season',
+          tagline: 'When Morocco dresses in spring colors',
+          experiences: ['Rose Valley festival', 'Perfect hiking weather', 'Gardens at peak beauty'],
+          perks: 'Almond blossoms, comfortable medina exploring, ideal photography',
+          travelNotes: 'Layers for the temperature range—warm days, cool evenings'
+        },
+        {
+          period: 'June - August',
+          title: 'The Coastal Season',
+          tagline: 'When Moroccans holiday and coastal cities shine',
+          experiences: ['Beach clubs buzzing', 'Essaouira\'s cool Atlantic breezes', 'Night markets until dawn'],
+          perks: 'Coastal cities stay refreshing, vibrant summer nightlife',
+          travelNotes: 'The coast is perfect while inland enjoys warm evenings'
+        },
+        {
+          period: 'September - November',
+          title: 'The Golden Season',
+          tagline: 'When the light turns magical',
+          experiences: ['Harvest celebrations', 'Perfect city wandering', 'Desert nights at their best'],
+          perks: 'Legendary photography light, olive harvest, date season',
+          travelNotes: 'The sweet spot—comfortable everywhere in the country'
+        },
+        {
+          period: 'December - February',
+          title: 'The Fireside Season',
+          tagline: 'When cozy riads and sunny days combine',
+          experiences: ['Snow-capped Atlas views', 'Sahara sun still warm', 'Intimate hammam culture'],
+          perks: 'Cozy riad evenings, clear mountain views, festive atmosphere',
+          travelNotes: 'Sunny days, cool evenings—perfect for tagines and mint tea'
+        }
       ],
     },
     packing: [

@@ -73,13 +73,40 @@ export const dubaiGuide: GuideConfig = {
     },
     weather: {
       bestMonths: 'November - March',
-      temperature: '75-85°F (24-29°C) in winter, 95-115°F (35-46°C) in summer',
-      tips: [
-        'Winter is peak season with perfect weather',
-        'Summer is extremely hot but heavily discounted',
-        'All indoor spaces are heavily air-conditioned',
-        'Layer up for extreme AC in malls and restaurants',
-        'Morning and evening best for outdoor activities',
+      temperature: 'Year-round sunshine',
+      seasons: [
+        {
+          period: 'November - March',
+          title: 'The Outdoor Season',
+          tagline: 'When Dubai\'s pools, beaches, and desert come alive',
+          experiences: ['Perfect beach days', 'Outdoor brunches', 'Desert adventures', 'Al fresco dining'],
+          perks: 'World-class weather, peak festival season, rooftop experiences',
+          travelNotes: 'Bring layers—outdoor warmth meets refreshing air-conditioned interiors'
+        },
+        {
+          period: 'April - May',
+          title: 'The Transition Season',
+          tagline: 'When rates soften and pools warm up',
+          experiences: ['Pool weather arrives', 'Ramadan cultural experiences', 'Sunset desert drives'],
+          perks: 'Better rates begin, beach clubs buzzing, cultural depth',
+          travelNotes: 'Morning and evening outdoor activities, midday indoor escapes'
+        },
+        {
+          period: 'June - September',
+          title: 'The Luxe Season',
+          tagline: 'When Dubai\'s indoor wonders become your playground',
+          experiences: ['World\'s best malls', 'Aquariums and attractions', 'Spa retreats', 'Night swimming'],
+          perks: 'Presidential suite prices at regular rates, private shopping, pools perfect at night',
+          travelNotes: 'Early morning desert drives are magical—embrace the indoor/evening lifestyle'
+        },
+        {
+          period: 'October',
+          title: 'The Awakening Season',
+          tagline: 'When Dubai emerges with renewed energy',
+          experiences: ['Outdoor spaces reopen', 'Festival season begins', 'Beach club openings'],
+          perks: 'Shoulder season rates, excitement building, beautiful evenings',
+          travelNotes: 'The city comes alive—transition from summer to peak season'
+        }
       ],
     },
     packing: [

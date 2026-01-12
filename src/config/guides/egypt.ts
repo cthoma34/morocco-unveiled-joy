@@ -109,13 +109,33 @@ export const egyptGuide: GuideConfig = {
       ],
     },
     weather: {
-      bestMonths: 'October - April (Cool Season)',
-      temperature: '60-95°F depending on season',
-      tips: [
-        'Winter (Oct-Feb): Perfect, cool nights',
-        'Spring (Mar-Apr): Warm, occasional dust',
-        'Summer (May-Sep): Extremely hot 100°F+',
-        'Cruise: Winter is ideal',
+      bestMonths: 'October - April',
+      temperature: 'Warm days, pleasant evenings',
+      seasons: [
+        {
+          period: 'October - February',
+          title: 'The Golden Season',
+          tagline: 'When ancient sites glow and the Nile beckons',
+          experiences: ['Perfect temple exploring', 'Magical Nile cruises', 'Starlit desert nights'],
+          perks: 'Ideal for outdoor exploration, cool evenings perfect for dining',
+          travelNotes: 'Light layers for cool mornings, warm sunny afternoons'
+        },
+        {
+          period: 'March - April',
+          title: 'The Pharaoh\'s Season',
+          tagline: 'When spring awakens along the Nile',
+          experiences: ['Comfortable sightseeing', 'Spring festivals', 'Blooming gardens'],
+          perks: 'Fewer visitors than peak season, excellent photography light',
+          travelNotes: 'Warm days perfect for exploring—occasional desert breezes add drama'
+        },
+        {
+          period: 'May - September',
+          title: 'The Luxe Season',
+          tagline: 'When Egypt\'s air-conditioned wonders shine',
+          experiences: ['Museums at their best', 'Luxury hotels at accessible rates', 'Evening Nile cruises'],
+          perks: 'World-class museums, significant savings, locals\' pace of life',
+          travelNotes: 'Early morning temple visits, afternoon museum time, evening adventures'
+        }
       ],
     },
     packing: [

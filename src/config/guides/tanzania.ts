@@ -154,13 +154,41 @@ export const tanzaniaGuide: GuideConfig = {
       ],
     },
     weather: {
-      bestMonths: 'June - October (Dry Season)',
-      temperature: '70-85°F depending on region',
-      tips: [
-        'Dry season: June-October (perfect for safari)',
-        'Short rains: Nov-Dec (still good)',
-        'Hot season: Jan-March',
-        'Avoid: April-May (heavy rain)',
+      bestMonths: 'June - October',
+      temperature: 'Warm days, cool evenings',
+      seasons: [
+        {
+          period: 'June - October',
+          title: 'The Classic Safari Season',
+          tagline: 'When wildlife gathers and the savanna turns golden',
+          experiences: ['Wildlife concentrates at water sources', 'Clear skies for hot air balloons', 'Perfect game drive weather'],
+          perks: 'Easy animal sightings, comfortable temperatures, iconic photography light',
+          travelNotes: 'Light layers for cool morning drives, warm afternoons perfect for sundowners'
+        },
+        {
+          period: 'November - December',
+          title: 'The Emerald Season',
+          tagline: 'When the landscape transforms and baby animals appear',
+          experiences: ['Calving season begins', 'Dramatic skies for photography', 'Lush green landscapes'],
+          perks: 'Fewer visitors, dramatic storm clouds, bird watching at its peak',
+          travelNotes: 'Brief afternoon showers mean perfect morning adventures'
+        },
+        {
+          period: 'January - March',
+          title: 'The Birth Season',
+          tagline: 'When the Serengeti comes alive with new life',
+          experiences: ['Great Migration calving', 'Predator action at its peak', 'Warm sunny days'],
+          perks: 'Witness hundreds of thousands of births, incredible wildlife drama',
+          travelNotes: 'Warm days perfect for extended game drives'
+        },
+        {
+          period: 'April - May',
+          title: 'The Green Season',
+          tagline: 'When the land renews and rates become accessible',
+          experiences: ['Dramatic landscapes', 'Intimate safari experiences', 'Luxurious lodges at special rates'],
+          perks: 'Exceptional value, empty camps, photographers love the moody light',
+          travelNotes: 'Afternoon rains create lush scenery—mornings are usually clear'
+        }
       ],
     },
     packing: [
