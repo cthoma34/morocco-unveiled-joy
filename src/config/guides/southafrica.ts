@@ -47,7 +47,7 @@ export const southafricaGuide: GuideConfig = {
       title: 'Documents You Need',
       items: [
         'Passport (valid 30 days past return)',
-        'No visa needed (US citizens, 90 days)',
+        'Check visa requirements for your nationality',
         'Return ticket',
         'Two blank passport pages',
         'Travel insurance (recommended)',
@@ -245,7 +245,7 @@ export const southafricaGuide: GuideConfig = {
       'Download XE Currency app',
       'Download WhatsApp',
       'Download load shedding app',
-      'Check visa requirements if not US citizen',
+      'Confirm visa requirements for your nationality',
       'Notify bank of travel dates',
       'Pack layers - weather changes fast',
     ],

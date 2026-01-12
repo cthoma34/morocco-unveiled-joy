@@ -44,7 +44,7 @@ export const dubaiGuide: GuideConfig = {
       title: 'What You Need',
       items: [
         'Valid passport (6+ months validity)',
-        'US citizens get visa on arrival (30 days)',
+        'Check visa requirements for your nationality',
         'Printed or digital hotel confirmation',
         'Return flight confirmation',
         'Travel insurance (recommended)',

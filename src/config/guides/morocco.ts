@@ -98,7 +98,7 @@ export const moroccoGuide: GuideConfig = {
       title: 'Documents You Need',
       items: [
         'Passport (valid 6+ months)',
-        'No visa required for US citizens (90 days)',
+        'Check visa requirements for your nationality',
         'Return ticket',
         'Travel insurance (recommended)',
         'Hotel confirmation',

@@ -73,7 +73,7 @@ export const brazilGuide: GuideConfig = {
       title: 'Documents You Need',
       items: [
         'Passport (valid 6+ months)',
-        'Brazil visa (e-visa online, $80)',
+        'Check visa requirements for your nationality',
         'Return ticket',
         'Hotel proof',
         'Travel insurance (recommended)',
