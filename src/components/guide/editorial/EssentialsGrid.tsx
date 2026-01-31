@@ -52,15 +52,15 @@ const EssentialsGrid = ({ basics, slug }: EssentialsGridProps) => {
         
         {/* Left column - Quick facts stack */}
         <div className="lg:col-span-4 space-y-6">
-          {/* Weather Card */}
+          {/* Climate Card */}
           <EditorialCard variant="bordered">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-full bg-[hsl(var(--dest-primary)/0.1)] flex items-center justify-center flex-shrink-0">
                 <Thermometer className="w-6 h-6 text-[hsl(var(--dest-primary))]" />
               </div>
               <div>
-                <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-1">Best Time</p>
-                <p className="font-heading text-2xl text-foreground">{basics.weather.bestMonths}</p>
+                <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-1">Climate</p>
+                <p className="font-heading text-2xl text-foreground">Year-Round Destination</p>
                 <p className="text-sm text-muted-foreground mt-1">{basics.weather.temperature}</p>
               </div>
             </div>
