@@ -64,7 +64,12 @@ async function fireConstantContact(p: Payload) {
   const apiKey = Deno.env.get("CC_API_KEY");
   const clientSecret = Deno.env.get("CC_CLIENT_SECRET");
   const refreshToken = Deno.env.get("CC_REFRESH_TOKEN");
-  const listId = Deno.env.get("CC_LIST_ID");
+  const rawListId = Deno.env.get("CC_LIST_ID") ?? "";
+  // Tolerate either a bare UUID or a full CC dashboard URL.
+  const listIdMatch = rawListId.match(
+    /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i,
+  );
+  const listId = listIdMatch ? listIdMatch[0] : "";
   if (!apiKey || !clientSecret || !refreshToken) {
     return { ok: false, skipped: "cc-not-configured" };
   }
