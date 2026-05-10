@@ -63,34 +63,60 @@ async function fireGHL(p: Payload) {
 async function fireConstantContact(p: Payload) {
   const apiKey = Deno.env.get("CC_API_KEY");
   const clientSecret = Deno.env.get("CC_CLIENT_SECRET");
-  if (!apiKey || !clientSecret) return { ok: false, skipped: "cc-not-configured" };
+  const refreshToken = Deno.env.get("CC_REFRESH_TOKEN");
+  const listId = Deno.env.get("CC_LIST_ID");
+  if (!apiKey || !clientSecret || !refreshToken) {
+    return { ok: false, skipped: "cc-not-configured" };
+  }
   if (!p.email) return { ok: false, skipped: "no-email" };
 
-  // Constant Contact v3 sign_up_form endpoint accepts the API key directly
-  // for unauthenticated subscribe flows. Tag is sent so it can be matched
-  // server-side in CC by an automation rule on tag value.
-  const { firstName, lastName } = splitName(p.name);
-  const body = {
-    api_key: apiKey,
-    email_address: p.email,
-    first_name: firstName,
-    last_name: lastName,
-    phone_number: p.phone ?? "",
-    tag: p.ccTag ?? p.destination ?? "",
-    source: p.source ?? "confirmation-page",
-  };
-
   try {
-    const res = await fetch("https://api.cc.email/v3/contacts/sign_up_form", {
-      method: "POST",
-      headers: {
-        Authorization: `Basic ${btoa(`${apiKey}:${clientSecret}`)}`,
-        "Content-Type": "application/json",
+    // Step 1: exchange refresh token for an access token
+    const tokenRes = await fetch(
+      "https://authz.constantcontact.com/oauth2/default/v1/token",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Basic ${btoa(`${apiKey}:${clientSecret}`)}`,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          grant_type: "refresh_token",
+          refresh_token: refreshToken,
+        }).toString(),
       },
-      body: JSON.stringify(body),
-    });
-    const data = await res.json().catch(() => ({}));
-    return { ok: res.ok, status: res.status, data };
+    );
+    const tokenData = await tokenRes.json().catch(() => ({}));
+    if (!tokenRes.ok || !tokenData.access_token) {
+      return { ok: false, status: tokenRes.status, error: "token-refresh-failed", data: tokenData };
+    }
+    const accessToken = tokenData.access_token as string;
+
+    // Step 2: upsert contact via sign_up_form (creates or updates, adds to list)
+    const { firstName, lastName } = splitName(p.name);
+    const body: Record<string, unknown> = {
+      email_address: p.email,
+      first_name: firstName,
+      last_name: lastName,
+      phone_number: p.phone ?? "",
+      create_source: "Contact",
+    };
+    if (listId) body.list_memberships = [listId];
+
+    const ccRes = await fetch(
+      "https://api.cc.email/v3/contacts/sign_up_form",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(body),
+      },
+    );
+    const ccData = await ccRes.json().catch(() => ({}));
+    return { ok: ccRes.ok, status: ccRes.status, data: ccData };
   } catch (err) {
     return { ok: false, error: String(err) };
   }
