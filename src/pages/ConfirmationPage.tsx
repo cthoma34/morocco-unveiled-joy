@@ -4,6 +4,7 @@ import {
   ConfirmDestinationConfig,
   getConfirmDestination,
 } from "@/config/destinations-confirm";
+import { fireAllWebhooks } from "@/lib/webhooks";
 
 const MIT_LOGO =
   "https://storage.googleapis.com/msgsndr/KSmohoW4bdBXMkPu9h7U/media/mit-logo.png";
@@ -19,23 +20,15 @@ const fontHeading = { fontFamily: "'Playfair Display', serif" };
 const fontBody = { fontFamily: "'Inter', sans-serif" };
 
 function fireWebhooks(config: ConfirmDestinationConfig, params: Record<string, string>) {
-  const payload = {
-    name: params.name ?? "",
-    email: params.email ?? "",
-    phone: params.phone ?? "",
+  void fireAllWebhooks({
+    name: params.name,
+    email: params.email,
+    phone: params.phone,
     destination: config.slug,
     source: "confirmation-page",
-  };
-  const ghl = { ...payload, tag: config.tags.ghl };
-  const cc = { ...payload, tag: config.tags.constantContact };
-  // Silent fire-and-forget. No URLs configured yet — keep stubs harmless.
-  try {
-    void ghl;
-    void cc;
-    // Example shape, kept inert: fetch(url, { method: "POST", body: JSON.stringify(ghl) }).catch(() => {});
-  } catch {
-    // ignore
-  }
+    ghlTag: config.tags.ghl,
+    ccTag: config.tags.constantContact,
+  });
 }
 
 function useLiveClock(timeZone: string) {
