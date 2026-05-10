@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import GuidePage from "./pages/GuidePage";
+import ConfirmationPage from "./pages/ConfirmationPage";
 import { allGuides, getGuideBySlug, defaultGuide } from "./config/guides";
 import { GuideConfig } from "./types/guide-config";
 
@@ -46,6 +47,10 @@ const App = () => {
           <Routes>
             {/* Root: default guide */}
             <Route path="/" element={<GuidePage config={defaultGuide} />} />
+
+            {/* Post-registration confirmation pages */}
+            <Route path="/confirm" element={<ConfirmationPage />} />
+            <Route path="/confirm/:destination" element={<ConfirmationPage />} />
             
             {/* Path-based guide routes: /tanzania, /dubai, /blp, etc. */}
             {allGuides.map((guide) => (
