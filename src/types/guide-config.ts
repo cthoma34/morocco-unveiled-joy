@@ -192,6 +192,12 @@ export interface GuideConfig {
     childrensBook: string | null;
   };
 
+  // Webhook tags for registration
+  tags?: {
+    ghl: string;
+    cc: string;
+  };
+
   // Basics Section
   basics: {
     documents: {
