@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import GuidePage from "./pages/GuidePage";
 import ConfirmationPage from "./pages/ConfirmationPage";
 import { allGuides, getGuideBySlug, defaultGuide } from "./config/guides";
+import { destinationsConfirm } from "./config/destinations-confirm";
 import { GuideConfig } from "./types/guide-config";
 
 const queryClient = new QueryClient();
@@ -50,6 +51,13 @@ const App = () => {
 
             {/* Post-registration confirmation pages */}
             <Route path="/confirm" element={<ConfirmationPage />} />
+            {Object.keys(destinationsConfirm).map((slug) => (
+              <Route
+                key={`confirm-${slug}`}
+                path={`/confirm/${slug}`}
+                element={<ConfirmationPage />}
+              />
+            ))}
             <Route path="/confirm/:destination" element={<ConfirmationPage />} />
             
             {/* Path-based guide routes: /tanzania, /dubai, /blp, etc. */}
