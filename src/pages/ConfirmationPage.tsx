@@ -209,6 +209,17 @@ export default function ConfirmationPage() {
       phone: searchParams.get("phone") ?? "",
     };
     fireWebhooks(config, params);
+
+    // Meta Pixel: CompleteRegistration (fires once per destination per session)
+    const w = window as any;
+    const key = `__fbq_cr_${config.slug}`;
+    if (typeof w.fbq === "function" && !w[key]) {
+      w[key] = true;
+      w.fbq("track", "CompleteRegistration", {
+        content_name: config.eventLabel,
+        content_category: config.slug,
+      });
+    }
   }, [config, searchParams]);
 
   const clock = useLiveClock(config.timeZone);
