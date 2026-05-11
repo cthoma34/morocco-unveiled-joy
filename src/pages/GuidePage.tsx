@@ -21,6 +21,7 @@ import JayWelcomeBlock from '@/components/guide/editorial/JayWelcomeBlock';
 import WelcomeGifts from '@/components/guide/editorial/WelcomeGifts';
 import FunFacts from '@/components/guide/editorial/FunFacts';
 import DestinationClock from '@/components/guide/editorial/DestinationClock';
+import LanguageGreetings from '@/components/guide/editorial/LanguageGreetings';
 import { fireRegistrationWebhooks } from '@/lib/webhooks';
 
 interface GuidePageProps {
@@ -121,6 +122,8 @@ const GuidePage = ({ config }: GuidePageProps) => {
       >
         <EssentialsGrid basics={guide.basics} slug={guide.slug} />
       </PhotoEssaySection>
+
+      <LanguageGreetings language={guide.culture.language} />
 
       {/* PHOTO STRIP: Culture experiences */}
       {strips?.culture && strips.culture.length > 0 && (
