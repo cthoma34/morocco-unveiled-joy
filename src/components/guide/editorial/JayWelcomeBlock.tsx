@@ -3,6 +3,7 @@ import { GuideConfig } from '@/types/guide-config';
 interface JayWelcomeBlockProps {
   welcome: GuideConfig['welcome'];
   jayVideo: string | null;
+  funFacts?: string[];
 }
 
 function getEmbedUrl(url: string): string | null {
@@ -38,8 +39,9 @@ function getEmbedUrl(url: string): string | null {
   }
 }
 
-const JayWelcomeBlock = ({ welcome, jayVideo }: JayWelcomeBlockProps) => {
+const JayWelcomeBlock = ({ welcome, jayVideo, funFacts = [] }: JayWelcomeBlockProps) => {
   const embedUrl = jayVideo ? getEmbedUrl(jayVideo) : null;
+  const bullets = funFacts.slice(0, 6);
 
   return (
     <section className="bg-background py-20 md:py-32">
@@ -96,6 +98,25 @@ const JayWelcomeBlock = ({ welcome, jayVideo }: JayWelcomeBlockProps) => {
                 {welcome.signatureTitle}
               </p>
             </div>
+
+            {bullets.length > 0 && (
+              <div className="mt-12 pt-10 border-t border-border/40">
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="block h-px w-8 bg-[hsl(var(--dest-primary))]" />
+                  <span className="text-[11px] tracking-[0.25em] uppercase text-[hsl(var(--dest-primary))] font-medium">
+                    A Few Things You Should Know
+                  </span>
+                </div>
+                <ul className="space-y-3 font-body text-base md:text-lg leading-relaxed text-foreground/85">
+                  {bullets.map((fact, i) => (
+                    <li key={i} className="flex gap-3">
+                      <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[hsl(var(--dest-primary))]" />
+                      <span>{fact}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>
