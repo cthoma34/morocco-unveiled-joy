@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { GuideConfig, getDestinationThemeVars, getEditorialPalette } from '@/types/guide-config';
 import { 
   EditorialHero,
-  EditorLetter,
   PhotoEssaySection,
   EssentialsGrid,
   CultureSpread,
