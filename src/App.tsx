@@ -74,17 +74,6 @@ const App = () => {
                 {/* Root: default guide */}
                 <Route path="/" element={<GuidePage config={defaultGuide} />} />
 
-                {/* Preview/dev: keep confirmation pages reachable under /confirm/{slug} */}
-                <Route path="/confirm" element={<ConfirmationPage />} />
-                {CONFIRM_SLUGS.map((slug) => (
-                  <Route
-                    key={`confirm-${slug}`}
-                    path={`/confirm/${slug}`}
-                    element={<ConfirmationPage />}
-                  />
-                ))}
-                <Route path="/confirm/:destination" element={<ConfirmationPage />} />
-
                 {/* Path-based guide routes: /tanzania, /dubai, /blp, etc. */}
                 {allGuides.map((guide) => (
                   <Route
