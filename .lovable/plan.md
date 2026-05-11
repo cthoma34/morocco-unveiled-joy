@@ -1,42 +1,30 @@
-## Goal
+## Change confirmation routes from `/confirm/{slug}` to `/{slug}`
 
-Make the Lovable preview route picker show each confirmation destination as its own clickable entry (e.g. `/confirm/tanzania`, `/confirm/dubai`, `/confirm/ghana`) instead of only the generic `/confirm/:destination` pattern, so you can flip between them quickly.
+The user wants the confirmation pages served directly at the destination slug (e.g. `/tanzania`, `/dubai`) instead of nested under `/confirm/`. This matches how `confirm.travelwithmit.com` should work — the subdomain already implies "confirm", so the path only needs the destination.
 
-## Why it currently shows `:destination`
+### Changes
 
-`src/App.tsx` registers a single param route:
+1. **`src/App.tsx`**
+   - Replace the 13 hardcoded `/confirm/{slug}` routes with 13 hardcoded `/{slug}` routes pointing to `ConfirmationPage`.
+   - Remove the `/confirm/:destination` fallback param route, replace with `/:destination` fallback (placed after all other named routes so it doesn't shadow `/`, `/auth`, etc.).
+   - Keep the root `/` route and any existing named routes (auth, etc.) above the catch-all.
+   - Keep `NotFound` as the final `*` route.
 
-```tsx
-<Route path="/confirm/:destination" element={<ConfirmationPage />} />
+2. **`src/pages/ConfirmationPage.tsx`**
+   - Update the `useParams` lookup if it currently reads `destination` from `/confirm/:destination` — it will continue to read `:destination` from the new `/:destination` route, so likely no change needed. Verify slug resolution still works against `destinationsConfirm`.
+   - The Meta Pixel `CompleteRegistration` logic and session-key guard remain unchanged.
+
+3. **No changes** to `src/config/destinations-confirm.ts`, the pixel base script in `index.html`, or any registration form logic.
+
+### Slugs that will become top-level routes
+
+```
+/tanzania   /zanzibar   /ghana       /southafrica
+/kenya      /ethiopia   /egypt       /morocco
+/dubai      /brazil     /caribbean   /gullah
 ```
 
-The route picker reads route patterns, so it only sees the placeholder. To list real slugs, each slug must be its own route.
+### Notes / risks
 
-## Change
-
-In `src/App.tsx`, add explicit routes for every confirm destination alongside the existing param route (kept as a fallback). Source the slugs from the existing `destinations-confirm.ts` config so we don't hard-code a list.
-
-1. Export an `allConfirmDestinations` array (or expose the existing internal map) from `src/config/destinations-confirm.ts`.
-2. In `src/App.tsx`, import it and render one `<Route>` per slug:
-
-```tsx
-{allConfirmDestinations.map((d) => (
-  <Route
-    key={d.slug}
-    path={`/confirm/${d.slug}`}
-    element={<ConfirmationPage />}
-  />
-))}
-<Route path="/confirm/:destination" element={<ConfirmationPage />} />
-```
-
-Result: the route picker dropdown will now show `/confirm/tanzania`, `/confirm/zanzibar`, `/confirm/ghana`, `/confirm/southafrica`, `/confirm/kenya`, `/confirm/ethiopia`, `/confirm/egypt`, `/confirm/morocco`, `/confirm/dubai`, `/confirm/brazil`, `/confirm/caribbean`, `/confirm/gullah` as separate entries.
-
-## Files touched
-
-- `src/config/destinations-confirm.ts` — export the list of configs.
-- `src/App.tsx` — map slugs to explicit routes.
-
-## Out of scope
-
-No changes to `ConfirmationPage`, webhooks, or the destination data itself.
+- Any existing route named the same as a destination slug would collide. Need to confirm no conflicts with current named routes (e.g. there's no `/kenya` page already).
+- External links or pixels pointing to old `/confirm/{slug}` URLs will break unless we add redirects. If the user wants backward compatibility, we can additionally keep the `/confirm/{slug}` routes as aliases — confirm preference.
