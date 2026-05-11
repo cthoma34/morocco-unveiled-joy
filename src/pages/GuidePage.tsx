@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { GuideConfig, getDestinationThemeVars, getEditorialPalette } from '@/types/guide-config';
 import { 
   EditorialHero,
@@ -18,6 +19,7 @@ import { PackingChecklist } from '@/components/guide';
 import NotFound from './NotFound';
 import JayWelcomeBlock from '@/components/guide/editorial/JayWelcomeBlock';
 import WelcomeGifts from '@/components/guide/editorial/WelcomeGifts';
+import { fireRegistrationWebhooks } from '@/lib/webhooks';
 
 interface GuidePageProps {
   config?: GuideConfig;
@@ -27,6 +29,24 @@ const GuidePage = ({ config }: GuidePageProps) => {
   if (!config) return <NotFound />;
 
   const guide = config;
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name') ?? '';
+    const email = params.get('email') ?? '';
+    const phone = params.get('phone') ?? '';
+    const destination = window.location.pathname.replace(/^\//, '');
+
+    void fireRegistrationWebhooks({
+      name,
+      email,
+      phone,
+      destination,
+      ghlTag: guide.tags?.ghl ?? `${destination} Info Session`,
+      ccTag: guide.tags?.cc ?? `${destination} Info Session`,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   
   // Get editorial palette for this destination
   const editorialPalette = getEditorialPalette(guide.slug);
