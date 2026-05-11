@@ -184,6 +184,14 @@ export interface GuideConfig {
     image?: string;      // Optional: Section background/feature image
   };
 
+  // Welcome Gifts (downloadable PDFs)
+  gifts?: {
+    cookbook: string | null;
+    passportToFreedom: string | null;
+    dosAndDonts: string | null;
+    childrensBook: string | null;
+  };
+
   // Basics Section
   basics: {
     documents: {
