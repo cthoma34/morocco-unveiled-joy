@@ -16,6 +16,7 @@ import {
 } from '@/components/guide/editorial';
 import { PackingChecklist } from '@/components/guide';
 import NotFound from './NotFound';
+import JayWelcomeBlock from '@/components/guide/editorial/JayWelcomeBlock';
 
 interface GuidePageProps {
   config?: GuideConfig;
@@ -47,6 +48,8 @@ const GuidePage = ({ config }: GuidePageProps) => {
 
       {/* Editor's Letter */}
       <EditorLetter welcome={guide.welcome} destinationName={guide.destinationName} />
+
+      <JayWelcomeBlock welcome={guide.welcome} jayVideo={(guide as any).jayVideo ?? null} />
 
       {/* PHOTO INTERLUDE: After Welcome - Safari Strip */}
       {strips?.safari && strips.safari.length > 0 && (
