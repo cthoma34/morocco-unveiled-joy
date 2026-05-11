@@ -73,14 +73,19 @@ const EditorialHero = ({ config }: EditorialHeroProps) => {
               </span>
             </div>
 
-            {/* Main Title - Editorial Style */}
-            <h1 className="font-heading text-6xl md:text-8xl lg:text-[10rem] font-semibold text-foreground leading-[0.85] tracking-tight mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-              {config.destinationName}
+            {/* Main Title - Confirmation */}
+            <h1 className="font-heading text-6xl md:text-8xl lg:text-[10rem] font-semibold text-foreground leading-[0.85] tracking-tight mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+              Your Spot Is Secure
             </h1>
 
-            {/* Subtitle as editorial tagline */}
-            <p className="font-heading text-2xl md:text-3xl lg:text-4xl text-foreground/90 max-w-2xl italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
-              {config.tagline}
+            {/* Subtitle */}
+            <p className="font-heading text-2xl md:text-3xl lg:text-4xl text-foreground/90 max-w-2xl italic mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+              {config.hero.title || `${config.destinationName} Virtual Event`}
+            </p>
+
+            {/* Confirmation line */}
+            <p className="font-body text-base md:text-lg text-foreground/70 max-w-xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
+              Your seat is locked in. We will see you there.
             </p>
           </motion.div>
         </div>
