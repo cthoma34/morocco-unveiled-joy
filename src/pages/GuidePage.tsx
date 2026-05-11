@@ -107,7 +107,9 @@ const GuidePage = ({ config }: GuidePageProps) => {
       >
         <FunFacts
           funFacts={guide.funFacts ?? []}
-          images={guide.images.strips?.culture ?? guide.images.strips?.safari ?? []}
+          images={(guide.images.strips?.culture ?? guide.images.strips?.safari ?? []).map(
+            (img: any) => (typeof img === 'string' ? img : img.src)
+          )}
         />
       </PhotoEssaySection>
 
