@@ -1,198 +1,187 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Heart, DollarSign, Thermometer, CheckCircle2, ExternalLink, AlertCircle } from 'lucide-react';
+import { FileText, Stamp, Syringe, DollarSign } from 'lucide-react';
 import { GuideConfig } from '@/types/guide-config';
 import EditorialCard from './EditorialCard';
-import { CurrencyConverter } from '../CurrencyConverter';
 
-// State Department travel advisory links by country code
-const getStateDeptLink = (slug: string): string => {
-  const countryLinks: Record<string, string> = {
-    ghana: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Ghana.html',
-    morocco: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Morocco.html',
-    tanzania: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Tanzania.html',
-    egypt: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Egypt.html',
-    southafrica: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/SouthAfrica.html',
-    kenya: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Kenya.html',
-    brazil: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Brazil.html',
-    ethiopia: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Ethiopia.html',
-    dubai: 'https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/UnitedArabEmirates.html',
-    gullah: 'https://travel.state.gov/content/travel/en/international-travel.html', // Domestic
-    caribbean: 'https://travel.state.gov/content/travel/en/international-travel.html', // Multi-country
-    blp: 'https://travel.state.gov/content/travel/en/international-travel.html', // Multi-country
-  };
-  return countryLinks[slug] || 'https://travel.state.gov/content/travel/en/international-travel.html';
-};
-
-// CDC travel health link
-const getCDCHealthLink = (slug: string): string => {
-  const countryLinks: Record<string, string> = {
-    ghana: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/ghana',
-    morocco: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/morocco',
-    tanzania: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/tanzania',
-    egypt: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/egypt',
-    southafrica: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/south-africa',
-    kenya: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/kenya',
-    brazil: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/brazil',
-    ethiopia: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/ethiopia',
-    dubai: 'https://wwwnc.cdc.gov/travel/destinations/traveler/none/united-arab-emirates',
-  };
-  return countryLinks[slug] || 'https://wwwnc.cdc.gov/travel/destinations/list';
-};
+interface RequirementInfo {
+  required?: boolean;
+  note?: string;
+}
 
 interface EssentialsGridProps {
   basics: GuideConfig['basics'];
   slug: string;
 }
 
-const EssentialsGrid = ({ basics, slug }: EssentialsGridProps) => {
+const resolveRequirement = (
+  value: unknown,
+  fallbackItems: string[] | undefined,
+  defaultLabel: string
+): { answer: string; note: string } => {
+  if (value && typeof value === 'object') {
+    const v = value as RequirementInfo;
+    return {
+      answer: v.required === false ? 'No' : 'Yes',
+      note: v.note ?? fallbackItems?.[0] ?? defaultLabel,
+    };
+  }
+  if (typeof value === 'string') {
+    return { answer: 'Yes', note: value };
+  }
+  return {
+    answer: 'Yes',
+    note: fallbackItems?.[0] ?? defaultLabel,
+  };
+};
+
+const EssentialsGrid = ({ basics }: EssentialsGridProps) => {
+  const b = basics as any;
+
+  const passport = resolveRequirement(
+    b.passport,
+    basics.documents?.items,
+    'Valid passport required for entry.'
+  );
+  const visa = resolveRequirement(
+    b.visa,
+    basics.documents?.items,
+    'Check current visa requirements before travel.'
+  );
+  const vaccines = resolveRequirement(
+    b.vaccines,
+    basics.health?.items,
+    'Consult your doctor for recommended vaccines.'
+  );
+
+  const [rate, setRate] = useState<number | null>(null);
+  const [rateError, setRateError] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch('https://open.er-api.com/v6/latest/USD')
+      .then((r) => r.json())
+      .then((data) => {
+        if (cancelled) return;
+        const r = data?.rates?.[basics.money.currencyCode];
+        if (typeof r === 'number') setRate(r);
+        else setRateError(true);
+      })
+      .catch(() => {
+        if (!cancelled) setRateError(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [basics.money.currencyCode]);
+
+  const cards = [
+    {
+      icon: FileText,
+      label: 'Passport',
+      answer: passport.answer,
+      note: passport.note,
+    },
+    {
+      icon: Stamp,
+      label: 'Visa',
+      answer: visa.answer,
+      note: visa.note,
+    },
+    {
+      icon: Syringe,
+      label: 'Vaccines',
+      answer: vaccines.answer,
+      note: vaccines.note,
+    },
+  ];
+
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
-      {/* Main grid - asymmetric magazine layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-        
-        {/* Left column - Quick facts stack */}
-        <div className="lg:col-span-4 space-y-6">
-          {/* Climate Card */}
-          <EditorialCard variant="bordered">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-[hsl(var(--dest-primary)/0.1)] flex items-center justify-center flex-shrink-0">
-                <Thermometer className="w-6 h-6 text-[hsl(var(--dest-primary))]" />
-              </div>
-              <div>
-                <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-1">Climate</p>
-                <p className="font-heading text-2xl text-foreground">Year-Round Destination</p>
-                <p className="text-sm text-muted-foreground mt-1">{basics.weather.temperature}</p>
-              </div>
-            </div>
-          </EditorialCard>
-
-          {/* Currency Quick Card */}
-          <EditorialCard variant="bordered" delay={0.1}>
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-[hsl(var(--dest-primary)/0.1)] flex items-center justify-center flex-shrink-0">
-                <DollarSign className="w-6 h-6 text-[hsl(var(--dest-primary))]" />
-              </div>
-              <div>
-                <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-1">Currency</p>
-                <p className="font-heading text-2xl text-foreground">{basics.money.currencyCode}</p>
-                <p className="text-sm text-muted-foreground mt-1">{basics.money.currency}</p>
-              </div>
-            </div>
-          </EditorialCard>
-
-          {/* Currency Converter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <CurrencyConverter 
-              currencyCode={basics.money.currencyCode}
-              currencyName={basics.money.currency}
-            />
-          </motion.div>
-        </div>
-
-        {/* Right column - Documents and Health */}
-        <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {/* Documents */}
-          <EditorialCard variant="glass" delay={0.1}>
-            <div className="flex items-center gap-3 mb-4">
-              <FileText className="w-5 h-5 text-[hsl(var(--dest-primary))]" />
-              <h3 className="font-heading text-xl text-foreground">{basics.documents.title}</h3>
-            </div>
-            <ul className="space-y-3 mb-4">
-              {basics.documents.items.map((item, i) => (
-                <motion.li 
-                  key={i}
-                  className="flex items-start gap-3 text-foreground/80"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.05 * i }}
-                >
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(var(--dest-primary))] flex-shrink-0 mt-1" />
-                  <span className="text-sm">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-            {/* State Dept Disclaimer */}
-            <div className="pt-4 border-t border-border/30">
-              <a 
-                href={getStateDeptLink(slug)} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs text-[hsl(var(--dest-primary))] hover:underline"
-              >
-                <ExternalLink className="w-3 h-3" />
-                Verify with U.S. State Department
-              </a>
-              <p className="text-xs text-muted-foreground mt-2 italic">
-                Requirements subject to change. Always verify before travel.
-              </p>
-            </div>
-          </EditorialCard>
-
-          {/* Health */}
-          <EditorialCard variant="glass" delay={0.2}>
-            <div className="flex items-center gap-3 mb-4">
-              <Heart className="w-5 h-5 text-[hsl(var(--dest-primary))]" />
-              <h3 className="font-heading text-xl text-foreground">{basics.health.title}</h3>
-            </div>
-            <ul className="space-y-3 mb-4">
-              {basics.health.items.slice(0, 5).map((item, i) => (
-                <motion.li 
-                  key={i}
-                  className="flex items-start gap-3 text-foreground/80"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.05 * i }}
-                >
-                  <CheckCircle2 className="w-4 h-4 text-[hsl(var(--dest-primary))] flex-shrink-0 mt-1" />
-                  <span className="text-sm">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
-            {/* CDC Disclaimer */}
-            <div className="pt-4 border-t border-border/30">
-              <a 
-                href={getCDCHealthLink(slug)} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs text-[hsl(var(--dest-primary))] hover:underline"
-              >
-                <ExternalLink className="w-3 h-3" />
-                CDC Travel Health Information
-              </a>
-              <p className="text-xs text-muted-foreground mt-2 italic">
-                Consult your doctor for personalized medical advice.
-              </p>
-            </div>
-          </EditorialCard>
-
-          {/* Money Tips - Spans full width */}
-          <div className="md:col-span-2">
-            <EditorialCard variant="bordered" delay={0.3}>
-              <p className="text-xs tracking-[0.3em] uppercase text-[hsl(var(--dest-primary))] mb-4">Money Tips</p>
-              <div className="flex flex-wrap gap-3">
-                {basics.money.tips.map((tip, i) => (
-                  <motion.span 
-                    key={i}
-                    className="px-4 py-2 bg-[hsl(var(--dest-primary)/0.08)] text-sm text-foreground rounded-full border border-[hsl(var(--dest-primary)/0.15)]"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.03 * i }}
-                  >
-                    {tip}
-                  </motion.span>
-                ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {cards.map((card, i) => {
+          const Icon = card.icon;
+          const isYes = card.answer.toLowerCase() === 'yes';
+          return (
+            <EditorialCard key={card.label} variant="bordered" delay={i * 0.05}>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-[hsl(var(--dest-primary)/0.1)] flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-6 h-6 text-[hsl(var(--dest-primary))]" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-2">
+                    {card.label}
+                  </p>
+                  <p className="font-heading text-3xl text-foreground mb-2">
+                    <span
+                      className={
+                        isYes
+                          ? 'text-[hsl(var(--dest-primary))]'
+                          : 'text-foreground'
+                      }
+                    >
+                      {card.answer}
+                    </span>
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {card.note}
+                  </p>
+                </div>
               </div>
             </EditorialCard>
+          );
+        })}
+
+        {/* Currency */}
+        <EditorialCard variant="bordered" delay={0.15}>
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-full bg-[hsl(var(--dest-primary)/0.1)] flex items-center justify-center flex-shrink-0">
+              <DollarSign className="w-6 h-6 text-[hsl(var(--dest-primary))]" />
+            </div>
+            <div className="flex-1">
+              <p className="text-xs tracking-[0.3em] uppercase text-muted-foreground mb-2">
+                Currency
+              </p>
+              <p className="font-heading text-3xl text-foreground">
+                {basics.money.currencyCode}
+              </p>
+              <p className="text-sm text-muted-foreground mt-1">
+                {basics.money.currency}
+              </p>
+
+              <motion.div
+                className="mt-4 pt-4 border-t border-border/30"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4 }}
+              >
+                {rate !== null && !rateError ? (
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <p className="text-base text-foreground/90 font-medium">
+                      1 USD ={' '}
+                      <span className="text-[hsl(var(--dest-primary))] font-semibold">
+                        {rate.toLocaleString(undefined, {
+                          maximumFractionDigits: 2,
+                        })}
+                      </span>{' '}
+                      {basics.money.currencyCode}
+                    </p>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[hsl(var(--dest-primary)/0.1)] border border-[hsl(var(--dest-primary)/0.2)]">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--dest-primary))] animate-pulse" />
+                      <span className="text-[10px] tracking-[0.15em] uppercase text-[hsl(var(--dest-primary))] font-medium">
+                        Live Rate
+                      </span>
+                    </span>
+                  </div>
+                ) : rateError ? null : (
+                  <p className="text-sm text-muted-foreground italic">
+                    Loading live rate…
+                  </p>
+                )}
+              </motion.div>
+            </div>
           </div>
-        </div>
+        </EditorialCard>
       </div>
     </div>
   );
