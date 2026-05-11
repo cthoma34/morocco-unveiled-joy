@@ -15,7 +15,6 @@ import {
   FullBleedImage,
 } from '@/components/guide/editorial';
 import { PackingChecklist } from '@/components/guide';
-import DestinationNav from '@/components/guide/DestinationNav';
 import NotFound from './NotFound';
 
 interface GuidePageProps {
@@ -43,9 +42,6 @@ const GuidePage = ({ config }: GuidePageProps) => {
 
   return (
     <div style={themeStyle} className="min-h-screen bg-background overflow-x-hidden">
-      {/* Destination Navigation */}
-      <DestinationNav currentSlug={guide.slug} />
-
       {/* Hero - Full screen parallax */}
       <EditorialHero config={guide} />
 
@@ -67,20 +63,6 @@ const GuidePage = ({ config }: GuidePageProps) => {
         />
       )}
 
-      {/* The Essentials - Photo Essay Style */}
-      <PhotoEssaySection 
-        label="01 — The Basics"
-        title="Before You Board"
-        subtitle="Everything you need to know before you leave"
-      >
-        <EssentialsGrid basics={guide.basics} slug={guide.slug} />
-        
-        {/* Packing Section */}
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mt-16">
-          <PackingChecklist items={guide.basics.packing} storageKey={guide.slug} />
-        </div>
-      </PhotoEssaySection>
-
       {/* PHOTO INTERLUDE: After Basics - Balloon Experience Strip */}
       {interludes?.afterBasics && interludes.afterBasics.length > 0 && (
         <ImageInterlude 
@@ -95,7 +77,6 @@ const GuidePage = ({ config }: GuidePageProps) => {
         title="Connect Deeper"
         subtitle={`Essential ${guide.culture.language.name} phrases and cultural insights`}
       >
-        <CultureSpread culture={guide.culture} />
       </PhotoEssaySection>
 
       {/* PHOTO STRIP: Culture experiences */}
@@ -111,15 +92,6 @@ const GuidePage = ({ config }: GuidePageProps) => {
         />
       )}
 
-      {/* Photo Spots - Masonry Grid */}
-      <PhotoEssaySection
-        label="03 — Through the Lens"
-        title="Photo Spots"
-        subtitle={guide.photos.intro}
-      >
-        <PhotoSpotsMasonry photos={guide.photos} />
-      </PhotoEssaySection>
-
       {/* PHOTO STRIP: Beach experiences */}
       {strips?.beach && strips.beach.length > 0 && (
         <PhotoGalleryStrip images={strips.beach} direction="left" />
@@ -134,15 +106,6 @@ const GuidePage = ({ config }: GuidePageProps) => {
         />
       )}
 
-      {/* Real Talk - Editorial Interview Style */}
-      <PhotoEssaySection
-        label="04 — Real Talk"
-        title="What They Don't Tell You"
-        subtitle={guide.realTalk.intro}
-      >
-        <RealTalkSection realTalk={guide.realTalk} />
-      </PhotoEssaySection>
-
       {/* Image Interlude: After Real Talk - Emotional moments */}
       {interludes?.afterRealTalk && interludes.afterRealTalk.length > 0 && (
         <ImageInterlude 
@@ -152,15 +115,6 @@ const GuidePage = ({ config }: GuidePageProps) => {
           attribution={interludes.afterRealTalkQuote?.attribution}
         />
       )}
-
-      {/* Before You Go */}
-      <PhotoEssaySection
-        label="05 — Preparation"
-        title="Before You Go"
-        subtitle="Prep your mind and spirit for the journey"
-      >
-        <BeforeYouGoSection beforeYouGo={guide.beforeYouGo} slug={guide.slug} />
-      </PhotoEssaySection>
 
       {/* Final CTA */}
       <EditorialCTA 
