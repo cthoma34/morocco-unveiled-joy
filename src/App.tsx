@@ -26,21 +26,6 @@ const isConfirmDomain = (): boolean => {
   return window.location.hostname.startsWith("confirm.");
 };
 
-const CONFIRM_SLUGS = [
-  "tanzania",
-  "zanzibar",
-  "ghana",
-  "southafrica",
-  "kenya",
-  "ethiopia",
-  "egypt",
-  "morocco",
-  "dubai",
-  "brazil",
-  "caribbean",
-  "gullah",
-] as const;
-
 const App = () => {
   const confirmMode = isConfirmDomain();
   return (
@@ -73,17 +58,6 @@ const App = () => {
               <>
                 {/* Root: default guide */}
                 <Route path="/" element={<GuidePage config={defaultGuide} />} />
-
-                {/* Preview/dev: keep confirmation pages reachable under /confirm/{slug} */}
-                <Route path="/confirm" element={<ConfirmationPage />} />
-                {CONFIRM_SLUGS.map((slug) => (
-                  <Route
-                    key={`confirm-${slug}`}
-                    path={`/confirm/${slug}`}
-                    element={<ConfirmationPage />}
-                  />
-                ))}
-                <Route path="/confirm/:destination" element={<ConfirmationPage />} />
 
                 {/* Path-based guide routes: /tanzania, /dubai, /blp, etc. */}
                 {allGuides.map((guide) => (
