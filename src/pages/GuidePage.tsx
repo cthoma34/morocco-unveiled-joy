@@ -19,6 +19,8 @@ import { PackingChecklist } from '@/components/guide';
 import NotFound from './NotFound';
 import JayWelcomeBlock from '@/components/guide/editorial/JayWelcomeBlock';
 import WelcomeGifts from '@/components/guide/editorial/WelcomeGifts';
+import FunFacts from '@/components/guide/editorial/FunFacts';
+import DestinationClock from '@/components/guide/editorial/DestinationClock';
 import { fireRegistrationWebhooks } from '@/lib/webhooks';
 
 interface GuidePageProps {
@@ -99,11 +101,23 @@ const GuidePage = ({ config }: GuidePageProps) => {
 
       {/* Culture & Language - Magazine Spread */}
       <PhotoEssaySection
-        label="02 — Culture"
-        title="Connect Deeper"
-        subtitle={`Essential ${guide.culture.language.name} phrases and cultural insights`}
+        label="Did You Know"
+        title={`${guide.destinationName} Isn't Waiting for Someday`}
+        subtitle="Neither should you."
       >
-        <></>
+        <FunFacts
+          funFacts={guide.funFacts ?? []}
+          images={guide.images.strips?.culture ?? guide.images.strips?.safari ?? []}
+        />
+      </PhotoEssaySection>
+
+      {/* Essentials - standalone */}
+      <PhotoEssaySection
+        label="What You Need to Know"
+        title="Before You Arrive"
+        subtitle="The essentials, nothing extra"
+      >
+        <EssentialsGrid basics={guide.basics} slug={guide.slug} />
       </PhotoEssaySection>
 
       {/* PHOTO STRIP: Culture experiences */}
@@ -142,6 +156,12 @@ const GuidePage = ({ config }: GuidePageProps) => {
           attribution={interludes.afterRealTalkQuote?.attribution}
         />
       )}
+
+      {/* Destination Clock */}
+      <DestinationClock
+        timeZone={guide.timeZone ?? 'UTC'}
+        destinationName={guide.destinationName}
+      />
 
       {/* Final CTA */}
       <EditorialCTA 
