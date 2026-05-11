@@ -7,7 +7,6 @@ import NotFound from "./pages/NotFound";
 import GuidePage from "./pages/GuidePage";
 import ConfirmationPage from "./pages/ConfirmationPage";
 import { allGuides, getGuideBySlug, defaultGuide } from "./config/guides";
-import { destinationsConfirm } from "./config/destinations-confirm";
 import { GuideConfig } from "./types/guide-config";
 
 const queryClient = new QueryClient();
@@ -51,13 +50,18 @@ const App = () => {
 
             {/* Post-registration confirmation pages */}
             <Route path="/confirm" element={<ConfirmationPage />} />
-            {Object.keys(destinationsConfirm).map((slug) => (
-              <Route
-                key={`confirm-${slug}`}
-                path={`/confirm/${slug}`}
-                element={<ConfirmationPage />}
-              />
-            ))}
+            <Route path="/confirm/tanzania" element={<ConfirmationPage />} />
+            <Route path="/confirm/zanzibar" element={<ConfirmationPage />} />
+            <Route path="/confirm/ghana" element={<ConfirmationPage />} />
+            <Route path="/confirm/southafrica" element={<ConfirmationPage />} />
+            <Route path="/confirm/kenya" element={<ConfirmationPage />} />
+            <Route path="/confirm/ethiopia" element={<ConfirmationPage />} />
+            <Route path="/confirm/egypt" element={<ConfirmationPage />} />
+            <Route path="/confirm/morocco" element={<ConfirmationPage />} />
+            <Route path="/confirm/dubai" element={<ConfirmationPage />} />
+            <Route path="/confirm/brazil" element={<ConfirmationPage />} />
+            <Route path="/confirm/caribbean" element={<ConfirmationPage />} />
+            <Route path="/confirm/gullah" element={<ConfirmationPage />} />
             <Route path="/confirm/:destination" element={<ConfirmationPage />} />
             
             {/* Path-based guide routes: /tanzania, /dubai, /blp, etc. */}
