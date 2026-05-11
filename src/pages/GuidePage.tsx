@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { GuideConfig, getDestinationThemeVars, getEditorialPalette } from '@/types/guide-config';
 import { 
   EditorialHero,
-  EditorLetter,
   PhotoEssaySection,
   EssentialsGrid,
   CultureSpread,
@@ -70,10 +69,11 @@ const GuidePage = ({ config }: GuidePageProps) => {
       {/* Hero - Full screen parallax */}
       <EditorialHero config={guide} />
 
-      {/* Editor's Letter */}
-      <EditorLetter welcome={guide.welcome} destinationName={guide.destinationName} />
-
-      <JayWelcomeBlock welcome={guide.welcome} jayVideo={(guide as any).jayVideo ?? null} />
+      <JayWelcomeBlock
+        welcome={guide.welcome}
+        jayVideo={(guide as any).jayVideo ?? null}
+        funFacts={guide.funFacts ?? []}
+      />
 
       <WelcomeGifts gifts={guide.gifts ?? {} as any} />
 
