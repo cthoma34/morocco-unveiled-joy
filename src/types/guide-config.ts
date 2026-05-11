@@ -198,6 +198,12 @@ export interface GuideConfig {
     cc: string;
   };
 
+  // Fun facts shown in the "Did You Know" section
+  funFacts?: string[];
+
+  // IANA time zone for the destination clock (e.g. "Africa/Dar_es_Salaam")
+  timeZone?: string;
+
   // Basics Section
   basics: {
     documents: {
