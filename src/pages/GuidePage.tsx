@@ -77,6 +77,7 @@ const GuidePage = ({ config }: GuidePageProps) => {
         title="Connect Deeper"
         subtitle={`Essential ${guide.culture.language.name} phrases and cultural insights`}
       >
+        <></>
       </PhotoEssaySection>
 
       {/* PHOTO STRIP: Culture experiences */}
