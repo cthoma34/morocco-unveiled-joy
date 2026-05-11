@@ -26,21 +26,6 @@ const isConfirmDomain = (): boolean => {
   return window.location.hostname.startsWith("confirm.");
 };
 
-const CONFIRM_SLUGS = [
-  "tanzania",
-  "zanzibar",
-  "ghana",
-  "southafrica",
-  "kenya",
-  "ethiopia",
-  "egypt",
-  "morocco",
-  "dubai",
-  "brazil",
-  "caribbean",
-  "gullah",
-] as const;
-
 const App = () => {
   const confirmMode = isConfirmDomain();
   return (
